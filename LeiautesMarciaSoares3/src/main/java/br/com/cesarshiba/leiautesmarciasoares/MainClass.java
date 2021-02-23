@@ -9,9 +9,13 @@ import javafx.stage.StageStyle;
 
 public class MainClass extends Application {
 
-	//identifica primeira execução para abrir com splash
+	/*
+	 * identifica primeira execução para abrir com splash
+	 */
 	public static boolean loadSplash = false;
-	//identifica cliente selecionado
+	/*
+	 * identifica cliente selecionado
+	 */
     public static int idCliente = 0;
 
 	/*

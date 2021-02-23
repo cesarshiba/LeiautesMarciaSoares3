@@ -1,20 +1,27 @@
 package br.com.cesarshiba.leiautesmarciasoares;
 
+import java.io.FileInputStream;
+import java.io.FileNotFoundException;
 import java.io.IOException;
 import java.net.URL;
+import java.util.ArrayList;
+import java.util.List;
 import java.util.ResourceBundle;
+import java.util.Scanner;
 
 import javafx.animation.FadeTransition;
+import javafx.collections.FXCollections;
+import javafx.collections.ObservableList;
 import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
 import javafx.fxml.Initializable;
-import javafx.geometry.NodeOrientation;
 import javafx.geometry.Pos;
 import javafx.geometry.Rectangle2D;
-import javafx.scene.Parent;
-import javafx.scene.Scene;
 import javafx.scene.control.Button;
 import javafx.scene.control.Label;
+import javafx.scene.control.TableColumn;
+import javafx.scene.control.TableView;
+import javafx.scene.control.cell.PropertyValueFactory;
 import javafx.scene.image.Image;
 import javafx.scene.image.ImageView;
 import javafx.scene.layout.AnchorPane;
@@ -25,36 +32,27 @@ import javafx.scene.layout.Pane;
 import javafx.scene.layout.VBox;
 import javafx.scene.paint.Color;
 import javafx.scene.text.Font;
-import javafx.stage.Modality;
 import javafx.stage.Screen;
-import javafx.stage.Stage;
-import javafx.stage.StageStyle;
 import javafx.util.Duration;
 
 public class FrmPrincipal implements Initializable{
 
-    @FXML
+	@FXML
     public BorderPane root;
     
+	public String caminho = "";
+	//public String caminho = "C:\\Users\\cesar\\Documents\\Projetos\\JAVA\\LeiautesMarciaSoares\\src\\main\\java\\br\\com\\cesarshiba\\leiautesmarciasoares\\";
+
 	@Override
 	public void initialize(URL arg0, ResourceBundle arg1) {
 		if (!MainClass.loadSplash) {
 			carregaSplash();
 		}
-		//monta quadros do cliente na tela principal
-		if(MainClass.idCliente != 0) {
-			Pane painel = new Pane();
-			painel.setPrefWidth(200);
-			painel.setPrefHeight(100);
-			painel.setNodeOrientation(NodeOrientation.RIGHT_TO_LEFT);
-			Label label = new Label("Testes");
-			label.setPrefSize(100, 80);
-			painel.getChildren().add(label);
-			root.setTop(painel);
-			//root.getChildren().setAll(painel);
-		}
 	}
 
+	/*
+	 * Efeito de abertura do sistema com logo do cliente
+	 */
 	private void carregaSplash() {
 		MainClass.loadSplash=true;
 		
@@ -75,12 +73,10 @@ public class FrmPrincipal implements Initializable{
 			fadeOut.setFromValue(1);
 			fadeOut.setToValue(0);
 			fadeOut.setCycleCount(1);
-			//inicia splash
-			fadeIn.play();
+			fadeIn.play(); //inicia splash
 			fadeIn.setOnFinished((e) -> {
-				fadeOut.play();
+				fadeOut.play(); //finaliza splash
 			});
-			//finaliza splash
 			fadeOut.setOnFinished((e) ->{
 				BorderPane parentPane;
 				try {
@@ -106,7 +102,10 @@ public class FrmPrincipal implements Initializable{
 			e.printStackTrace();
 		}
 	}
-	
+
+	/*
+	 * Tela de navegação inicial do sistema
+	 */
 	private void montaPainelPrincipal() {
 		/*
 		 * Nome do cliente escolhido
@@ -115,9 +114,12 @@ public class FrmPrincipal implements Initializable{
 		label.setFont(new Font("Arial Black", 45));
 		label.setTextFill(Color.WHITE);
 		label.setAlignment(Pos.CENTER);
-		label.setPrefWidth(1000);
+		//label.setPrefWidth(1000);
+		/*
+		 * Painel para hospedar o label com nome do cliente
+		 */
 		Pane pane = new Pane();
-		pane.setPrefSize(1000, 100);
+		//pane.setPrefSize(1000, 100);
 		pane.setStyle("-fx-background-radius: 20 20 20 20; -fx-border-radius: 20 20 20 20; -fx-background-color:#ffa000");
 		pane.getChildren().add(label);
 		/*
@@ -125,15 +127,17 @@ public class FrmPrincipal implements Initializable{
 		 */
 		Image imagem = new Image(MainClass.caminho() +"/config.png");
 		ImageView imageView = new ImageView(imagem);
-		imageView.setFitHeight(50);
-		imageView.setFitWidth(50);
+		imageView.setFitHeight(80);
+		imageView.setFitWidth(80);
 		Button botao = new Button();
 		botao.setGraphic(imageView);
-		botao.setStyle("-fx-background-radius: 20 20 20 20; -fx-border-radius: 20 20 20 20; -fx-background-color:#fddbaf");
-
+		botao.setStyle("-fx-background-radius: 20 20 20 20; -fx-border-radius: 20 20 20 20; -fx-background-color:#fddbaf" );
+		/*
+		 * Ajuste da foto no painel reduzido
+		 */
 		Image foto = new Image(MainClass.caminho() +"/Paisagem.jpg");
 		ImageView fotoView = new ImageView(foto);
-		fotoView.setFitHeight(550);
+		fotoView.setFitHeight(628);
 		fotoView.setFitWidth(1000);
 		fotoView.fitHeightProperty();
 		fotoView.fitWidthProperty();
@@ -141,10 +145,11 @@ public class FrmPrincipal implements Initializable{
 		 * Montagem do grid de painéis
 		 */
 		GridPane gridPane = new GridPane();
-		gridPane.add(pane, 0, 1, 6, 1);
-		gridPane.add(botao, 8, 0, 2, 1);
-		gridPane.add(fotoView, 2, 2, 8, 8);
-		gridPane.setHgap(5);
+		gridPane.add(pane, 8, 2, 8, 2);
+		gridPane.add(botao, 16, 2, 2, 2);
+		gridPane.add(fotoView, 8, 4, 8, 8);
+		gridPane.setHgap(15);
+		//gridPane.setVgap(15);
 		root.setCenter(gridPane);
 		botao.setOnAction(value -> {
 			System.out.println("Apertou botão CONFIG");
@@ -156,7 +161,76 @@ public class FrmPrincipal implements Initializable{
 			botao.setStyle("-fx-background-color:#fddbaf");
 		});
 	}
-	
+
+	/*
+	 * Painel com lista dos clientes da base de dados para ser selecionado
+	 */
+	private void montaPainelClientes() {
+	    TableView<ClienteNomeSexoEmail> tblClientes = new TableView<>();
+	    tblClientes.setPrefWidth(582.0);
+	    tblClientes.setStyle("-fx-background-radius: 20 20 20 20; -fx-border-radius: 20 20 20 20;");
+	    //tblClientes.setLayoutX(9.0);
+	    //tblClientes.setLayoutY(36.0);
+	    ObservableList<ClienteNomeSexoEmail> obsClientes;
+	    TableColumn<ClienteNomeSexoEmail, String> colNomeCliente = new TableColumn<ClienteNomeSexoEmail, String>();
+	    colNomeCliente.setPrefWidth(266.0);
+	    colNomeCliente.setText("Nome");
+	    TableColumn<ClienteNomeSexoEmail, String> colSexoCliente = new TableColumn<ClienteNomeSexoEmail, String>();
+	    colSexoCliente.setPrefWidth(85.0);
+	    colSexoCliente.setText("Sexo");
+	    TableColumn<ClienteNomeSexoEmail, String> colEmailCliente = new TableColumn<ClienteNomeSexoEmail, String>();
+	    colEmailCliente.setPrefWidth(235.0);
+	    colEmailCliente.setText("E-Mail");
+    	obsClientes = FXCollections.observableArrayList(leClientes());
+    	colNomeCliente.setCellValueFactory(new PropertyValueFactory<ClienteNomeSexoEmail,String>("nomeCliente"));
+    	colSexoCliente.setCellValueFactory(new PropertyValueFactory<ClienteNomeSexoEmail,String>("sexoCliente"));
+    	colEmailCliente.setCellValueFactory(new PropertyValueFactory<ClienteNomeSexoEmail,String>("emailCliente"));
+    	tblClientes.getColumns().addAll(colNomeCliente, colSexoCliente, colEmailCliente);
+    	tblClientes.setItems(obsClientes);
+
+		Image foto = new Image(MainClass.caminho() +"/Paisagem.jpg"); //Ajuste da foto no painel reduzido
+		ImageView fotoView = new ImageView(foto);
+		fotoView.setFitHeight(628);
+		fotoView.setFitWidth(1000);
+		fotoView.fitHeightProperty();
+		fotoView.fitWidthProperty();
+
+		GridPane gridPane = new GridPane();
+		gridPane.add(fotoView, 8, 4, 8, 8);
+		gridPane.add(tblClientes, 10, 9, 3, 2);
+		gridPane.setHgap(15);
+		gridPane.setVgap(15);
+		root.setCenter(gridPane);
+	}
+
+	/*
+	 * Monta painel com opções de Backup do sistema
+	 */
+	private void montaPainelBackup() {
+		Image imagem = new Image(MainClass.caminho() +"/Paisagem.jpg");
+		ImageView imageView = new ImageView(imagem);
+		imageView.setFitHeight(628);
+		imageView.setFitWidth(1000);
+		imageView.fitHeightProperty();
+		imageView.fitWidthProperty();
+		GridPane grid = new GridPane();
+		grid.add(imageView, 8, 4, 8, 8);
+		grid.setHgap(15);
+		grid.setVgap(15);
+		root.setCenter(grid);
+	}
+
+	/*
+	 * Painel vazio
+	 */
+	private void montaPainelVazio() {
+		GridPane grid = new GridPane();
+		root.setCenter(grid);
+	}
+
+	/*
+	 * Painel lateral à esquerda da tela
+	 */
 	private VBox Menu() {
 		VBox vbox = new VBox();
 		//vbox.setPrefWidth(85);
@@ -167,7 +241,10 @@ public class FrmPrincipal implements Initializable{
 		}
 		return vbox;
 	}
-	
+
+	/*
+	 * Monta botões no painel lateral
+	 */
 	private HBox Item(String nome) {
 		Image imagem = new Image(MainClass.caminho() +"/"+ nome +".png");
 		ImageView imageView = new ImageView(imagem);
@@ -176,30 +253,22 @@ public class FrmPrincipal implements Initializable{
 		Button btn = new Button();
 		btn.setGraphic(imageView);
 		btn.setStyle("-fx-background-color:#35145d");
-		//aciona botões do painel para chamar os procedimentos
-		btn.setOnAction(value -> {
+		btn.setOnAction(value -> { //Aciona botões do painel para chamar os procedimentos
 			switch (Integer.valueOf(nome)) {
 			case 1: {
-				try {
-					FXMLLoader fxmlClientes = new FXMLLoader(getClass().getResource(MainClass.caminho() +"/frmClientes.fxml"));
-					Parent rootClientes = (Parent) fxmlClientes.load();
-					Scene sceneClientes = new Scene(rootClientes);
-					sceneClientes.setFill(Color.TRANSPARENT);
-					Stage stageClientes = new Stage();
-					stageClientes.setTitle("Selecionar Cliente");
-					stageClientes.setScene(sceneClientes);
-					stageClientes.setResizable(false);
-					stageClientes.initStyle(StageStyle.TRANSPARENT);
-					stageClientes.initModality(Modality.APPLICATION_MODAL);
-					stageClientes.show();
-				} catch (IOException e1) {
-					e1.printStackTrace();
-					System.out.println(e1);
-				}
+				montaPainelClientes();
 				break;
 			}
 			case 2: {
 				montaPainelPrincipal();
+				break;
+			}
+			case 3:{
+				montaPainelBackup();
+				break;
+			}
+			case 4:{
+				montaPainelVazio();
 				break;
 			}
 			case 5: {
@@ -215,7 +284,10 @@ public class FrmPrincipal implements Initializable{
 		HBox hbox = new HBox(paneIndicator,btn);
 		return hbox;
 	}
-	
+
+	/*
+	 * Trata eventos do mouse sobre os botões
+	 */
 	private void menuDecorator(Button btn, Pane pane) {
 		btn.setOnMouseEntered(value -> {
 			btn.setStyle("-fx-background-color:#87dff0");
@@ -226,4 +298,26 @@ public class FrmPrincipal implements Initializable{
 			pane.setStyle("-fx-background-color:#000000");
 		});
 	}
+
+	/*
+	 * Rotina de leitura da base de dados de clientes
+	 */
+    private List<ClienteNomeSexoEmail> leClientes() {
+    	Scanner scanner;
+		List<ClienteNomeSexoEmail> lista = new ArrayList<>();
+    	try {
+			scanner = new Scanner(new FileInputStream(caminho + "clientes.txt"));
+	    	while(scanner.hasNextLine()) {
+	    		String[] textoSeparado;
+	    		String token = scanner.nextLine();
+	    		textoSeparado = token.split(";");
+	        	ClienteNomeSexoEmail cliente = new ClienteNomeSexoEmail(textoSeparado[0], textoSeparado[1], textoSeparado[2]);
+	    		lista.add(cliente);
+	    	}
+	    	return lista;
+		} catch (FileNotFoundException e) {
+			e.printStackTrace();
+			return null;
+		}
+    }
 }
