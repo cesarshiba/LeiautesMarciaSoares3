@@ -51,12 +51,14 @@ public class FrmPrincipal implements Initializable{
 
 	@FXML
     public BorderPane root;
-    
+
 	//public String caminho = "";
 	public String caminho = "C:\\Users\\cesar\\git\\LeiautesMarciaSoares3\\LeiautesMarciaSoares3\\src\\main\\java\\br\\com\\cesarshiba\\leiautesmarciasoares\\";
 
 	public String clienteSelecionado = "Selecione o paciente";
-
+	public String dataSelecionada = "";
+	Label lblDataSelecionada = new Label();
+	
 	@Override
 	public void initialize(URL arg0, ResourceBundle arg1) {
 		if (!MainClass.loadSplash) {
@@ -92,7 +94,7 @@ public class FrmPrincipal implements Initializable{
 				fadeOut.play(); //finaliza splash
 			});
 			fadeOut.setOnFinished((e) ->{
-				montaPainelBackup();  //mostra fundo com paisagem
+				montaPainelPaisagens();  //mostra fundo com paisagem
 				root.setLeft(Menu());
 			});
 		} catch (IOException e) {
@@ -113,30 +115,26 @@ public class FrmPrincipal implements Initializable{
 		label.setTextFill(Color.WHITE);
 		label.setAlignment(Pos.CENTER);
 		label.setPrefWidth(1000);
-		/*
-		 * Painel para hospedar o label com nome do cliente
-		 */
-		Pane pane = new Pane();
-		pane.setStyle("-fx-background-radius: 20 20 20 20; -fx-border-radius: 20 20 20 20; -fx-background-color:#ffa000");
-		pane.getChildren().add(label);
+		label.setStyle("-fx-background-radius: 15 15 15 15; -fx-border-radius: 15 15 15 15; -fx-background-color:#ffa000");
 		/*
 		 * Botão de config
 		 */
+		double l = 100;
 		Image imagem = new Image(MainClass.caminho() +"/Config.png");
 		ImageView imageView = new ImageView(imagem);
-		imageView.setFitHeight(80);
-		imageView.setFitWidth(80);
+		imageView.setFitHeight(l);
+		imageView.setFitWidth(l);
 		Button botao = new Button();
 		botao.setGraphic(imageView);
-		double r = 40;
-		botao.setShape(new Circle(r));
-		botao.setMinSize(2*r, 2*r);
-		botao.setMaxSize(2*r, 2*r);
+		botao.setShape(new Circle(l));
+		botao.setMinSize(l, l);
+		botao.setMaxSize(l, l);
+		botao.setStyle("-fx-background-color:#fddbaf");
 		botao.setOnAction(value -> {
 			System.out.println("Apertou botão CONFIG");
 		});
 		botao.setOnMouseEntered(value -> {
-			botao.setStyle("-fx-background-color:#ffa000");
+			botao.setStyle("-fx-background-color:#87dff0");
 		});
 		botao.setOnMouseExited(value -> {
 			botao.setStyle("-fx-background-color:#fddbaf");
@@ -152,23 +150,20 @@ public class FrmPrincipal implements Initializable{
 		vBoxNovaConsulta.setSpacing(5);
 		//LocalDate diaHoje = LocalDate.now();
 		//String localDate = diaHoje.format(DateTimeFormatter.ofPattern("dd/MM/yyyy")).toString();
-		Button btnNovaConsulta = new Button("Selecione Data");
-		btnNovaConsulta.setFont(new Font("Arial Black", 20));
-		btnNovaConsulta.setPrefSize(200, 100);
-		btnNovaConsulta.setStyle("-fx-background-radius: 10 10 10 10; -fx-border-radius: 10 10 10 10; -fx-background-color:#87dff0");
-		btnNovaConsulta.setAlignment(Pos.CENTER);
-		btnNovaConsulta.setOnAction(value -> {
-			String data = btnNovaConsulta.getText();
-			System.out.println("apertou botão data=" + data);
-		});
+		Label lblNovaConsulta = new Label("nova consulta");
+		lblNovaConsulta.setFont(new Font("Arial", 20));
+		lblNovaConsulta.setPrefSize(180, 20);
+		lblNovaConsulta.setStyle("-fx-background-radius: 5 5 5 5; -fx-border-radius: 5 5 5 5; -fx-background-color:#ffa000");
+		lblNovaConsulta.setAlignment(Pos.CENTER);
 		DatePicker dataCalendario = new DatePicker();
 		dataCalendario.setShowWeekNumbers(true);
 		dataCalendario.setOnAction(value -> {
 			LocalDate i = dataCalendario.getValue();
-			btnNovaConsulta.setText(i.format(DateTimeFormatter.ofPattern("dd/MM/yyyy")));
+			dataSelecionada = i.format(DateTimeFormatter.ofPattern("dd/MM/yyyy"));
+			lblDataSelecionada.setText(dataSelecionada);
 		});
+		vBoxNovaConsulta.getChildren().add(lblNovaConsulta);
 		vBoxNovaConsulta.getChildren().add(dataCalendario);
-		vBoxNovaConsulta.getChildren().add(btnNovaConsulta);
 		/*
 		 * Painel horizontal com consultas realizadas
 		 */
@@ -187,13 +182,23 @@ public class FrmPrincipal implements Initializable{
 			}
 		}
 		/*
+		 * Label com a data selecionada
+		 */
+		lblDataSelecionada.setFont(new Font("Arial Black", 20));
+		lblDataSelecionada.setTextFill(Color.BLACK);
+		lblDataSelecionada.setAlignment(Pos.CENTER);
+		lblDataSelecionada.setPrefWidth(160);
+		lblDataSelecionada.setStyle("-fx-background-radius: 15 15 15 15; -fx-border-radius: 15 15 15 15; -fx-background-color:#fbd9ae");
+		/*
 		 * Montagem do grid de painéis
 		 */
 		GridPane gridPane = new GridPane();
-		gridPane.add(pane, 8, 2, 6, 2);
-		gridPane.add(botao, 15, 2, 1, 1);
-		gridPane.add(vBoxNovaConsulta, 8, 5, 1, 1);
-		gridPane.add(hBoxConsultas, 10, 5, 1, 1);
+		gridPane.add(label, 6, 2, 6, 2);
+		gridPane.add(botao, 13, 2, 1, 1);
+		gridPane.add(vBoxNovaConsulta, 6, 5, 1, 1);
+		gridPane.add(lblDataSelecionada, 8, 4);
+		gridPane.add(hBoxConsultas, 8, 5, 1, 1);
+		gridPane.add(montaPainelRegistros(), 8, 7, 1, 1);
 		gridPane.setHgap(15);
 		gridPane.setVgap(15);
 		gridPane.setAlignment(Pos.TOP_CENTER);
@@ -230,19 +235,46 @@ public class FrmPrincipal implements Initializable{
 			public void changed(ObservableValue<? extends ClienteNomeSexoEmail> observable,
 					ClienteNomeSexoEmail oldValue, ClienteNomeSexoEmail newValue) {
 		    	clienteSelecionado = newValue.getNomeCliente();
+				dataSelecionada = "";
+				lblDataSelecionada.setText("");
 			}
+		});
+		/*
+		 * Botão de cadastro
+		 */
+		double l = 100;
+    	Image imagem = new Image(MainClass.caminho() +"/cadastro.png");
+		ImageView imageView = new ImageView(imagem);
+		imageView.setFitHeight(l);
+		imageView.setFitWidth(l);
+		Button botao = new Button();
+		botao.setGraphic(imageView);
+		botao.setShape(new Circle(l));
+		botao.setMinSize(l, l);
+		botao.setMaxSize(l, l);
+		botao.setStyle("-fx-background-color:#fddbaf");
+		botao.setOnAction(value -> {
+			System.out.println("Apertou botão CADASTRO");
+		});
+		botao.setOnMouseEntered(value -> {
+			botao.setStyle("-fx-background-color:#87dff0");
+		});
+		botao.setOnMouseExited(value -> {
+			botao.setStyle("-fx-background-color:#fddbaf");
 		});
 
 		GridPane gridPane = new GridPane();
 		gridPane.add(tblClientes, 0, 0, 1, 1);
+		gridPane.add(botao, 1, 0);
+		gridPane.setHgap(20);
 		gridPane.setAlignment(Pos.CENTER);
 		root.setCenter(gridPane);
 	}
 
 	/*
-	 * Monta painel com opções de Backup do sistema
+	 * Monta painel com paisagens
 	 */
-	private void montaPainelBackup() {
+	private void montaPainelPaisagens() {
 		int nRandom = (int) (Math.random() * 9);
 		String n =  String.format("%1d", nRandom);
 		Image imagem = new Image(MainClass.caminho() +"/Paisagem" + n + ".jpg");
@@ -252,12 +284,191 @@ public class FrmPrincipal implements Initializable{
 		imageView.fitHeightProperty();
 		imageView.fitWidthProperty();
 		GridPane grid = new GridPane();
-		grid.add(imageView, 8, 4, 8, 8);
+		grid.add(imageView, 7, 4, 8, 8);
 		grid.setHgap(15);
 		grid.setVgap(15);
 		root.setCenter(grid);
 	}
-	
+
+	/*
+	 * Painel com registros do paciente
+	 */
+	private GridPane montaPainelRegistros() {
+		double l = 140;
+		Image imMedidas = new Image(MainClass.caminho() +"/_medidas.png");
+		ImageView ivMedidas = new ImageView(imMedidas);
+		ivMedidas.setFitHeight(l);
+		ivMedidas.setFitWidth(l);
+		Button btnMedidas = new Button();
+		btnMedidas.setGraphic(ivMedidas);
+		btnMedidas.setShape(new Circle(l));
+		btnMedidas.setMinSize(l, l);
+		btnMedidas.setMaxSize(l, l);
+		btnMedidas.setStyle("-fx-background-radius: 15 15 15 15; -fx-border-radius: 15 15 15 15; -fx-background-color:#fddbaf");
+		btnMedidas.setOnAction(value -> {
+			System.out.println("apertou botão medidas");
+		});
+		btnMedidas.setOnMouseEntered(value -> {
+			btnMedidas.setStyle("-fx-background-radius: 15 15 15 15; -fx-border-radius: 15 15 15 15; -fx-background-color:#87dff0");
+		});
+		btnMedidas.setOnMouseExited(value -> {
+			btnMedidas.setStyle("-fx-background-radius: 15 15 15 15; -fx-border-radius: 15 15 15 15; -fx-background-color:#fddbaf");
+		});
+
+		Image imHabitos = new Image(MainClass.caminho() +"/_habitos.png");
+		ImageView ivHabitos = new ImageView(imHabitos);
+		ivHabitos.setFitHeight(l);
+		ivHabitos.setFitWidth(l);
+		Button btnHabitos= new Button();
+		btnHabitos.setGraphic(ivHabitos);
+		btnHabitos.setShape(new Circle(l));
+		btnHabitos.setMinSize(l, l);
+		btnHabitos.setMaxSize(l, l);
+		btnHabitos.setStyle("-fx-background-radius: 15 15 15 15; -fx-border-radius: 15 15 15 15; -fx-background-color:#fddbaf");
+		btnHabitos.setOnAction(value -> {
+			System.out.println("apertou botão Habitos");
+		});
+		btnHabitos.setOnMouseEntered(value -> {
+			btnHabitos.setStyle("-fx-background-radius: 15 15 15 15; -fx-border-radius: 15 15 15 15; -fx-background-color:#87dff0");
+		});
+		btnHabitos.setOnMouseExited(value -> {
+			btnHabitos.setStyle("-fx-background-radius: 15 15 15 15; -fx-border-radius: 15 15 15 15; -fx-background-color:#fddbaf");
+		});
+
+		Image imDietaHabitual= new Image(MainClass.caminho() +"/_dietahabitual.png");
+		ImageView ivDietaHabitual = new ImageView(imDietaHabitual);
+		ivDietaHabitual.setFitHeight(l);
+		ivDietaHabitual.setFitWidth(l);
+		Button btnDietaHabitual= new Button();
+		btnDietaHabitual.setGraphic(ivDietaHabitual);
+		btnDietaHabitual.setShape(new Circle(l));
+		btnDietaHabitual.setMinSize(l, l);
+		btnDietaHabitual.setMaxSize(l, l);
+		btnDietaHabitual.setStyle("-fx-background-radius: 15 15 15 15; -fx-border-radius: 15 15 15 15; -fx-background-color:#fddbaf");
+		btnDietaHabitual.setOnAction(value -> {
+			System.out.println("apertou botão DietaHabitual");
+		});
+		btnDietaHabitual.setOnMouseEntered(value -> {
+			btnDietaHabitual.setStyle("-fx-background-radius: 15 15 15 15; -fx-border-radius: 15 15 15 15; -fx-background-color:#87dff0");
+		});
+		btnDietaHabitual.setOnMouseExited(value -> {
+			btnDietaHabitual.setStyle("-fx-background-radius: 15 15 15 15; -fx-border-radius: 15 15 15 15; -fx-background-color:#fddbaf");
+		});
+
+		Image imExames= new Image(MainClass.caminho() +"/_exames.png");
+		ImageView ivExames = new ImageView(imExames);
+		ivExames.setFitHeight(l);
+		ivExames.setFitWidth(l);
+		Button btnExames= new Button();
+		btnExames.setGraphic(ivExames);
+		btnExames.setShape(new Circle(l));
+		btnExames.setMinSize(l, l);
+		btnExames.setMaxSize(l, l);
+		btnExames.setStyle("-fx-background-radius: 15 15 15 15; -fx-border-radius: 15 15 15 15; -fx-background-color:#fddbaf");
+		btnExames.setOnAction(value -> {
+			System.out.println("apertou botão Exames");
+		});
+		btnExames.setOnMouseEntered(value -> {
+			btnExames.setStyle("-fx-background-radius: 15 15 15 15; -fx-border-radius: 15 15 15 15; -fx-background-color:#87dff0");
+		});
+		btnExames.setOnMouseExited(value -> {
+			btnExames.setStyle("-fx-background-radius: 15 15 15 15; -fx-border-radius: 15 15 15 15; -fx-background-color:#fddbaf");
+		});
+
+		Image imSinaiseSintomas= new Image(MainClass.caminho() +"/_sinaisesintomas.png");
+		ImageView ivSinaiseSintomas = new ImageView(imSinaiseSintomas);
+		ivSinaiseSintomas.setFitHeight(l);
+		ivSinaiseSintomas.setFitWidth(l);
+		Button btnSinaiseSintomas= new Button();
+		btnSinaiseSintomas.setGraphic(ivSinaiseSintomas);
+		btnSinaiseSintomas.setShape(new Circle(l));
+		btnSinaiseSintomas.setMinSize(l, l);
+		btnSinaiseSintomas.setMaxSize(l, l);
+		btnSinaiseSintomas.setStyle("-fx-background-radius: 15 15 15 15; -fx-border-radius: 15 15 15 15; -fx-background-color:#fddbaf");
+		btnSinaiseSintomas.setOnAction(value -> {
+			System.out.println("apertou botão SinaiseSintomas");
+		});
+		btnSinaiseSintomas.setOnMouseEntered(value -> {
+			btnSinaiseSintomas.setStyle("-fx-background-radius: 15 15 15 15; -fx-border-radius: 15 15 15 15; -fx-background-color:#87dff0");
+		});
+		btnSinaiseSintomas.setOnMouseExited(value -> {
+			btnSinaiseSintomas.setStyle("-fx-background-radius: 15 15 15 15; -fx-border-radius: 15 15 15 15; -fx-background-color:#fddbaf");
+		});
+
+		Image imAlimentosComplementares = new Image(MainClass.caminho() +"/_alimentoscomplementares.png");
+		ImageView ivAlimentosComplementares = new ImageView(imAlimentosComplementares);
+		ivAlimentosComplementares.setFitHeight(l);
+		ivAlimentosComplementares.setFitWidth(l);
+		Button btnAlimentosComplementares= new Button();
+		btnAlimentosComplementares.setGraphic(ivAlimentosComplementares);
+		btnAlimentosComplementares.setShape(new Circle(l));
+		btnAlimentosComplementares.setMinSize(l, l);
+		btnAlimentosComplementares.setMaxSize(l, l);
+		btnAlimentosComplementares.setStyle("-fx-background-radius: 15 15 15 15; -fx-border-radius: 15 15 15 15; -fx-background-color:#fddbaf");
+		btnAlimentosComplementares.setOnAction(value -> {
+			System.out.println("apertou botão AlimentosComplementares");
+		});
+		btnAlimentosComplementares.setOnMouseEntered(value -> {
+			btnAlimentosComplementares.setStyle("-fx-background-radius: 15 15 15 15; -fx-border-radius: 15 15 15 15; -fx-background-color:#87dff0");
+		});
+		btnAlimentosComplementares.setOnMouseExited(value -> {
+			btnAlimentosComplementares.setStyle("-fx-background-radius: 15 15 15 15; -fx-border-radius: 15 15 15 15; -fx-background-color:#fddbaf");
+		});
+
+		Image imResumoGeral = new Image(MainClass.caminho() +"/_resumogeral.png");
+		ImageView ivResumoGeral = new ImageView(imResumoGeral);
+		ivResumoGeral.setFitHeight(l);
+		ivResumoGeral.setFitWidth(l);
+		Button btnResumoGeral= new Button();
+		btnResumoGeral.setGraphic(ivResumoGeral);
+		btnResumoGeral.setShape(new Circle(l));
+		btnResumoGeral.setMinSize(l, l);
+		btnResumoGeral.setMaxSize(l, l);
+		btnResumoGeral.setStyle("-fx-background-radius: 15 15 15 15; -fx-border-radius: 15 15 15 15; -fx-background-color:#fddbaf");
+		btnResumoGeral.setOnAction(value -> {
+			System.out.println("apertou botão ResumoGeral");
+		});
+		btnResumoGeral.setOnMouseEntered(value -> {
+			btnResumoGeral.setStyle("-fx-background-radius: 15 15 15 15; -fx-border-radius: 15 15 15 15; -fx-background-color:#87dff0");
+		});
+		btnResumoGeral.setOnMouseExited(value -> {
+			btnResumoGeral.setStyle("-fx-background-radius: 15 15 15 15; -fx-border-radius: 15 15 15 15; -fx-background-color:#fddbaf");
+		});
+
+		Image imAlimentos = new Image(MainClass.caminho() +"/_alimentos.png");
+		ImageView ivAlimentos = new ImageView(imAlimentos);
+		ivAlimentos.setFitHeight(l);
+		ivAlimentos.setFitWidth(l);
+		Button btnAlimentos= new Button();
+		btnAlimentos.setGraphic(ivAlimentos);
+		btnAlimentos.setShape(new Circle(l));
+		btnAlimentos.setMinSize(l, l);
+		btnAlimentos.setMaxSize(l, l);
+		btnAlimentos.setStyle("-fx-background-radius: 15 15 15 15; -fx-border-radius: 15 15 15 15; -fx-background-color:#fddbaf");
+		btnAlimentos.setOnAction(value -> {
+			System.out.println("apertou botão Alimentos");
+		});
+		btnAlimentos.setOnMouseEntered(value -> {
+			btnAlimentos.setStyle("-fx-background-radius: 15 15 15 15; -fx-border-radius: 15 15 15 15; -fx-background-color:#87dff0");
+		});
+		btnAlimentos.setOnMouseExited(value -> {
+			btnAlimentos.setStyle("-fx-background-radius: 15 15 15 15; -fx-border-radius: 15 15 15 15; -fx-background-color:#fddbaf");
+		});
+
+		GridPane grid = new GridPane();
+		grid.add(btnMedidas, 0, 0, 1, 1);
+		grid.add(btnHabitos, 1, 0, 1, 1);
+		grid.add(btnDietaHabitual, 2, 0, 1, 1);
+		grid.add(btnExames, 0, 1, 1, 1);
+		grid.add(btnSinaiseSintomas, 1, 1, 1, 1);
+		grid.add(btnAlimentosComplementares, 2, 1, 1, 1);
+		grid.add(btnResumoGeral, 6, 0, 1, 1);
+		grid.add(btnAlimentos, 6, 1, 1, 1);
+		grid.setHgap(20);
+		grid.setVgap(10);
+		return grid;
+	}
+
 	/*
 	 * Painel com imagens de nutrição
 	 */
@@ -279,6 +490,7 @@ public class FrmPrincipal implements Initializable{
 			}
 		}
 	}
+
 	/*
 	 * Gera imagem sequencial
 	 */
@@ -295,15 +507,23 @@ public class FrmPrincipal implements Initializable{
 	private Button Botao(String dataConsulta) {
 		Button btnDate = new Button(dataConsulta);
 		btnDate.setFont(new Font("Arial Black", 20));
-		btnDate.setStyle("-fx-background-radius: 10 10 10 10; -fx-border-radius: 10 10 10 10; -fx-background-color:#ffa000");
-		btnDate.setPrefSize(160, 100);
+		btnDate.setStyle("-fx-background-radius: 15 15 15 15; -fx-border-radius: 15 15 15 15; -fx-background-color:#ffa000");
+		btnDate.setPrefSize(160, 50);
 		btnDate.setAlignment(Pos.CENTER);
 		btnDate.setOnAction(value -> {
-			String data = btnDate.getText();
-			System.out.println("apertou botão data=" + data);
+			dataSelecionada = btnDate.getText();
+			lblDataSelecionada.setText(dataSelecionada);
+			System.out.println("apertou botão data=" + dataSelecionada);
+		});
+		btnDate.setOnMouseEntered(value -> {
+			btnDate.setStyle("-fx-background-radius: 15 15 15 15; -fx-border-radius: 15 15 15 15; -fx-background-color:#87dff0");
+		});
+		btnDate.setOnMouseExited(value -> {
+			btnDate.setStyle("-fx-background-radius: 15 15 15 15; -fx-border-radius: 15 15 15 15; -fx-background-color:#ffa000");
 		});
 		return btnDate;
 	}
+
 	/*
 	 * Menu de botões lateral à esquerda da tela
 	 */
@@ -340,7 +560,7 @@ public class FrmPrincipal implements Initializable{
 				break;
 			}
 			case 3:{
-				montaPainelBackup();
+				montaPainelPaisagens();
 				break;
 			}
 			case 4:{
