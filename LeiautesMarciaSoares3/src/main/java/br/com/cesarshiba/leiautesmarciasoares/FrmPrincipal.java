@@ -29,6 +29,7 @@ import javafx.scene.Scene;
 import javafx.scene.control.Button;
 import javafx.scene.control.DatePicker;
 import javafx.scene.control.Label;
+import javafx.scene.control.ScrollPane;
 import javafx.scene.control.SelectionMode;
 import javafx.scene.control.SelectionModel;
 import javafx.scene.control.TableColumn;
@@ -49,6 +50,7 @@ import javafx.scene.text.Font;
 import javafx.stage.Modality;
 import javafx.stage.Screen;
 import javafx.stage.Stage;
+import javafx.stage.StageStyle;
 import javafx.util.Duration;
 
 public class FrmPrincipal implements Initializable{
@@ -115,7 +117,7 @@ public class FrmPrincipal implements Initializable{
 		 * Nome do cliente escolhido
 		 */
 		Label label = new Label(clienteSelecionado);
-		label.setFont(new Font("Arial Black", 40));
+		label.setFont(new Font("Leelawadee UI Semilight", 40));
 		label.setTextFill(Color.WHITE);
 		label.setAlignment(Pos.CENTER);
 		label.setPrefWidth(1000);
@@ -135,7 +137,12 @@ public class FrmPrincipal implements Initializable{
 		botao.setMaxSize(l, l);
 		botao.setStyle("-fx-background-color:#fddbaf");
 		botao.setOnAction(value -> {
-			System.out.println("Apertou botão CONFIG");
+			try {
+				TelaCadastroPaciente();
+			} catch (Exception e) {
+				e.printStackTrace();
+			}
+			System.out.println("Apertou botão CADASTRO");
 		});
 		botao.setOnMouseEntered(value -> {
 			botao.setStyle("-fx-background-color:#87dff0");
@@ -155,7 +162,7 @@ public class FrmPrincipal implements Initializable{
 		//LocalDate diaHoje = LocalDate.now();
 		//String localDate = diaHoje.format(DateTimeFormatter.ofPattern("dd/MM/yyyy")).toString();
 		Label lblNovaConsulta = new Label("nova consulta");
-		lblNovaConsulta.setFont(new Font("Arial", 20));
+		lblNovaConsulta.setFont(new Font("Leelawadee UI Semilight", 20));
 		lblNovaConsulta.setPrefSize(180, 20);
 		lblNovaConsulta.setStyle("-fx-background-radius: 5 5 5 5; -fx-border-radius: 5 5 5 5; -fx-background-color:#ffa000");
 		lblNovaConsulta.setAlignment(Pos.CENTER);
@@ -188,7 +195,7 @@ public class FrmPrincipal implements Initializable{
 		/*
 		 * Label com a data selecionada
 		 */
-		lblDataSelecionada.setFont(new Font("Arial Black", 25));
+		lblDataSelecionada.setFont(new Font("Leelawadee UI Semilight", 25));
 		lblDataSelecionada.setTextFill(Color.CADETBLUE);
 		lblDataSelecionada.setAlignment(Pos.CENTER);
 		lblDataSelecionada.setPrefWidth(160);
@@ -315,6 +322,11 @@ public class FrmPrincipal implements Initializable{
 		btnMedidas.setMaxSize(l, l);
 		btnMedidas.setStyle("-fx-background-radius: 15 15 15 15; -fx-border-radius: 15 15 15 15; -fx-background-color:#fddbaf");
 		btnMedidas.setOnAction(value -> {
+			try {
+				TelaMedidas();
+			} catch (Exception e) {
+				e.printStackTrace();
+			}
 			System.out.println("apertou botão medidas");
 		});
 		btnMedidas.setOnMouseEntered(value -> {
@@ -515,7 +527,7 @@ public class FrmPrincipal implements Initializable{
 	 */
 	private Button Botao(String dataConsulta) {
 		Button btnDate = new Button(dataConsulta);
-		btnDate.setFont(new Font("Arial Black", 20));
+		btnDate.setFont(new Font("Leelawadee UI Semilight", 20));
 		btnDate.setStyle("-fx-background-radius: 15 15 15 15; -fx-border-radius: 15 15 15 15; -fx-background-color:#ffa000");
 		btnDate.setPrefSize(160, 50);
 		btnDate.setAlignment(Pos.CENTER);
@@ -656,27 +668,29 @@ public class FrmPrincipal implements Initializable{
 		}
     }
 
-	public void TelaCadastroPaciente() throws Exception {
-		FXMLLoader fxmlTela = new FXMLLoader(getClass().getResource(MainClass.caminho() +"/frmTelaCadastroPaciente.fxml"));
-		BorderPane root = (BorderPane) fxmlTela.load();
-		Scene scene = new Scene(root);
-		Stage stage = new Stage();
-		Button btnVoltarCadastroPaciente = new Button("Voltar");
-		btnVoltarCadastroPaciente.setCancelButton(true);
-		//root.getChildren().add(btnVoltarCadastroPaciente);
-		root.setTop(btnVoltarCadastroPaciente);
-		btnVoltarCadastroPaciente.setOnAction(value -> {
-			Stage stage1 = (Stage) btnVoltarCadastroPaciente.getScene().getWindow();
-			stage1.close();
-		});
-		stage.setTitle("Cadastro do Paciente");
-		stage.setScene(scene);
-		stage.setResizable(false);
-		stage.initModality(Modality.APPLICATION_MODAL);
-		stage.setOnCloseRequest(e -> {
-			System.out.println("saiu do cadastro");
-		});
-		stage.show();
-		}
+    public void TelaCadastroPaciente() throws Exception {
+    	FXMLLoader fxmlTela = new FXMLLoader(getClass().getResource(MainClass.caminho() +"/frmTelaCadastroPaciente.fxml"));
+    	BorderPane root = (BorderPane) fxmlTela.load();
+    	Scene scene = new Scene(root);
+    	Stage stage = new Stage();
+    	scene.setFill(Color.TRANSPARENT);
+    	stage.setScene(scene);
+    	stage.setResizable(false);
+    	stage.initModality(Modality.APPLICATION_MODAL);
+    	stage.initStyle(StageStyle.TRANSPARENT);
+    	stage.show();
+    }
 
+    public void TelaMedidas() throws Exception {
+    	FXMLLoader fxmlTela = new FXMLLoader(getClass().getResource(MainClass.caminho() +"/frmTelaMedidas.fxml"));
+    	BorderPane root = (BorderPane) fxmlTela.load();
+    	Stage stage = new Stage();
+    	Scene scene = new Scene(root);
+    	scene.setFill(Color.TRANSPARENT);
+    	stage.setScene(scene);
+    	stage.setResizable(false);
+    	stage.initModality(Modality.APPLICATION_MODAL);
+    	stage.initStyle(StageStyle.TRANSPARENT);
+    	stage.show();
+    }
 }
