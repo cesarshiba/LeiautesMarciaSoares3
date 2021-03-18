@@ -11,7 +11,7 @@ import javafx.scene.layout.BorderPane;
 import javafx.stage.Stage;
 import javafx.fxml.Initializable;
 
-public class FrmTelaMedidas implements Initializable {
+public class FrmHabitos implements Initializable {
 
     @FXML
     public ScrollPane scrPane;
@@ -82,13 +82,13 @@ public class FrmTelaMedidas implements Initializable {
 			btnVoltar.setStyle("-fx-background-color:#000000; -fx-border-color:  #ffffff; -fx-border-radius: 20; -fx-background-radius: 20; -fx-text-fill: #ffffff");
 		});
 		btnVoltar.setOnMouseExited(value -> {
-			btnVoltar.setStyle("-fx-background-color:  #b3d37a; -fx-border-color: #414247; -fx-border-radius: 20");
+			btnVoltar.setStyle("-fx-background-color:  #f4ffdf; -fx-border-color: #414247; -fx-border-radius: 20");
 		});
 		btnSalvar.setOnMouseEntered(value -> {
 			btnSalvar.setStyle("-fx-background-color:#000000; -fx-border-color:  #ffffff; -fx-border-radius: 20; -fx-background-radius: 20; -fx-text-fill: #ffffff");
 		});
 		btnSalvar.setOnMouseExited(value -> {
-			btnSalvar.setStyle("-fx-background-color:  #b3d37a; -fx-border-color: #414247; -fx-border-radius: 20");
+			btnSalvar.setStyle("-fx-background-color:  #f4ffdf; -fx-border-color: #414247; -fx-border-radius: 20");
 		});
 	}
 }

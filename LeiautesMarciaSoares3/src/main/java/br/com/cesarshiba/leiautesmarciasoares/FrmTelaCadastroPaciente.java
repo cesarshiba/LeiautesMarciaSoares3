@@ -49,13 +49,13 @@ public class FrmTelaCadastroPaciente implements Initializable {
 			btnVoltar.setStyle("-fx-background-color:#000000; -fx-border-color:  #ffffff; -fx-border-radius: 20; -fx-background-radius: 20");
 		});
 		btnVoltar.setOnMouseExited(value -> {
-			btnVoltar.setStyle("-fx-background-color: #5864ff; -fx-border-color: #ffffff; -fx-border-radius: 20");
+			btnVoltar.setStyle("-fx-background-color: #1d6f8f; -fx-border-color: #ffffff; -fx-border-radius: 20");
 		});
 		btnSalvar.setOnMouseEntered(value -> {
 			btnSalvar.setStyle("-fx-background-color:#000000; -fx-border-color:  #ffffff; -fx-border-radius: 20; -fx-background-radius: 20");
 		});
 		btnSalvar.setOnMouseExited(value -> {
-			btnSalvar.setStyle("-fx-background-color: #5864ff; -fx-border-color: #ffffff; -fx-border-radius: 20");
+			btnSalvar.setStyle("-fx-background-color: #1d6f8f; -fx-border-color: #ffffff; -fx-border-radius: 20");
 		});
 	}
 }

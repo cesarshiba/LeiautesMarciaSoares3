@@ -13,7 +13,7 @@
 <?import javafx.scene.layout.RowConstraints?>
 <?import javafx.scene.text.Font?>
 
-<BorderPane fx:id="root" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="600.0" prefWidth="600.0" style="-fx-background-color: #5864ff; -fx-background-radius: 20; -fx-border-radius: 20;" xmlns="http://javafx.com/javafx/11.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="br.com.cesarshiba.leiautesmarciasoares.FrmTelaCadastroPaciente">
+<BorderPane fx:id="root" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="600.0" prefWidth="600.0" style="-fx-background-color: #1d6f8f; -fx-background-radius: 20; -fx-border-radius: 20;" xmlns="http://javafx.com/javafx/11.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="br.com.cesarshiba.leiautesmarciasoares.FrmTelaCadastroPaciente">
    <top>
       <Label text="Cadastro do Paciente" textFill="WHITE" BorderPane.alignment="CENTER">
          <font>
@@ -27,7 +27,7 @@
    <bottom>
       <HBox alignment="CENTER" prefHeight="100.0" prefWidth="200.0" spacing="20.0" BorderPane.alignment="CENTER">
          <children>
-            <Button fx:id="btnSalvar" defaultButton="true" mnemonicParsing="false" prefHeight="41.0" prefWidth="130.0" style="-fx-background-color: #5864ff; -fx-border-color: #ffffff; -fx-border-radius: 20;" text="Salvar" textFill="WHITE">
+            <Button fx:id="btnSalvar" defaultButton="true" mnemonicParsing="false" prefHeight="41.0" prefWidth="130.0" style="-fx-background-color: #1d6f8f; -fx-border-color: #ffffff; -fx-border-radius: 20;" text="Salvar" textFill="WHITE">
                <font>
                   <Font name="Leelawadee UI Semilight" size="18.0" />
                </font>
@@ -35,7 +35,7 @@
                   <Insets />
                </HBox.margin>
             </Button>
-            <Button fx:id="btnVoltar" cancelButton="true" mnemonicParsing="false" prefHeight="41.0" prefWidth="130.0" style="-fx-background-color: #5864ff; -fx-border-color: #ffffff; -fx-border-radius: 20;" text="Voltar" textFill="WHITE">
+            <Button fx:id="btnVoltar" cancelButton="true" mnemonicParsing="false" prefHeight="41.0" prefWidth="130.0" style="-fx-background-color: #1d6f8f; -fx-border-color: #ffffff; -fx-border-radius: 20;" text="Voltar" textFill="WHITE">
                <font>
                   <Font name="Leelawadee UI Semilight" size="18.0" />
                </font>

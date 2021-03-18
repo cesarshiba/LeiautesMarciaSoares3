@@ -4,7 +4,6 @@ import java.io.FileInputStream;
 import java.io.FileNotFoundException;
 import java.io.IOException;
 import java.net.URL;
-import java.text.NumberFormat;
 import java.time.LocalDate;
 import java.time.format.DateTimeFormatter;
 import java.util.ArrayList;
@@ -16,7 +15,6 @@ import javafx.animation.FadeTransition;
 import javafx.beans.value.ChangeListener;
 import javafx.beans.value.ObservableValue;
 import javafx.collections.FXCollections;
-import javafx.collections.ListChangeListener;
 import javafx.collections.ObservableList;
 import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
@@ -24,17 +22,13 @@ import javafx.fxml.Initializable;
 import javafx.geometry.Insets;
 import javafx.geometry.Pos;
 import javafx.geometry.Rectangle2D;
-import javafx.scene.Parent;
 import javafx.scene.Scene;
 import javafx.scene.control.Button;
 import javafx.scene.control.DatePicker;
 import javafx.scene.control.Label;
 import javafx.scene.control.ScrollPane;
-import javafx.scene.control.SelectionMode;
-import javafx.scene.control.SelectionModel;
 import javafx.scene.control.TableColumn;
 import javafx.scene.control.TableView;
-import javafx.scene.control.TableView.TableViewSelectionModel;
 import javafx.scene.control.cell.PropertyValueFactory;
 import javafx.scene.image.Image;
 import javafx.scene.image.ImageView;
@@ -221,18 +215,18 @@ public class FrmPrincipal implements Initializable{
 	 */
 	private void montaPainelClientes() {
 	    TableView<ClienteNomeSexoEmail> tblClientes = new TableView<>();
-	    tblClientes.setPrefWidth(600.0);
-	    tblClientes.setPrefHeight(600.0);
-	    tblClientes.setStyle("-fx-background-radius: 20 20 20 20; -fx-border-radius: 20 20 20 20;");
+	    tblClientes.setPrefWidth(750.0);
+	    tblClientes.setPrefHeight(650.0);
+	    tblClientes.getStylesheets().add(MainClass.caminho() + "/tblClientes.css");
 	    ObservableList<ClienteNomeSexoEmail> obsClientes;
 	    TableColumn<ClienteNomeSexoEmail, String> colNomeCliente = new TableColumn<ClienteNomeSexoEmail, String>();
-	    colNomeCliente.setPrefWidth(266.0);
+	    colNomeCliente.setPrefWidth(350.0);
 	    colNomeCliente.setText("Nome");
 	    TableColumn<ClienteNomeSexoEmail, String> colSexoCliente = new TableColumn<ClienteNomeSexoEmail, String>();
-	    colSexoCliente.setPrefWidth(85.0);
+	    colSexoCliente.setPrefWidth(100.0);
 	    colSexoCliente.setText("Sexo");
 	    TableColumn<ClienteNomeSexoEmail, String> colEmailCliente = new TableColumn<ClienteNomeSexoEmail, String>();
-	    colEmailCliente.setPrefWidth(235.0);
+	    colEmailCliente.setPrefWidth(300.0);
 	    colEmailCliente.setText("E-Mail");
     	obsClientes = FXCollections.observableArrayList(leClientes());
     	colNomeCliente.setCellValueFactory(new PropertyValueFactory<ClienteNomeSexoEmail,String>("nomeCliente"));
@@ -347,7 +341,12 @@ public class FrmPrincipal implements Initializable{
 		btnHabitos.setMaxSize(l, l);
 		btnHabitos.setStyle("-fx-background-radius: 15 15 15 15; -fx-border-radius: 15 15 15 15; -fx-background-color:#fddbaf");
 		btnHabitos.setOnAction(value -> {
-			System.out.println("apertou botão Habitos");
+			try {
+				TelaHabitos();
+			} catch (Exception e) {
+				e.printStackTrace();
+			}
+			System.out.println("apertou botão Hábitos");
 		});
 		btnHabitos.setOnMouseEntered(value -> {
 			btnHabitos.setStyle("-fx-background-radius: 15 15 15 15; -fx-border-radius: 15 15 15 15; -fx-background-color:#87dff0");
@@ -683,7 +682,20 @@ public class FrmPrincipal implements Initializable{
 
     public void TelaMedidas() throws Exception {
     	FXMLLoader fxmlTela = new FXMLLoader(getClass().getResource(MainClass.caminho() +"/frmTelaMedidas.fxml"));
-    	BorderPane root = (BorderPane) fxmlTela.load();
+    	ScrollPane root = (ScrollPane) fxmlTela.load();
+    	Stage stage = new Stage();
+    	Scene scene = new Scene(root);
+    	scene.setFill(Color.TRANSPARENT);
+    	stage.setScene(scene);
+    	stage.setResizable(false);
+    	stage.initModality(Modality.APPLICATION_MODAL);
+    	stage.initStyle(StageStyle.TRANSPARENT);
+    	stage.show();
+    }
+
+    public void TelaHabitos() throws Exception {
+    	FXMLLoader fxmlTela = new FXMLLoader(getClass().getResource(MainClass.caminho() +"/frmHabitos.fxml"));
+    	ScrollPane root = (ScrollPane) fxmlTela.load();
     	Stage stage = new Stage();
     	Scene scene = new Scene(root);
     	scene.setFill(Color.TRANSPARENT);
