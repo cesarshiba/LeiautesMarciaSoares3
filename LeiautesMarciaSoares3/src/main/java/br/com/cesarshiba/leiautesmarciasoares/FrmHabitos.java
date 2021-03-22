@@ -82,13 +82,13 @@ public class FrmHabitos implements Initializable {
 			btnVoltar.setStyle("-fx-background-color:#000000; -fx-border-color:  #ffffff; -fx-border-radius: 20; -fx-background-radius: 20; -fx-text-fill: #ffffff");
 		});
 		btnVoltar.setOnMouseExited(value -> {
-			btnVoltar.setStyle("-fx-background-color:  #f4ffdf; -fx-border-color: #414247; -fx-border-radius: 20");
+			btnVoltar.setStyle("-fx-background-color:  #9bd4e4; -fx-border-color: #414247; -fx-border-radius: 20; -fx-background-radius: 20");
 		});
 		btnSalvar.setOnMouseEntered(value -> {
 			btnSalvar.setStyle("-fx-background-color:#000000; -fx-border-color:  #ffffff; -fx-border-radius: 20; -fx-background-radius: 20; -fx-text-fill: #ffffff");
 		});
 		btnSalvar.setOnMouseExited(value -> {
-			btnSalvar.setStyle("-fx-background-color:  #f4ffdf; -fx-border-color: #414247; -fx-border-radius: 20");
+			btnSalvar.setStyle("-fx-background-color:  #9bd4e4; -fx-border-color: #414247; -fx-border-radius: 20; -fx-background-radius: 20");
 		});
 	}
 }

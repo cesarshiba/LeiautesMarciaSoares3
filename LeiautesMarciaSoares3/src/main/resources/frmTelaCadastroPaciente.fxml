@@ -13,9 +13,9 @@
 <?import javafx.scene.layout.RowConstraints?>
 <?import javafx.scene.text.Font?>
 
-<BorderPane fx:id="root" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="600.0" prefWidth="600.0" style="-fx-background-color: #1d6f8f; -fx-background-radius: 20; -fx-border-radius: 20;" xmlns="http://javafx.com/javafx/11.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="br.com.cesarshiba.leiautesmarciasoares.FrmTelaCadastroPaciente">
+<BorderPane fx:id="root" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="600.0" prefWidth="600.0" style="-fx-background-color: #bed7d1; -fx-background-radius: 20; -fx-border-radius: 20;" xmlns="http://javafx.com/javafx/11.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="br.com.cesarshiba.leiautesmarciasoares.FrmTelaCadastroPaciente">
    <top>
-      <Label text="Cadastro do Paciente" textFill="WHITE" BorderPane.alignment="CENTER">
+      <Label text="Cadastro do Paciente" textFill="#414247" BorderPane.alignment="CENTER">
          <font>
             <Font name="Leelawadee UI Semilight" size="32.0" />
          </font>
@@ -27,7 +27,7 @@
    <bottom>
       <HBox alignment="CENTER" prefHeight="100.0" prefWidth="200.0" spacing="20.0" BorderPane.alignment="CENTER">
          <children>
-            <Button fx:id="btnSalvar" defaultButton="true" mnemonicParsing="false" prefHeight="41.0" prefWidth="130.0" style="-fx-background-color: #1d6f8f; -fx-border-color: #ffffff; -fx-border-radius: 20;" text="Salvar" textFill="WHITE">
+            <Button fx:id="btnSalvar" defaultButton="true" mnemonicParsing="false" prefHeight="41.0" prefWidth="130.0" style="-fx-background-color: #f7ebc3; -fx-border-color: #414247; -fx-border-radius: 20; -fx-background-radius: 20;" text="Salvar" textFill="#414247">
                <font>
                   <Font name="Leelawadee UI Semilight" size="18.0" />
                </font>
@@ -35,7 +35,7 @@
                   <Insets />
                </HBox.margin>
             </Button>
-            <Button fx:id="btnVoltar" cancelButton="true" mnemonicParsing="false" prefHeight="41.0" prefWidth="130.0" style="-fx-background-color: #1d6f8f; -fx-border-color: #ffffff; -fx-border-radius: 20;" text="Voltar" textFill="WHITE">
+            <Button fx:id="btnVoltar" cancelButton="true" mnemonicParsing="false" prefHeight="41.0" prefWidth="130.0" style="-fx-background-color: #f7ebc3; -fx-border-color: #414247; -fx-border-radius: 20; -fx-background-radius: 20;" text="Voltar" textFill="#414247">
                <font>
                   <Font name="Leelawadee UI Semilight" size="18.0" />
                </font>
@@ -64,17 +64,17 @@
             <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
         </rowConstraints>
          <children>
-            <TextField fx:id="txtNomePaciente" prefHeight="25.0" prefWidth="601.0" promptText="Nome" style="-fx-background-color: #ade0f1; -fx-text-fill: #414247;" GridPane.columnSpan="2">
+            <TextField fx:id="txtNomePaciente" prefHeight="25.0" prefWidth="601.0" promptText="nome" style="-fx-background-color: #f7ebc3; -fx-text-fill: #414247;" GridPane.columnSpan="2">
                <font>
                   <Font name="Leelawadee UI Semilight" size="20.0" />
                </font>
             </TextField>
-            <TextField fx:id="txtEmailPaciente" promptText="e-mail" style="-fx-background-color: #ade0f1; -fx-text-fill: #414247;" GridPane.columnSpan="2" GridPane.rowIndex="1">
+            <TextField fx:id="txtEmailPaciente" promptText="e-mail" style="-fx-background-color: #f7ebc3; -fx-text-fill: #414247;" GridPane.columnSpan="2" GridPane.rowIndex="1">
                <font>
                   <Font name="Leelawadee UI Semilight" size="20.0" />
                </font>
             </TextField>
-            <Label text="Data de Nascimento" textFill="WHITE" GridPane.rowIndex="2">
+            <Label text="Data de Nascimento" textFill="#414247" GridPane.rowIndex="2">
                <font>
                   <Font name="Leelawadee UI Semilight" size="20.0" />
                </font>
@@ -87,7 +87,7 @@
                   <Insets bottom="35.0" left="35.0" right="35.0" top="35.0" />
                </GridPane.margin>
             </DatePicker>
-            <Label text="Sexo" textFill="WHITE" GridPane.columnSpan="2" GridPane.rowIndex="3">
+            <Label text="Sexo" textFill="#414247" GridPane.columnSpan="2" GridPane.rowIndex="3">
                <font>
                   <Font name="Leelawadee UI Semilight" size="20.0" />
                </font>
@@ -97,12 +97,12 @@
             </Label>
             <HBox alignment="CENTER" prefHeight="100.0" prefWidth="200.0" spacing="30.0" GridPane.columnIndex="1" GridPane.rowIndex="3">
                <children>
-                  <RadioButton fx:id="optFeminino" mnemonicParsing="false" text="Feminino" textFill="WHITE">
+                  <RadioButton fx:id="optFeminino" mnemonicParsing="false" text="Feminino" textFill="#414247">
                      <font>
                         <Font name="Leelawadee UI Semilight" size="15.0" />
                      </font>
                   </RadioButton>
-                  <RadioButton fx:id="optMasculino" mnemonicParsing="false" text="Masculino" textFill="WHITE">
+                  <RadioButton fx:id="optMasculino" mnemonicParsing="false" text="Masculino" textFill="#414247">
                      <font>
                         <Font name="Leelawadee UI Semilight" size="15.0" />
                      </font>
@@ -115,12 +115,12 @@
                   <Insets />
                </GridPane.margin>
             </HBox>
-            <TextField fx:id="txtEnderecoPaciente" promptText="Endereço" style="-fx-background-color: #ade0f1; -fx-text-fill: #414247;" GridPane.columnSpan="2" GridPane.rowIndex="4">
+            <TextField fx:id="txtEnderecoPaciente" promptText="endereço" style="-fx-background-color: #f7ebc3; -fx-text-fill: #414247;" GridPane.columnSpan="2" GridPane.rowIndex="4">
                <font>
                   <Font name="Leelawadee UI Semilight" size="20.0" />
                </font>
             </TextField>
-            <TextField fx:id="txtTelefonePaciente" layoutX="20.0" layoutY="309.0" promptText="Telefone" style="-fx-background-color: #ade0f1; -fx-text-fill: #414247;" GridPane.columnSpan="2" GridPane.rowIndex="5">
+            <TextField fx:id="txtTelefonePaciente" layoutX="20.0" layoutY="309.0" promptText="telefone" style="-fx-background-color: #f7ebc3; -fx-text-fill: #414247;" GridPane.columnSpan="2" GridPane.rowIndex="5">
                <font>
                   <Font name="Leelawadee UI Semilight" size="20.0" />
                </font>

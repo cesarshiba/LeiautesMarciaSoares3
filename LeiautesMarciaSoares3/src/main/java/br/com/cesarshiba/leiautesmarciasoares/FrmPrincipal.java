@@ -72,34 +72,31 @@ public class FrmPrincipal implements Initializable{
 	private void carregaSplash() {
 		MainClass.loadSplash=true;
 		
-		try {
-			AnchorPane pane = FXMLLoader.load(getClass().getResource(MainClass.caminho() +"/frmLogo.fxml"));
-			root.getChildren().setAll(pane);
-			Rectangle2D bounds = Screen.getPrimary().getVisualBounds();
-			double x = bounds.getMinX() + (bounds.getWidth() - pane.getWidth()) * 0.28;
-			double y = bounds.getMinY() + (bounds.getHeight() - pane.getHeight()) * 0.3;
-			pane.setLayoutX(x);
-			pane.setLayoutY(y);
-			
-			FadeTransition fadeIn = new FadeTransition(Duration.seconds(2),pane);
-			fadeIn.setFromValue(0);
-			fadeIn.setToValue(1);
-			fadeIn.setCycleCount(1);
-			FadeTransition fadeOut = new FadeTransition(Duration.seconds(2),pane);
-			fadeOut.setFromValue(1);
-			fadeOut.setToValue(0);
-			fadeOut.setCycleCount(1);
-			fadeIn.play(); //inicia splash
-			fadeIn.setOnFinished((e) -> {
-				fadeOut.play(); //finaliza splash
-			});
-			fadeOut.setOnFinished((e) ->{
-				montaPainelPaisagens();  //mostra fundo com paisagem
-				root.setLeft(Menu());
-			});
-		} catch (IOException e) {
-			e.printStackTrace();
-		}
+		Image imagem = new Image("logo marcia.png");
+		ImageView imageView = new ImageView(imagem);
+		imageView.setFitHeight(imagem.getHeight());
+		imageView.setFitWidth(imagem.getWidth());
+		imageView.setPreserveRatio(true);
+		GridPane grid = new GridPane();
+		grid.add(imageView, 0, 0);
+		grid.setAlignment(Pos.CENTER);
+		root.setCenter(grid);
+		FadeTransition fadeIn = new FadeTransition(Duration.seconds(2), imageView);
+		fadeIn.setFromValue(0);
+		fadeIn.setToValue(1);
+		fadeIn.setCycleCount(1);
+		FadeTransition fadeOut = new FadeTransition(Duration.seconds(2), imageView);
+		fadeOut.setFromValue(1);
+		fadeOut.setToValue(0);
+		fadeOut.setCycleCount(1);
+		fadeIn.play(); //inicia splash
+		fadeIn.setOnFinished((e) -> {
+			fadeOut.play(); //finaliza splash
+		});
+		fadeOut.setOnFinished((e) ->{
+			montaPainelPaisagens();  //mostra fundo com paisagem
+			root.setLeft(Menu());
+		});
 	}
 
 	/*
@@ -244,6 +241,14 @@ public class FrmPrincipal implements Initializable{
 				lblDataSelecionada.setText("");
 			}
 		});
+    	tblClientes.setOnMouseClicked(event -> {
+    		if(event.getClickCount() == 2) {
+    			ClienteNomeSexoEmail dblClick = tblClientes.getSelectionModel().getSelectedItem();
+		    	clienteSelecionado = dblClick.getNomeCliente();
+				dataSelecionada = "";
+				lblDataSelecionada.setText("");
+				montaPainelPrincipal();
+    		}});
 		/*
 		 * Botão de cadastro
 		 */
@@ -289,14 +294,12 @@ public class FrmPrincipal implements Initializable{
 		String n =  String.format("%1d", nRandom);
 		Image imagem = new Image(MainClass.caminho() +"/Paisagem" + n + ".jpg");
 		ImageView imageView = new ImageView(imagem);
-		imageView.setFitHeight(628);
-		imageView.setFitWidth(1000);
-		imageView.fitHeightProperty();
-		imageView.fitWidthProperty();
+		imageView.fitHeightProperty().bind(root.heightProperty());
+		imageView.fitWidthProperty().bind(root.widthProperty());
+		imageView.setPreserveRatio(true);
 		GridPane grid = new GridPane();
-		grid.add(imageView, 7, 4, 8, 8);
-		grid.setHgap(15);
-		grid.setVgap(15);
+		grid.add(imageView, 0, 0);
+		grid.setAlignment(Pos.CENTER);
 		root.setCenter(grid);
 	}
 

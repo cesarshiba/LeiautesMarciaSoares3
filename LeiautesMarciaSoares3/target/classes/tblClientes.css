@@ -10,7 +10,7 @@
 .table-view:focused{}
 
 .table-view .column-header-background{
-    -fx-background-color: linear-gradient(#8ed361 0%,#b8eb87 100%);
+    -fx-background-color: linear-gradient(#b8eb87 0%,#f2fbe7 100%);
 }
 
 .table-view .column-header-background .label{
@@ -25,19 +25,19 @@
 }
 
 .table-row-cell{
-    -fx-background-color: -fx-table-cell-border-color, #8ed361;
-    -fx-background-insets: 0, 0 0 1 0;
-    -fx-padding: 0.0em;
-}
-
-.table-row-cell:odd{
     -fx-background-color: -fx-table-cell-border-color, #b8eb87;
     -fx-background-insets: 0, 0 0 1 0;
     -fx-padding: 0.0em;
 }
 
+.table-row-cell:odd{
+    -fx-background-color: -fx-table-cell-border-color, #f2fbe7;
+    -fx-background-insets: 0, 0 0 1 0;
+    -fx-padding: 0.0em;
+}
+
 .table-row-cell:selected {
-    -fx-background-color: #046e33;
+    -fx-background-color: #8ed361;
     -fx-background-insets: 0;
     -fx-background-radius: 1;
 }
@@ -58,7 +58,7 @@
 .table-view > .virtual-flow > .scroll-bar:vertical > .thumb-background, 
 .table-view > .virtual-flow > .scroll-bar:horizontal > .thumb,
 .table-view > .virtual-flow > .scroll-bar:horizontal > .thumb-background {
-    -fx-background-color: #8ed361;
+    -fx-background-color: #b8eb87;
 }
 
 .table-view > .virtual-flow > .scroll-bar > .increment-button, 
