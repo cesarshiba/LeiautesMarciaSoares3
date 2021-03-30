@@ -6,4 +6,5 @@ module LeiautesMarciaSoares {
 	requires transitive javafx.controls;
 	requires transitive javafx.graphics;
 	requires java.sql;
+	requires jasperreports;
 }

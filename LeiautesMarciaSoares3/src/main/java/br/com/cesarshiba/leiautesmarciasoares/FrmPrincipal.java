@@ -1,13 +1,18 @@
 package br.com.cesarshiba.leiautesmarciasoares;
 
+import java.io.File;
 import java.io.FileInputStream;
 import java.io.FileNotFoundException;
 import java.io.IOException;
+import java.io.InputStream;
 import java.net.URL;
 import java.time.LocalDate;
 import java.time.format.DateTimeFormatter;
 import java.util.ArrayList;
+import java.util.HashMap;
 import java.util.List;
+import java.util.Map;
+import java.util.Optional;
 import java.util.ResourceBundle;
 import java.util.Scanner;
 
@@ -21,18 +26,19 @@ import javafx.fxml.FXMLLoader;
 import javafx.fxml.Initializable;
 import javafx.geometry.Insets;
 import javafx.geometry.Pos;
-import javafx.geometry.Rectangle2D;
 import javafx.scene.Scene;
+import javafx.scene.control.Alert;
 import javafx.scene.control.Button;
+import javafx.scene.control.ButtonType;
 import javafx.scene.control.DatePicker;
 import javafx.scene.control.Label;
 import javafx.scene.control.ScrollPane;
 import javafx.scene.control.TableColumn;
 import javafx.scene.control.TableView;
+import javafx.scene.control.Alert.AlertType;
 import javafx.scene.control.cell.PropertyValueFactory;
 import javafx.scene.image.Image;
 import javafx.scene.image.ImageView;
-import javafx.scene.layout.AnchorPane;
 import javafx.scene.layout.BorderPane;
 import javafx.scene.layout.GridPane;
 import javafx.scene.layout.HBox;
@@ -42,10 +48,19 @@ import javafx.scene.paint.Color;
 import javafx.scene.shape.Circle;
 import javafx.scene.text.Font;
 import javafx.stage.Modality;
-import javafx.stage.Screen;
 import javafx.stage.Stage;
 import javafx.stage.StageStyle;
 import javafx.util.Duration;
+import net.sf.jasperreports.engine.JREmptyDataSource;
+import net.sf.jasperreports.engine.JRException;
+import net.sf.jasperreports.engine.JasperCompileManager;
+import net.sf.jasperreports.engine.JasperFillManager;
+import net.sf.jasperreports.engine.JasperPrint;
+import net.sf.jasperreports.engine.JasperReport;
+import net.sf.jasperreports.engine.data.JRBeanCollectionDataSource;
+import net.sf.jasperreports.engine.design.JasperDesign;
+import net.sf.jasperreports.engine.xml.JRXmlLoader;
+import net.sf.jasperreports.view.JasperViewer;
 
 public class FrmPrincipal implements Initializable{
 
@@ -225,7 +240,7 @@ public class FrmPrincipal implements Initializable{
 	    TableColumn<ClienteNomeSexoEmail, String> colEmailCliente = new TableColumn<ClienteNomeSexoEmail, String>();
 	    colEmailCliente.setPrefWidth(300.0);
 	    colEmailCliente.setText("E-Mail");
-    	obsClientes = FXCollections.observableArrayList(leClientes());
+    	obsClientes = FXCollections.observableArrayList(leClientes(""));
     	colNomeCliente.setCellValueFactory(new PropertyValueFactory<ClienteNomeSexoEmail,String>("nomeCliente"));
     	colSexoCliente.setCellValueFactory(new PropertyValueFactory<ClienteNomeSexoEmail,String>("sexoCliente"));
     	colEmailCliente.setCellValueFactory(new PropertyValueFactory<ClienteNomeSexoEmail,String>("emailCliente"));
@@ -449,6 +464,13 @@ public class FrmPrincipal implements Initializable{
 		btnResumoGeral.setMaxSize(l, l);
 		btnResumoGeral.setStyle("-fx-background-radius: 15 15 15 15; -fx-border-radius: 15 15 15 15; -fx-background-color:#fddbaf");
 		btnResumoGeral.setOnAction(value -> {
+			try {
+				ResumoGeral();
+			} catch (IOException e) {
+				e.printStackTrace();
+			} catch (JRException e) {
+				e.printStackTrace();
+			}
 			System.out.println("apertou botão ResumoGeral");
 		});
 		btnResumoGeral.setOnMouseEntered(value -> {
@@ -621,9 +643,9 @@ public class FrmPrincipal implements Initializable{
 	/*
 	 * Rotina de leitura da base de dados de clientes
 	 */
-    private List<ClienteNomeSexoEmail> leClientes() {
+    private List<ClienteNomeSexoEmail> leClientes(String nome) {
     	Scanner scanner;
-		List<ClienteNomeSexoEmail> lista = new ArrayList<>();
+    	List<ClienteNomeSexoEmail> lista = new ArrayList<>();
     	try {
 			scanner = new Scanner(new FileInputStream(caminho + "clientes.txt"));
 	    	while(scanner.hasNextLine()) {
@@ -631,7 +653,13 @@ public class FrmPrincipal implements Initializable{
 	    		String token = scanner.nextLine();
 	    		textoSeparado = token.split(";");
 	        	ClienteNomeSexoEmail cliente = new ClienteNomeSexoEmail(textoSeparado[0], textoSeparado[1], textoSeparado[2]);
-	    		lista.add(cliente);
+	        	if (nome != "") {
+	        		if (nome.equals(textoSeparado[0])) {
+	    	        	lista.add(cliente);	        			
+	        		}
+	        	} else {
+		        	lista.add(cliente);
+	        	}
 	    	}
 	    	return lista;
 		} catch (FileNotFoundException e) {
@@ -707,5 +735,41 @@ public class FrmPrincipal implements Initializable{
     	stage.initModality(Modality.APPLICATION_MODAL);
     	stage.initStyle(StageStyle.TRANSPARENT);
     	stage.show();
+    }
+
+    private void ResumoGeral() throws IOException, JRException {
+		Alert alert = new Alert(AlertType.CONFIRMATION, "", ButtonType.YES, ButtonType.NO);
+		alert.setTitle("Imprimir");
+		alert.setHeaderText("Confirma impressão?");
+		alert.getButtonTypes();
+		Optional<ButtonType> option = alert.showAndWait();
+		if(option.get() == ButtonType.YES) {
+			List<ClienteNomeSexoEmail> cliente = new ArrayList<ClienteNomeSexoEmail>();
+			cliente = leClientes(clienteSelecionado);
+			ClienteNomeSexoEmail cliente1 = cliente.get(0);
+			System.out.println("cliente= "+ cliente1.toString());
+
+			//JRBeanCollectionDataSource dsCliente = new JRBeanCollectionDataSource(cliente);
+
+			Map<String,Object> params = new HashMap<String,Object>();
+			params.put("nomeCliente", cliente1.getNomeCliente());
+			params.put("sexoCliente", cliente1.getSexoCliente());
+			params.put("emailCliente", cliente1.getEmailCliente());
+			params.put("idadeCliente", "33");
+			params.put("pesoCliente", "65");
+			params.put("objetivoCliente", "Tem sindrome do meio (trajeto do óvulo para as trompas). Fica com muitas dores. E na bexiga sindorme de Hoking. Principal motivo é emagrecer (ganhou 10kgs em 1 ano)");
+
+			String fonte = "PlanoAlimentar.jrxml";
+			InputStream input = new FileInputStream(new File(fonte));
+
+			JasperDesign jasperDesign = JRXmlLoader.load(input);
+
+			JasperReport jasperReport = JasperCompileManager.compileReport(jasperDesign);
+
+			JasperPrint jasperPrint = JasperFillManager.fillReport(jasperReport, params, new JREmptyDataSource());
+
+			JasperViewer.viewReport(jasperPrint, false);
+			//JasperExportManager.exportReportToPdfFile(print, "TextosCadastrados.pdf");
+		}
     }
 }
