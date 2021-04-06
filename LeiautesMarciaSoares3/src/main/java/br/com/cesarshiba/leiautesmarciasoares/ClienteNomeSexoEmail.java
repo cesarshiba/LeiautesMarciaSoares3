@@ -4,12 +4,14 @@ public class ClienteNomeSexoEmail {
 	private String nomeCliente;
 	private String sexoCliente;
 	private String emailCliente;
+	private String objetivoCliente;
 	
 	
-	public ClienteNomeSexoEmail(String nomeCliente, String sexoCliente, String emailCliente) {
+	public ClienteNomeSexoEmail(String nomeCliente, String sexoCliente, String emailCliente, String objetivoCliente) {
 		this.nomeCliente = nomeCliente;
 		this.sexoCliente = sexoCliente;
 		this.emailCliente = emailCliente;
+		this.objetivoCliente = objetivoCliente;
 	}
 
 
@@ -40,6 +42,16 @@ public class ClienteNomeSexoEmail {
 
 	public void setEmailCliente(String emailCliente) {
 		this.emailCliente = emailCliente;
+	}
+
+
+	public String getObjetivoCliente() {
+		return objetivoCliente;
+	}
+
+
+	public void setObjetivoCliente(String objetivoCliente) {
+		this.objetivoCliente = objetivoCliente;
 	}
 
 }

@@ -12,7 +12,6 @@ import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
-import java.util.Optional;
 import java.util.ResourceBundle;
 import java.util.Scanner;
 
@@ -26,16 +25,14 @@ import javafx.fxml.FXMLLoader;
 import javafx.fxml.Initializable;
 import javafx.geometry.Insets;
 import javafx.geometry.Pos;
+import javafx.scene.Cursor;
 import javafx.scene.Scene;
-import javafx.scene.control.Alert;
 import javafx.scene.control.Button;
-import javafx.scene.control.ButtonType;
 import javafx.scene.control.DatePicker;
 import javafx.scene.control.Label;
 import javafx.scene.control.ScrollPane;
 import javafx.scene.control.TableColumn;
 import javafx.scene.control.TableView;
-import javafx.scene.control.Alert.AlertType;
 import javafx.scene.control.cell.PropertyValueFactory;
 import javafx.scene.image.Image;
 import javafx.scene.image.ImageView;
@@ -57,7 +54,6 @@ import net.sf.jasperreports.engine.JasperCompileManager;
 import net.sf.jasperreports.engine.JasperFillManager;
 import net.sf.jasperreports.engine.JasperPrint;
 import net.sf.jasperreports.engine.JasperReport;
-import net.sf.jasperreports.engine.data.JRBeanCollectionDataSource;
 import net.sf.jasperreports.engine.design.JasperDesign;
 import net.sf.jasperreports.engine.xml.JRXmlLoader;
 import net.sf.jasperreports.view.JasperViewer;
@@ -189,7 +185,7 @@ public class FrmPrincipal implements Initializable{
 		hBoxConsultas.setPadding(new Insets(5));
 		hBoxConsultas.setSpacing(5);
 		List<ClienteConsultas> consultasCliente = new ArrayList<>();
-		consultasCliente = leConsultasClientes(clienteSelecionado);
+		consultasCliente = leConsultasClientes(clienteSelecionado, "x");
 		if (consultasCliente != null) {
 			for (int i = 0; i < consultasCliente.size(); i++) {
 				if (i < 5) {
@@ -237,14 +233,14 @@ public class FrmPrincipal implements Initializable{
 	    TableColumn<ClienteNomeSexoEmail, String> colSexoCliente = new TableColumn<ClienteNomeSexoEmail, String>();
 	    colSexoCliente.setPrefWidth(100.0);
 	    colSexoCliente.setText("Sexo");
-	    TableColumn<ClienteNomeSexoEmail, String> colEmailCliente = new TableColumn<ClienteNomeSexoEmail, String>();
-	    colEmailCliente.setPrefWidth(300.0);
-	    colEmailCliente.setText("E-Mail");
+	    TableColumn<ClienteNomeSexoEmail, String> colObjetivoCliente = new TableColumn<ClienteNomeSexoEmail, String>();
+	    colObjetivoCliente.setPrefWidth(300.0);
+	    colObjetivoCliente.setText("Objetivo");
     	obsClientes = FXCollections.observableArrayList(leClientes(""));
     	colNomeCliente.setCellValueFactory(new PropertyValueFactory<ClienteNomeSexoEmail,String>("nomeCliente"));
     	colSexoCliente.setCellValueFactory(new PropertyValueFactory<ClienteNomeSexoEmail,String>("sexoCliente"));
-    	colEmailCliente.setCellValueFactory(new PropertyValueFactory<ClienteNomeSexoEmail,String>("emailCliente"));
-    	tblClientes.getColumns().addAll(colNomeCliente, colSexoCliente, colEmailCliente);
+    	colObjetivoCliente.setCellValueFactory(new PropertyValueFactory<ClienteNomeSexoEmail,String>("objetivoCliente"));
+    	tblClientes.getColumns().addAll(colNomeCliente, colSexoCliente, colObjetivoCliente);
     	tblClientes.setItems(obsClientes);
 
     	tblClientes.getSelectionModel().selectedItemProperty().addListener(new ChangeListener<ClienteNomeSexoEmail>() {
@@ -652,7 +648,7 @@ public class FrmPrincipal implements Initializable{
 	    		String[] textoSeparado;
 	    		String token = scanner.nextLine();
 	    		textoSeparado = token.split(";");
-	        	ClienteNomeSexoEmail cliente = new ClienteNomeSexoEmail(textoSeparado[0], textoSeparado[1], textoSeparado[2]);
+	        	ClienteNomeSexoEmail cliente = new ClienteNomeSexoEmail(textoSeparado[0], textoSeparado[1], textoSeparado[2], textoSeparado[3]);
 	        	if (nome != "") {
 	        		if (nome.equals(textoSeparado[0])) {
 	    	        	lista.add(cliente);	        			
@@ -671,7 +667,7 @@ public class FrmPrincipal implements Initializable{
 	/*
 	 * Rotina de leitura da base de dados de clientes e datas de consultas
 	 */
-    private List<ClienteConsultas> leConsultasClientes(String nomeCliente) {
+    private List<ClienteConsultas> leConsultasClientes(String nomeCliente, String dataSelecionada) {
     	Scanner scanner;
     	int contador = 0;
 		List<ClienteConsultas> lista = new ArrayList<>();
@@ -681,10 +677,17 @@ public class FrmPrincipal implements Initializable{
 	    		String[] textoSeparado;
 	    		String token = scanner.nextLine();
 	    		textoSeparado = token.split(";");
-	    		ClienteConsultas clienteConsulta = new ClienteConsultas(textoSeparado[0], textoSeparado[1]);
-	    		if (nomeCliente.equals(clienteConsulta.getNomeCliente())) {
-		    		lista.add(clienteConsulta);
-		    		contador++;
+	    		ClienteConsultas clienteConsulta = new ClienteConsultas(textoSeparado[0], textoSeparado[1], textoSeparado[2], textoSeparado[3], textoSeparado[4], textoSeparado[5]);
+	    		if (dataSelecionada == "x") {
+		    		if (nomeCliente.equals(clienteConsulta.getNomeCliente())) {
+			    		lista.add(clienteConsulta);
+			    		contador++;
+		    		}
+	    		} else {
+		    		if (nomeCliente.equals(clienteConsulta.getNomeCliente()) && dataSelecionada.equals(clienteConsulta.getDataConsulta())) {
+			    		lista.add(clienteConsulta);
+			    		contador++;
+		    		}
 	    		}
 	    	}
 	    	if (contador > 0) {
@@ -738,38 +741,50 @@ public class FrmPrincipal implements Initializable{
     }
 
     private void ResumoGeral() throws IOException, JRException {
-		Alert alert = new Alert(AlertType.CONFIRMATION, "", ButtonType.YES, ButtonType.NO);
-		alert.setTitle("Imprimir");
-		alert.setHeaderText("Confirma impressão?");
-		alert.getButtonTypes();
-		Optional<ButtonType> option = alert.showAndWait();
-		if(option.get() == ButtonType.YES) {
-			List<ClienteNomeSexoEmail> cliente = new ArrayList<ClienteNomeSexoEmail>();
-			cliente = leClientes(clienteSelecionado);
-			ClienteNomeSexoEmail cliente1 = cliente.get(0);
-			System.out.println("cliente= "+ cliente1.toString());
+    	List<ClienteNomeSexoEmail> cliente = new ArrayList<ClienteNomeSexoEmail>();
+    	cliente = leClientes(clienteSelecionado);
+    	ClienteNomeSexoEmail cliente1 = cliente.get(0);
+    	System.out.println("cliente= "+ cliente1.toString());
 
-			//JRBeanCollectionDataSource dsCliente = new JRBeanCollectionDataSource(cliente);
+    	//JRBeanCollectionDataSource dsCliente = new JRBeanCollectionDataSource(cliente);
 
-			Map<String,Object> params = new HashMap<String,Object>();
-			params.put("nomeCliente", cliente1.getNomeCliente());
-			params.put("sexoCliente", cliente1.getSexoCliente());
-			params.put("emailCliente", cliente1.getEmailCliente());
-			params.put("idadeCliente", "33");
-			params.put("pesoCliente", "65");
-			params.put("objetivoCliente", "Tem sindrome do meio (trajeto do óvulo para as trompas). Fica com muitas dores. E na bexiga sindorme de Hoking. Principal motivo é emagrecer (ganhou 10kgs em 1 ano)");
+    	Map<String,Object> params = new HashMap<String,Object>();
+    	params.put("nomeCliente", cliente1.getNomeCliente());
+    	params.put("sexoCliente", cliente1.getSexoCliente());
+    	params.put("emailCliente", cliente1.getEmailCliente());
+    	params.put("objetivoCliente", cliente1.getObjetivoCliente());
+    	List<ClienteConsultas> consultasCliente = new ArrayList<>();
+    	consultasCliente = leConsultasClientes(clienteSelecionado, dataSelecionada);
+    	if (consultasCliente != null) {
+    		ClienteConsultas consulta = consultasCliente.get(0);
+    		params.put("estadoNutricional", consulta.getEstadoNutricional());
+    		params.put("planoAlimentar", consulta.getPlanoAlimentar());
+    		params.put("prescricaoDietetica", consulta.getPrescricaoDietetica());
+    		params.put("recomendacoes", consulta.getRecomendacoes());
+    	} else {
+    		params.put("estadoNutricional", "");
+    		params.put("planoAlimentar", "");
+    		params.put("prescricaoDietetica", "");
+    		params.put("recomendacoes", "");
+    	}
+    	params.put("idadeCliente", "33");
+    	params.put("pesoCliente", "65");
 
-			String fonte = "PlanoAlimentar.jrxml";
-			InputStream input = new FileInputStream(new File(fonte));
+    	String fonte = "PlanoAlimentar.jrxml";
+    	InputStream input = new FileInputStream(new File(fonte));
 
-			JasperDesign jasperDesign = JRXmlLoader.load(input);
+    	Scene scene = root.getScene();
+    	scene.setCursor(Cursor.WAIT);
 
-			JasperReport jasperReport = JasperCompileManager.compileReport(jasperDesign);
+    	JasperDesign jasperDesign = JRXmlLoader.load(input);
 
-			JasperPrint jasperPrint = JasperFillManager.fillReport(jasperReport, params, new JREmptyDataSource());
+    	JasperReport jasperReport = JasperCompileManager.compileReport(jasperDesign);
 
-			JasperViewer.viewReport(jasperPrint, false);
-			//JasperExportManager.exportReportToPdfFile(print, "TextosCadastrados.pdf");
-		}
+    	JasperPrint jasperPrint = JasperFillManager.fillReport(jasperReport, params, new JREmptyDataSource());
+
+    	JasperViewer.viewReport(jasperPrint, false);
+
+    	scene.setCursor(Cursor.DEFAULT);
+    	//JasperExportManager.exportReportToPdfFile(print, "TextosCadastrados.pdf");
     }
 }

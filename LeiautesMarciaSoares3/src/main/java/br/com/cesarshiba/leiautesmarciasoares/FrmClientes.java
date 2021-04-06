@@ -70,7 +70,7 @@ public class FrmClientes implements Initializable {
 	    		String[] textoSeparado;
 	    		String token = scanner.nextLine();
 	    		textoSeparado = token.split(";");
-	        	ClienteNomeSexoEmail cliente = new ClienteNomeSexoEmail(textoSeparado[0], textoSeparado[1], textoSeparado[2]);
+	        	ClienteNomeSexoEmail cliente = new ClienteNomeSexoEmail(textoSeparado[0], textoSeparado[1], textoSeparado[2],"");
 	    		lista.add(cliente);
 	    	}
 	    	return lista;

@@ -21,7 +21,7 @@ public class clsAcessaDB {
 				List<ClienteNomeSexoEmail> lista = new ArrayList<>();
 				try(ResultSet rs = stmt.executeQuery()){
 					while(rs.next()) {
-						ClienteNomeSexoEmail clientes = new ClienteNomeSexoEmail(rs.getString("txtNOMECLIENTE"),rs.getString("txtSEXOCLIENTE"),rs.getString("txtEMAILCLIENTE"));
+						ClienteNomeSexoEmail clientes = new ClienteNomeSexoEmail(rs.getString("txtNOMECLIENTE"),rs.getString("txtSEXOCLIENTE"),rs.getString("txtEMAILCLIENTE"), "");
 						lista.add(clientes);
 					}
 					return lista;
