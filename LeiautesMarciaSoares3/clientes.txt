@@ -1,56 +1,56 @@
-Cesar Shiba;Masculino;cesarshiba@gmail.com
-Mirian Pimentel Shiba;Feminino;mirian.pimentelshiba@gmail.com
-Leonardo Shiba;Masculino;leonardoshib@gmail.com
-Fernanda Shiba;Feminino;fernandashb2010@gmail.com
-Andreia Lima da Silva Crapino;Feminino;andreiacrapino@yahoo.com.br
-Eliza Otta;Feminino;.
-Erika Cristine Ribeiro;Feminino;cristineerika@hotmail.com
-Melissa Barboni;Feminino;mel_boni@yahoo.com.br
-Pamela de Carvalho Lucato;Feminino;pcrlucato@gmail.com
-Angela Clemente Bernardes;Feminino;ac_bernardes@yahoo.com.br
-Luis Roberto Albino;Masculino;l.albino@orientaltec.com.br
-Rosemeire de Souza;Feminino;.
-Felipe da Silva Baracho Batista;Masculino;nitro199x@gmail.com
-Sueli Schmidt;Feminino;sueli_schmidt@yahoo.com.br
-Thais Monteiro;Feminino;thais.m@uol.com.br
-Roseli Aparecida Prado Campos;Feminino;gbatistacampos@bol.com.br (HARUMI ESTÉTICA)
-Maria Cecilia Pinheiro Matos;Feminino;ceciliamatos1960@gmail.com
-Priscila Braga Barbosa;Feminino;priscilabraga1692@gmail.com
-Regiane Aparecida dos Santos;Feminino;benefi_1@hotmail.com
-Paulo Henrique C. dos Santos;Masculino;paulohenriquecsantos@gmsil.com
-Valeria Barbosa da Silva Fiaschi;Feminino;valbs74@gmail.com
-Maria Lenilza Farias;Feminino;lenifarias@hotmail.com
-Maria Alice Cordeiro Aidines;Feminino;adm@comercialcordeiro.com.br
-Giovanna de Assis Passerani;Feminino;gii.assis16@gmail.com
-Ana Paula Bibolotti;Feminino;paulabibo4@gmail.com (HARUMI ESTÉTICA)
-Sheila Beluco Tripodi;Feminino;sheilabeluco@yahoo.com.br (HARUMI ESTÉTICA)
-Litiziane dos Reis de Mesquita Rosa;;.
-Maria Carolina Leal Almeida;Feminino;mcarol.leal@gmail.com
-Naila Emy Simamura Vizie;Feminino;nailaemy@yahoo.com.br (HARUMI ESTÉTICA)
-Camila Cunha Toledo Guerald;Feminino;camilactoledo@gmail.com   (GESTANTE)
-Luiz Leonardo Nogueira Lopes;Masculino;mercedesmoraes@hotmail.com
-Valdelice de Oliveira Carlos;Feminino;valdeliceocarlos@gmail.com  (HARUMI ESTÉTICA)
-Amanda Vianna Coppola;Feminino;amanda.coppola@hotmail.com
-Samara de Souza Alves;Feminino;samara05_pereira@hotmail.com
-Eduardo Nascimento dos Santos;Masculino;eduardo.edd.10@hotmail.com
-Rosana Cristina R. do Nascimento;Feminino;saafiry@hotmail.com
-Elaine Batista de Melo;Feminino;elainebmello@hotmail.com
-José Rocha dos Santos;Masculino;rocha.elida@gmail.com
-Vivian Prado;Feminino;viprado@gmail.com
-MAROUN KARIM SAAB;Masculino;.
-Maria Cristina Fantinati;Feminino;crisbfantinati@gmail.com (HARUMI ESTÉTICA)
-Ingrid e Lucas;casal;.
-Viviane Rodrigues Adriano;Feminino;vivi-quinho@hotmail.com (HARUMI ESTÉTICA)
-Fernando Ferreira dos Santos;Masculino;fernandoalameds@gmail.com
-Marilia Gabriela de O. M.  Arruda;Feminino;fga.mariliagabriela@yahoo.com
-Angela Behaker Leite;Feminino;angela@fbleng.com.br
-Ariete Teotônio Marques;Feminino;ariete.marques@gmail.com (HARUMI ESTÉTICA)
-Gabriel Paulino Alexandre;Masculino;gabrielpaulinoalexandre@gmail.com
-Aline dos Santos Victoriano;Feminino;alinevictoriano@msn.com (HARUMI ESTÉTICA)
-Adriana Iavarone;Feminino;adri.iavarone11@gmail.com
-Fernando Spacov Camargo;Masculino;spacamargo@hotmail.com
-Marilia Matos;Feminino;mariliadmlp@hotmail.com
-Cristina Ap.P.Alves;Feminino;cristina.paulino@wickbold.com.br
-Anna Carolina P. Alexandre;Feminino;.
-Patricia Iara de Souza;Feminino;patyiara@yahoo.com.br
-Gislaine Fulaz;Feminino;suzarte1020@gmail.com
+Cesar Shiba;Masculino;cesarshiba@gmail.com;manter o peso e IMC
+Mirian Pimentel Shiba;Feminino;mirian.pimentelshiba@gmail.com;melhorar fígado e disposição física
+Leonardo Shiba;Masculino;leonardoshib@gmail.com;ganhar massa muscular
+Fernanda Shiba;Feminino;fernandashb2010@gmail.com;reduzir um pouco o peso
+Andreia Lima da Silva Crapino;Feminino;andreiacrapino@yahoo.com.br;1ª etapa: 70kgs (17kg de gordura e 53kg de massa) 2ª etapa: 60kgs ( pode ser 10kgs de gordura e 50kgs de massa) OU 65kgs que também é bom (15kgs gordura e 50kgs de massa)
+Eliza Otta;Feminino;.; 
+Erika Cristine Ribeiro;Feminino;cristineerika@hotmail.com;Em 2011 perdeu peso com alimentação + corridas. Um ano e meio atrás teve Condromalácia no joelho daí ganhou 10kgs pois ficou impossibilitada de correr
+Melissa Barboni;Feminino;mel_boni@yahoo.com.br;Pesar 68 kg
+Pamela de Carvalho Lucato;Feminino;pcrlucato@gmail.com;Desejo ardente de emagrecer, nunca teve o peso atual;Paciente fez bariátrica em Fev/17 - Bye Pass com Dr. Uzum. Estava com 114kgs e perdeu 39,200kgs
+Angela Clemente Bernardes;Feminino;ac_bernardes@yahoo.com.br;Tem colesterol alto, não aprecia tomar remédios alopáticos, sempre buscou mais ajuda medicamentosa com homeopatia. Acredita que a alimentação possa ajudar a diminuir as taxas de colesterol encontrada nos exames
+Luis Roberto Albino;Masculino;l.albino@orientaltec.com.br; 
+Rosemeire de Souza;Feminino;.; 
+Felipe da Silva Baracho Batista;Masculino;nitro199x@gmail.com; 
+Sueli Schmidt;Feminino;sueli_schmidt@yahoo.com.br; 
+Thais Monteiro;Feminino;thais.m@uol.com.br; 
+Roseli Aparecida Prado Campos;Feminino;gbatistacampos@bol.com.br (HARUMI ESTÉTICA); 
+Maria Cecilia Pinheiro Matos;Feminino;ceciliamatos1960@gmail.com; 
+Priscila Braga Barbosa;Feminino;priscilabraga1692@gmail.com; 
+Regiane Aparecida dos Santos;Feminino;benefi_1@hotmail.com; 
+Paulo Henrique C. dos Santos;Masculino;paulohenriquecsantos@gmsil.com; 
+Valeria Barbosa da Silva Fiaschi;Feminino;valbs74@gmail.com; 
+Maria Lenilza Farias;Feminino;lenifarias@hotmail.com; 
+Maria Alice Cordeiro Aidines;Feminino;adm@comercialcordeiro.com.br; 
+Giovanna de Assis Passerani;Feminino;gii.assis16@gmail.com; 
+Ana Paula Bibolotti;Feminino;paulabibo4@gmail.com (HARUMI ESTÉTICA); 
+Sheila Beluco Tripodi;Feminino;sheilabeluco@yahoo.com.br (HARUMI ESTÉTICA); 
+Litiziane dos Reis de Mesquita Rosa;;.; 
+Maria Carolina Leal Almeida;Feminino;mcarol.leal@gmail.com; 
+Naila Emy Simamura Vizie;Feminino;nailaemy@yahoo.com.br (HARUMI ESTÉTICA); 
+Camila Cunha Toledo Guerald;Feminino;camilactoledo@gmail.com   (GESTANTE); 
+Luiz Leonardo Nogueira Lopes;Masculino;mercedesmoraes@hotmail.com; 
+Valdelice de Oliveira Carlos;Feminino;valdeliceocarlos@gmail.com  (HARUMI ESTÉTICA); 
+Amanda Vianna Coppola;Feminino;amanda.coppola@hotmail.com; 
+Samara de Souza Alves;Feminino;samara05_pereira@hotmail.com; 
+Eduardo Nascimento dos Santos;Masculino;eduardo.edd.10@hotmail.com; 
+Rosana Cristina R. do Nascimento;Feminino;saafiry@hotmail.com; 
+Elaine Batista de Melo;Feminino;elainebmello@hotmail.com; 
+José Rocha dos Santos;Masculino;rocha.elida@gmail.com; 
+Vivian Prado;Feminino;viprado@gmail.com; 
+MAROUN KARIM SAAB;Masculino;.; 
+Maria Cristina Fantinati;Feminino;crisbfantinati@gmail.com (HARUMI ESTÉTICA); 
+Ingrid e Lucas;casal;.; 
+Viviane Rodrigues Adriano;Feminino;vivi-quinho@hotmail.com (HARUMI ESTÉTICA); 
+Fernando Ferreira dos Santos;Masculino;fernandoalameds@gmail.com; 
+Marilia Gabriela de O. M.  Arruda;Feminino;fga.mariliagabriela@yahoo.com; 
+Angela Behaker Leite;Feminino;angela@fbleng.com.br; 
+Ariete Teotônio Marques;Feminino;ariete.marques@gmail.com (HARUMI ESTÉTICA); 
+Gabriel Paulino Alexandre;Masculino;gabrielpaulinoalexandre@gmail.com; 
+Aline dos Santos Victoriano;Feminino;alinevictoriano@msn.com (HARUMI ESTÉTICA); 
+Adriana Iavarone;Feminino;adri.iavarone11@gmail.com; 
+Fernando Spacov Camargo;Masculino;spacamargo@hotmail.com; 
+Marilia Matos;Feminino;mariliadmlp@hotmail.com; 
+Cristina Ap.P.Alves;Feminino;cristina.paulino@wickbold.com.br; 
+Anna Carolina P. Alexandre;Feminino;.; 
+Patricia Iara de Souza;Feminino;patyiara@yahoo.com.br; 
+Gislaine Fulaz;Feminino;suzarte1020@gmail.com; 

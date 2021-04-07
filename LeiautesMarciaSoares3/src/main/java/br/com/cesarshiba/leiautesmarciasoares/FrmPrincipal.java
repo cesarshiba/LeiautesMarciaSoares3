@@ -64,7 +64,7 @@ public class FrmPrincipal implements Initializable{
     public BorderPane root;
 
 	//public String caminho = "";
-	public String caminho = "C:\\Users\\cesar\\git\\LeiautesMarciaSoares3\\LeiautesMarciaSoares3\\src\\main\\java\\br\\com\\cesarshiba\\leiautesmarciasoares\\";
+	//public String caminho = "C:\\Users\\cesar\\git\\LeiautesMarciaSoares3\\LeiautesMarciaSoares3\\src\\main\\java\\br\\com\\cesarshiba\\leiautesmarciasoares\\";
 
 	public String clienteSelecionado = "Selecione o paciente";
 	public String dataSelecionada = "";
@@ -643,7 +643,7 @@ public class FrmPrincipal implements Initializable{
     	Scanner scanner;
     	List<ClienteNomeSexoEmail> lista = new ArrayList<>();
     	try {
-			scanner = new Scanner(new FileInputStream(caminho + "clientes.txt"));
+			scanner = new Scanner(new FileInputStream("clientes.txt"));
 	    	while(scanner.hasNextLine()) {
 	    		String[] textoSeparado;
 	    		String token = scanner.nextLine();
@@ -672,7 +672,7 @@ public class FrmPrincipal implements Initializable{
     	int contador = 0;
 		List<ClienteConsultas> lista = new ArrayList<>();
     	try {
-			scanner = new Scanner(new FileInputStream(caminho + "clientesconsultas.txt"));
+			scanner = new Scanner(new FileInputStream("clientesconsultas.txt"));
 	    	while(scanner.hasNextLine()) {
 	    		String[] textoSeparado;
 	    		String token = scanner.nextLine();
@@ -770,8 +770,8 @@ public class FrmPrincipal implements Initializable{
     	params.put("idadeCliente", "33");
     	params.put("pesoCliente", "65");
 
-    	String fonte = "PlanoAlimentar.jrxml";
-    	InputStream input = new FileInputStream(new File(fonte));
+    	//String fonte = "d:\\java\\PlanoAlimentar.jrxml";
+    	InputStream input = new FileInputStream("PlanoAlimentar.jrxml");
 
     	Scene scene = root.getScene();
     	scene.setCursor(Cursor.WAIT);
