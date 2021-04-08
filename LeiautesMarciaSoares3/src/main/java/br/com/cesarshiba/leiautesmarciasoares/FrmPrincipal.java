@@ -777,12 +777,16 @@ public class FrmPrincipal implements Initializable{
     	scene.setCursor(Cursor.WAIT);
 
     	JasperDesign jasperDesign = JRXmlLoader.load(input);
+    	System.out.println("JasperDesign");
 
     	JasperReport jasperReport = JasperCompileManager.compileReport(jasperDesign);
+    	System.out.println("JasperReport");
 
     	JasperPrint jasperPrint = JasperFillManager.fillReport(jasperReport, params, new JREmptyDataSource());
+    	System.out.println("JasperPrint");
 
     	JasperViewer.viewReport(jasperPrint, false);
+    	System.out.println("JasperViewer");
 
     	scene.setCursor(Cursor.DEFAULT);
     	//JasperExportManager.exportReportToPdfFile(print, "TextosCadastrados.pdf");

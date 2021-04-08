@@ -15,7 +15,7 @@
 
 <ScrollPane fx:id="scrPane" cache="true" prefWidth="615.0" stylesheets="@TelaMedidas.css" xmlns="http://javafx.com/javafx/11.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="br.com.cesarshiba.leiautesmarciasoares.FrmTelaMedidas">
    <content>
-      <BorderPane fx:id="root" cache="true" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="680.0" prefWidth="600.0" style="-fx-background-color: #f4ffdf; -fx-background-radius: 20; -fx-border-radius: 20;">
+      <BorderPane fx:id="root" cache="true" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="680.0" prefWidth="600.0" style="-fx-background-color: #f7f7f7; -fx-background-radius: 20; -fx-border-radius: 20;">
          <top>
             <Label text="Medidas" textFill="#414247" BorderPane.alignment="CENTER">
                <font>
@@ -83,12 +83,12 @@
                         <Insets bottom="10.0" left="10.0" right="10.0" top="10.0" />
                      </GridPane.margin>
                   </Label>
-                  <TextField fx:id="txtAltura" alignment="CENTER" promptText="metros" style="-fx-background-color: #c8ffa1; -fx-text-fill: #414247;" GridPane.columnIndex="1" GridPane.rowIndex="1">
+                  <TextField fx:id="txtAltura" alignment="CENTER" promptText="metros" style="-fx-background-color: #c8ffa1; -fx-text-fill: #414247; -fx-border-color: #414247;" GridPane.columnIndex="1" GridPane.rowIndex="1">
                      <font>
                         <Font name="Leelawadee UI Semilight" size="20.0" />
                      </font>
                   </TextField>
-                  <HBox alignment="CENTER" layoutX="180.0" layoutY="218.0" prefHeight="44.0" prefWidth="200.0" spacing="30.0" style="-fx-background-color: #c8ffa1; -fx-background-radius: 5;" GridPane.columnIndex="1">
+                  <HBox alignment="CENTER" layoutX="180.0" layoutY="218.0" prefHeight="44.0" prefWidth="200.0" spacing="30.0" style="-fx-background-color: #c8ffa1; -fx-background-radius: 5; -fx-border-color: #414247;" GridPane.columnIndex="1">
                      <children>
                         <RadioButton fx:id="optBaixaAtividadeFisica" mnemonicParsing="false" text="Baixa" textFill="#414247">
                            <font>
@@ -118,7 +118,7 @@
                         <Insets bottom="10.0" left="10.0" right="10.0" top="10.0" />
                      </GridPane.margin>
                   </Label>
-                  <TextField fx:id="txtVET" alignment="CENTER" layoutX="180.0" layoutY="97.0" promptText="vet" style="-fx-background-color: #c8ffa1; -fx-text-fill: #414247;" GridPane.columnIndex="1" GridPane.rowIndex="2">
+                  <TextField fx:id="txtVET" alignment="CENTER" layoutX="180.0" layoutY="97.0" promptText="vet" style="-fx-background-color: #c8ffa1; -fx-text-fill: #414247; -fx-border-color: #414247;" GridPane.columnIndex="1" GridPane.rowIndex="2">
                      <font>
                         <Font name="Leelawadee UI Semilight" size="20.0" />
                      </font>
@@ -131,7 +131,7 @@
                         <Insets bottom="10.0" left="10.0" right="10.0" top="10.0" />
                      </GridPane.margin>
                   </Label>
-                  <TextField fx:id="txtImpedancia" alignment="CENTER" layoutX="180.0" layoutY="163.0" promptText="impedância" style="-fx-background-color: #c8ffa1; -fx-text-fill: #414247;" GridPane.columnIndex="1" GridPane.rowIndex="3">
+                  <TextField fx:id="txtImpedancia" alignment="CENTER" layoutX="180.0" layoutY="163.0" promptText="impedância" style="-fx-background-color: #c8ffa1; -fx-text-fill: #414247; -fx-border-color: #414247;" GridPane.columnIndex="1" GridPane.rowIndex="3">
                      <font>
                         <Font name="Leelawadee UI Semilight" size="20.0" />
                      </font>
@@ -164,7 +164,7 @@
                               <Font name="Leelawadee UI Semilight" size="15.0" />
                            </font>
                         </Label>
-                        <TextField fx:id="txtPesoAtual" alignment="CENTER" promptText="kg" style="-fx-background-color: #c8ffa1; -fx-text-fill: #414247;" GridPane.rowIndex="1">
+                        <TextField fx:id="txtPesoAtual" alignment="CENTER" promptText="kg" style="-fx-background-color: #c8ffa1; -fx-text-fill: #414247; -fx-border-color: #414247;" GridPane.rowIndex="1">
                            <font>
                               <Font name="Leelawadee UI Semilight" size="15.0" />
                            </font>
@@ -174,7 +174,7 @@
                               <Font name="Leelawadee UI Semilight" size="15.0" />
                            </font>
                         </Label>
-                        <TextField fx:id="txtPesoDesejado" alignment="CENTER" layoutX="10.0" layoutY="44.0" promptText="kg" style="-fx-background-color: #c8ffa1; -fx-text-fill: #414247;" GridPane.columnIndex="1" GridPane.rowIndex="1">
+                        <TextField fx:id="txtPesoDesejado" alignment="CENTER" layoutX="10.0" layoutY="44.0" promptText="kg" style="-fx-background-color: #c8ffa1; -fx-text-fill: #414247; -fx-border-color: #414247;" GridPane.columnIndex="1" GridPane.rowIndex="1">
                            <font>
                               <Font name="Leelawadee UI Semilight" size="15.0" />
                            </font>
@@ -197,12 +197,12 @@
                               <Font name="Leelawadee UI Semilight" size="15.0" />
                            </font>
                         </Label>
-                        <TextField fx:id="txtPesoVariacaoMinima" alignment="CENTER" layoutX="76.0" layoutY="44.0" promptText="kg" style="-fx-background-color: #c8ffa1; -fx-text-fill: #414247;" GridPane.columnIndex="3" GridPane.rowIndex="1">
+                        <TextField fx:id="txtPesoVariacaoMinima" alignment="CENTER" layoutX="76.0" layoutY="44.0" promptText="kg" style="-fx-background-color: #c8ffa1; -fx-text-fill: #414247; -fx-border-color: #414247;" GridPane.columnIndex="3" GridPane.rowIndex="1">
                            <font>
                               <Font name="Leelawadee UI Semilight" size="15.0" />
                            </font>
                         </TextField>
-                        <TextField fx:id="txtPesoVariacaoMaxima" alignment="CENTER" layoutX="76.0" layoutY="44.0" promptText="kg" style="-fx-background-color: #c8ffa1; -fx-text-fill: #414247;" GridPane.columnIndex="5" GridPane.rowIndex="1">
+                        <TextField fx:id="txtPesoVariacaoMaxima" alignment="CENTER" layoutX="76.0" layoutY="44.0" promptText="kg" style="-fx-background-color: #c8ffa1; -fx-text-fill: #414247; -fx-border-color: #414247;" GridPane.columnIndex="5" GridPane.rowIndex="1">
                            <font>
                               <Font name="Leelawadee UI Semilight" size="15.0" />
                            </font>
@@ -233,7 +233,7 @@
                               <Font name="Leelawadee UI Semilight" size="15.0" />
                            </font>
                         </Label>
-                        <TextField fx:id="txtTMBTotal" alignment="CENTER" promptText="kg" style="-fx-background-color: #c8ffa1; -fx-text-fill: #414247;" GridPane.rowIndex="1">
+                        <TextField fx:id="txtTMBTotal" alignment="CENTER" promptText="kg" style="-fx-background-color: #c8ffa1; -fx-text-fill: #414247; -fx-border-color: #414247;" GridPane.rowIndex="1">
                            <font>
                               <Font name="Leelawadee UI Semilight" size="15.0" />
                            </font>
@@ -243,7 +243,7 @@
                               <Font name="Leelawadee UI Semilight" size="15.0" />
                            </font>
                         </Label>
-                        <TextField fx:id="txtTMBTotalPeso" alignment="CENTER" layoutX="10.0" layoutY="44.0" promptText="kg" style="-fx-background-color: #c8ffa1; -fx-text-fill: #414247;" GridPane.columnIndex="1" GridPane.rowIndex="1">
+                        <TextField fx:id="txtTMBTotalPeso" alignment="CENTER" layoutX="10.0" layoutY="44.0" promptText="kg" style="-fx-background-color: #c8ffa1; -fx-text-fill: #414247; -fx-border-color: #414247;" GridPane.columnIndex="1" GridPane.rowIndex="1">
                            <font>
                               <Font name="Leelawadee UI Semilight" size="15.0" />
                            </font>
@@ -278,7 +278,7 @@
                               <Font name="Leelawadee UI Semilight" size="15.0" />
                            </font>
                         </Label>
-                        <TextField fx:id="txtIMCCalculado" alignment="CENTER" promptText="kg" style="-fx-background-color: #c8ffa1; -fx-text-fill: #414247;" GridPane.rowIndex="1">
+                        <TextField fx:id="txtIMCCalculado" alignment="CENTER" promptText="kg" style="-fx-background-color: #c8ffa1; -fx-text-fill: #414247; -fx-border-color: #414247;" GridPane.rowIndex="1">
                            <font>
                               <Font name="Leelawadee UI Semilight" size="15.0" />
                            </font>
@@ -301,12 +301,12 @@
                               <Font name="Leelawadee UI Semilight" size="15.0" />
                            </font>
                         </Label>
-                        <TextField fx:id="txtIMCMinimo" alignment="CENTER" layoutX="76.0" layoutY="44.0" promptText="kg" style="-fx-background-color: #c8ffa1; -fx-text-fill: #414247;" GridPane.columnIndex="2" GridPane.rowIndex="1">
+                        <TextField fx:id="txtIMCMinimo" alignment="CENTER" layoutX="76.0" layoutY="44.0" promptText="kg" style="-fx-background-color: #c8ffa1; -fx-text-fill: #414247; -fx-border-color: #414247;" GridPane.columnIndex="2" GridPane.rowIndex="1">
                            <font>
                               <Font name="Leelawadee UI Semilight" size="15.0" />
                            </font>
                         </TextField>
-                        <TextField fx:id="txtIMCMaximo" alignment="CENTER" layoutX="76.0" layoutY="44.0" promptText="kg" style="-fx-background-color: #c8ffa1; -fx-text-fill: #414247;" GridPane.columnIndex="4" GridPane.rowIndex="1">
+                        <TextField fx:id="txtIMCMaximo" alignment="CENTER" layoutX="76.0" layoutY="44.0" promptText="kg" style="-fx-background-color: #c8ffa1; -fx-text-fill: #414247; -fx-border-color: #414247;" GridPane.columnIndex="4" GridPane.rowIndex="1">
                            <font>
                               <Font name="Leelawadee UI Semilight" size="15.0" />
                            </font>

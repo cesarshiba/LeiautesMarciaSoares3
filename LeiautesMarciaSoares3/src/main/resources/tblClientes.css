@@ -10,7 +10,7 @@
 .table-view:focused{}
 
 .table-view .column-header-background{
-    -fx-background-color: linear-gradient(#b8eb87 0%,#f2fbe7 100%);
+    -fx-background-color: linear-gradient(#f2fbe7 0%,#f2fbe7 100%);
 }
 
 .table-view .column-header-background .label{

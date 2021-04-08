@@ -1,16 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <!-- Created with Jaspersoft Studio version 6.16.0.final using JasperReports Library version 6.16.0-48579d909b7943b64690c65c71e07e0b80981928  -->
-<jasperReport xmlns="http://jasperreports.sourceforge.net/jasperreports" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://jasperreports.sourceforge.net/jasperreports http://jasperreports.sourceforge.net/xsd/jasperreport.xsd" name="PlanoAlimentar" pageWidth="595" pageHeight="842" columnWidth="555" leftMargin="20" rightMargin="20" topMargin="20" bottomMargin="20" uuid="ced95029-b569-4027-895c-af2843a4e088">
+<jasperReport xmlns="http://jasperreports.sourceforge.net/jasperreports" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://jasperreports.sourceforge.net/jasperreports http://jasperreports.sourceforge.net/xsd/jasperreport.xsd" name="PlanoAlimentar" pageWidth="612" pageHeight="792" columnWidth="572" leftMargin="20" rightMargin="20" topMargin="20" bottomMargin="20" uuid="ced95029-b569-4027-895c-af2843a4e088">
 	<property name="com.jaspersoft.studio.data.defaultdataadapter" value="One Empty Record"/>
-	<property name="com.jaspersoft.studio.unit." value="pixel"/>
-	<property name="com.jaspersoft.studio.unit.pageHeight" value="pixel"/>
-	<property name="com.jaspersoft.studio.unit.pageWidth" value="pixel"/>
-	<property name="com.jaspersoft.studio.unit.topMargin" value="pixel"/>
-	<property name="com.jaspersoft.studio.unit.bottomMargin" value="pixel"/>
-	<property name="com.jaspersoft.studio.unit.leftMargin" value="pixel"/>
-	<property name="com.jaspersoft.studio.unit.rightMargin" value="pixel"/>
-	<property name="com.jaspersoft.studio.unit.columnWidth" value="pixel"/>
-	<property name="com.jaspersoft.studio.unit.columnSpacing" value="pixel"/>
 	<style name="Title" fontName="Times New Roman" fontSize="50" isBold="true"/>
 	<style name="SubTitle" forecolor="#736343" fontName="Arial" fontSize="18"/>
 	<style name="Column header" forecolor="#666666" fontName="Arial" fontSize="12" isBold="true"/>
@@ -41,17 +32,17 @@
 		<band height="109" splitType="Stretch">
 			<image>
 				<reportElement x="0" y="0" width="164" height="94" uuid="ddc15723-2728-421f-b95e-2df9faf64ce1"/>
-				<imageExpression><![CDATA["C:\\Users\\cesar\\git\\LeiautesMarciaSoares3\\LeiautesMarciaSoares3\\src\\main\\resources\\logo marcia.png"]]></imageExpression>
+				<imageExpression><![CDATA["logo marcia.png"]]></imageExpression>
 			</image>
 			<staticText>
-				<reportElement style="Title" stretchType="ContainerHeight" x="210" y="0" width="344" height="62" forecolor="#999900" backcolor="#FFFFCC" uuid="1a652692-054a-40f3-ade5-68d8da36626d"/>
+				<reportElement style="Title" stretchType="ContainerHeight" x="210" y="0" width="359" height="62" forecolor="#999900" backcolor="#FFFFCC" uuid="1a652692-054a-40f3-ade5-68d8da36626d"/>
 				<textElement textAlignment="Right" verticalAlignment="Middle">
 					<font fontName="Calibri" size="48" isBold="false"/>
 				</textElement>
 				<text><![CDATA[Plano Alimentar]]></text>
 			</staticText>
 			<textField textAdjust="StretchHeight">
-				<reportElement stretchType="ContainerHeight" x="210" y="62" width="344" height="38" forecolor="#999900" uuid="755a8554-22c7-4fca-ba3a-437161e5b4f4"/>
+				<reportElement style="Title" stretchType="ContainerHeight" x="210" y="62" width="359" height="38" forecolor="#999900" uuid="755a8554-22c7-4fca-ba3a-437161e5b4f4"/>
 				<textElement textAlignment="Center" verticalAlignment="Middle">
 					<font size="16" isItalic="true"/>
 				</textElement>
@@ -66,8 +57,9 @@
 		<band height="10" splitType="Stretch">
 			<property name="com.jaspersoft.studio.unit.height" value="px"/>
 			<line>
-				<reportElement positionType="FixRelativeToBottom" mode="Transparent" x="0" y="3" width="555" height="2" forecolor="#000000" uuid="f335575b-c6b1-4ae0-891a-3517cbb78ae9">
+				<reportElement positionType="FixRelativeToBottom" mode="Transparent" x="0" y="3" width="570" height="2" forecolor="#000000" uuid="f335575b-c6b1-4ae0-891a-3517cbb78ae9">
 					<property name="com.jaspersoft.studio.unit.height" value="px"/>
+					<property name="com.jaspersoft.studio.unit.width" value="px"/>
 				</reportElement>
 				<graphicElement>
 					<pen lineWidth="3.0" lineColor="#960E0E"/>
@@ -80,7 +72,7 @@
 			<property name="com.jaspersoft.studio.layout" value="com.jaspersoft.studio.editor.layout.FreeLayout"/>
 			<property name="com.jaspersoft.studio.unit.height" value="px"/>
 			<staticText>
-				<reportElement x="2" y="0" width="550" height="40" forecolor="#9F0017" uuid="d7e4dab1-01a6-4291-be23-d92bfca5d330">
+				<reportElement x="2" y="0" width="568" height="40" forecolor="#9F0017" uuid="d7e4dab1-01a6-4291-be23-d92bfca5d330">
 					<property name="com.jaspersoft.studio.unit.x" value="px"/>
 					<property name="com.jaspersoft.studio.unit.height" value="px"/>
 					<property name="com.jaspersoft.studio.unit.width" value="px"/>
@@ -98,10 +90,11 @@
 				<text><![CDATA[Objetivo]]></text>
 			</staticText>
 			<textField textAdjust="StretchHeight">
-				<reportElement positionType="Float" stretchType="ContainerHeight" x="2" y="40" width="550" height="40" isRemoveLineWhenBlank="true" isPrintWhenDetailOverflows="true" forecolor="#362F2F" uuid="e7eaef7b-25e8-471d-b74f-2224cecff044">
+				<reportElement positionType="Float" stretchType="ContainerHeight" x="2" y="40" width="568" height="40" isRemoveLineWhenBlank="true" isPrintWhenDetailOverflows="true" forecolor="#362F2F" uuid="e7eaef7b-25e8-471d-b74f-2224cecff044">
 					<property name="com.jaspersoft.studio.unit.y" value="px"/>
 					<property name="com.jaspersoft.studio.unit.x" value="px"/>
 					<property name="com.jaspersoft.studio.unit.height" value="px"/>
+					<property name="com.jaspersoft.studio.unit.width" value="px"/>
 				</reportElement>
 				<box padding="5">
 					<topPen lineWidth="1.0" lineStyle="Solid" lineColor="#362F2F"/>
@@ -118,10 +111,11 @@
 		<band height="85" splitType="Stretch">
 			<property name="com.jaspersoft.studio.unit.height" value="px"/>
 			<textField textAdjust="StretchHeight">
-				<reportElement positionType="Float" stretchType="ContainerHeight" mode="Transparent" x="2" y="41" width="550" height="40" isRemoveLineWhenBlank="true" isPrintWhenDetailOverflows="true" forecolor="#362F2F" uuid="450cfe40-7995-49ac-a9a8-dcec7e20e861">
+				<reportElement positionType="Float" stretchType="ContainerHeight" mode="Transparent" x="2" y="41" width="568" height="40" isRemoveLineWhenBlank="true" isPrintWhenDetailOverflows="true" forecolor="#362F2F" uuid="450cfe40-7995-49ac-a9a8-dcec7e20e861">
 					<property name="com.jaspersoft.studio.unit.x" value="px"/>
 					<property name="com.jaspersoft.studio.unit.height" value="px"/>
 					<property name="com.jaspersoft.studio.unit.y" value="px"/>
+					<property name="com.jaspersoft.studio.unit.width" value="px"/>
 				</reportElement>
 				<box padding="5">
 					<topPen lineWidth="1.0" lineStyle="Solid" lineColor="#362F2F"/>
@@ -135,9 +129,8 @@
 				<textFieldExpression><![CDATA[$P{estadoNutricional}]]></textFieldExpression>
 			</textField>
 			<staticText>
-				<reportElement x="2" y="1" width="550" height="40" forecolor="#9E7700" uuid="20d5afad-7f95-4ad4-b776-45450757fc6a">
+				<reportElement x="2" y="1" width="568" height="40" forecolor="#9E7700" uuid="20d5afad-7f95-4ad4-b776-45450757fc6a">
 					<property name="com.jaspersoft.studio.unit.height" value="px"/>
-					<property name="com.jaspersoft.studio.unit.width" value="px"/>
 					<property name="com.jaspersoft.studio.unit.y" value="px"/>
 				</reportElement>
 				<box>
@@ -156,9 +149,8 @@
 		<band height="85" splitType="Stretch">
 			<property name="com.jaspersoft.studio.unit.height" value="px"/>
 			<staticText>
-				<reportElement x="2" y="0" width="550" height="40" forecolor="#259E00" uuid="e2da3234-4f68-4d40-acca-4eed4bd362bc">
+				<reportElement x="2" y="0" width="568" height="40" forecolor="#259E00" uuid="e2da3234-4f68-4d40-acca-4eed4bd362bc">
 					<property name="com.jaspersoft.studio.unit.height" value="px"/>
-					<property name="com.jaspersoft.studio.unit.width" value="px"/>
 					<property name="com.jaspersoft.studio.unit.x" value="px"/>
 					<property name="com.jaspersoft.studio.unit.y" value="px"/>
 				</reportElement>
@@ -175,10 +167,11 @@
 				<text><![CDATA[Onde quero chegar ?]]></text>
 			</staticText>
 			<textField textAdjust="StretchHeight">
-				<reportElement positionType="Float" stretchType="ContainerHeight" x="2" y="40" width="550" height="40" isRemoveLineWhenBlank="true" isPrintWhenDetailOverflows="true" forecolor="#362F2F" uuid="e9865f82-2f24-453c-9279-de9203b672df">
+				<reportElement positionType="Float" stretchType="ContainerHeight" x="2" y="40" width="568" height="40" isRemoveLineWhenBlank="true" isPrintWhenDetailOverflows="true" forecolor="#362F2F" uuid="e9865f82-2f24-453c-9279-de9203b672df">
 					<property name="com.jaspersoft.studio.unit.x" value="px"/>
 					<property name="com.jaspersoft.studio.unit.height" value="px"/>
 					<property name="com.jaspersoft.studio.unit.y" value="px"/>
+					<property name="com.jaspersoft.studio.unit.width" value="px"/>
 				</reportElement>
 				<box padding="5">
 					<topPen lineWidth="1.0" lineStyle="Solid" lineColor="#362F2F"/>
@@ -195,9 +188,8 @@
 		<band height="85" splitType="Stretch">
 			<property name="com.jaspersoft.studio.unit.height" value="px"/>
 			<staticText>
-				<reportElement x="2" y="1" width="550" height="40" forecolor="#009E96" uuid="02d6b461-d7e8-4070-8370-5ed8f521d0ea">
+				<reportElement x="2" y="1" width="568" height="40" forecolor="#009E96" uuid="02d6b461-d7e8-4070-8370-5ed8f521d0ea">
 					<property name="com.jaspersoft.studio.unit.height" value="px"/>
-					<property name="com.jaspersoft.studio.unit.width" value="px"/>
 					<property name="com.jaspersoft.studio.unit.y" value="px"/>
 				</reportElement>
 				<box>
@@ -213,9 +205,10 @@
 				<text><![CDATA[Como chegar ?]]></text>
 			</staticText>
 			<textField textAdjust="StretchHeight">
-				<reportElement style="Title" positionType="Float" stretchType="ContainerHeight" mode="Transparent" x="2" y="41" width="550" height="40" isRemoveLineWhenBlank="true" isPrintWhenDetailOverflows="true" forecolor="#362F2F" uuid="ae77709e-53aa-4a53-9205-1921edf481b9">
+				<reportElement positionType="Float" stretchType="ContainerHeight" mode="Transparent" x="2" y="41" width="568" height="40" isRemoveLineWhenBlank="true" isPrintWhenDetailOverflows="true" forecolor="#362F2F" uuid="ae77709e-53aa-4a53-9205-1921edf481b9">
 					<property name="com.jaspersoft.studio.unit.height" value="px"/>
 					<property name="com.jaspersoft.studio.unit.y" value="px"/>
+					<property name="com.jaspersoft.studio.unit.width" value="px"/>
 				</reportElement>
 				<box padding="5">
 					<topPen lineWidth="1.0" lineStyle="Solid" lineColor="#362F2F"/>
@@ -232,10 +225,11 @@
 		<band height="85" splitType="Stretch">
 			<property name="com.jaspersoft.studio.unit.height" value="px"/>
 			<textField textAdjust="StretchHeight">
-				<reportElement positionType="Float" stretchType="ContainerHeight" x="2" y="42" width="550" height="40" isRemoveLineWhenBlank="true" isPrintWhenDetailOverflows="true" forecolor="#362F2F" uuid="652daf8d-ceeb-4e85-9981-22bb596e2fce">
+				<reportElement positionType="Float" stretchType="ContainerHeight" x="2" y="42" width="568" height="40" isRemoveLineWhenBlank="true" isPrintWhenDetailOverflows="true" forecolor="#362F2F" uuid="652daf8d-ceeb-4e85-9981-22bb596e2fce">
 					<property name="com.jaspersoft.studio.unit.x" value="px"/>
 					<property name="com.jaspersoft.studio.unit.height" value="px"/>
 					<property name="com.jaspersoft.studio.unit.y" value="px"/>
+					<property name="com.jaspersoft.studio.unit.width" value="px"/>
 				</reportElement>
 				<box padding="5">
 					<topPen lineWidth="1.0" lineStyle="Solid" lineColor="#362F2F"/>
@@ -249,10 +243,9 @@
 				<textFieldExpression><![CDATA[$P{recomendacoes}]]></textFieldExpression>
 			</textField>
 			<staticText>
-				<reportElement x="2" y="2" width="550" height="40" forecolor="#F514F1" uuid="c977cbf3-d336-49d8-883a-6573f0beeba1">
+				<reportElement x="2" y="2" width="568" height="40" forecolor="#F514F1" uuid="c977cbf3-d336-49d8-883a-6573f0beeba1">
 					<property name="com.jaspersoft.studio.unit.x" value="px"/>
 					<property name="com.jaspersoft.studio.unit.height" value="px"/>
-					<property name="com.jaspersoft.studio.unit.width" value="px"/>
 					<property name="com.jaspersoft.studio.unit.y" value="px"/>
 				</reportElement>
 				<box>
@@ -273,8 +266,9 @@
 		<band height="5" splitType="Stretch">
 			<property name="com.jaspersoft.studio.unit.height" value="px"/>
 			<line>
-				<reportElement positionType="FixRelativeToBottom" mode="Transparent" x="0" y="3" width="555" height="2" forecolor="#000000" uuid="fa45a887-615a-4d84-a2d7-8a2219671b3c">
+				<reportElement positionType="FixRelativeToBottom" mode="Transparent" x="0" y="3" width="570" height="2" forecolor="#000000" uuid="fa45a887-615a-4d84-a2d7-8a2219671b3c">
 					<property name="com.jaspersoft.studio.unit.height" value="px"/>
+					<property name="com.jaspersoft.studio.unit.width" value="px"/>
 				</reportElement>
 				<graphicElement>
 					<pen lineWidth="3.0" lineStyle="Solid" lineColor="#960E0E"/>
@@ -287,14 +281,16 @@
 			<frame>
 				<reportElement mode="Opaque" x="-21" y="1" width="597" height="24" forecolor="#D0B48E" backcolor="#F2EBDF" uuid="183682bc-d976-4756-83e0-6625a3f98ed1"/>
 				<textField evaluationTime="Report">
-					<reportElement style="Column header" x="533" y="0" width="40" height="20" forecolor="#736343" uuid="0193f9b3-1559-491a-8580-b6988863b6a1"/>
+					<reportElement style="Column header" x="550" y="1" width="40" height="20" forecolor="#736343" uuid="0193f9b3-1559-491a-8580-b6988863b6a1"/>
 					<textElement verticalAlignment="Middle">
 						<font size="10" isBold="false"/>
 					</textElement>
 					<textFieldExpression><![CDATA[" " + $V{PAGE_NUMBER}]]></textFieldExpression>
 				</textField>
 				<textField>
-					<reportElement style="Column header" x="453" y="0" width="80" height="20" forecolor="#736343" uuid="d00b105e-494b-418b-8ac9-8b1b4824f4f0"/>
+					<reportElement style="Column header" x="470" y="1" width="80" height="20" forecolor="#736343" uuid="d00b105e-494b-418b-8ac9-8b1b4824f4f0">
+						<property name="com.jaspersoft.studio.unit.y" value="px"/>
+					</reportElement>
 					<textElement textAlignment="Right" verticalAlignment="Middle">
 						<font size="10" isBold="false"/>
 					</textElement>
@@ -314,7 +310,7 @@
 		<band height="40" splitType="Stretch">
 			<property name="com.jaspersoft.studio.unit.height" value="px"/>
 			<staticText>
-				<reportElement stretchType="ContainerHeight" x="2" y="0" width="550" height="40" forecolor="#663333" uuid="3bdf8b4a-6647-42a7-a7f0-9e7ca4c1a3de"/>
+				<reportElement stretchType="ContainerHeight" x="2" y="0" width="568" height="40" forecolor="#663333" uuid="3bdf8b4a-6647-42a7-a7f0-9e7ca4c1a3de"/>
 				<textElement textAlignment="Right">
 					<font fontName="Script MT Bold" size="13"/>
 				</textElement>
