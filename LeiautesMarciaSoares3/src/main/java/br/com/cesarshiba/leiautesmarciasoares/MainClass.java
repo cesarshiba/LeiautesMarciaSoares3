@@ -23,7 +23,7 @@ public class MainClass extends Application {
 	 * devido localização dos formulários e 
 	 * arquivos auxiliares em pastas diferentes
 	 */
-	private static boolean PRODUCAO = true;
+	private static boolean PRODUCAO = false;
 
 	public static void main(String[] args) {
 		launch(args);

@@ -307,15 +307,22 @@
 		</band>
 	</pageFooter>
 	<summary>
-		<band height="40" splitType="Stretch">
+		<band height="86" splitType="Stretch">
 			<property name="com.jaspersoft.studio.unit.height" value="px"/>
 			<staticText>
 				<reportElement stretchType="ContainerHeight" x="2" y="0" width="568" height="40" forecolor="#663333" uuid="3bdf8b4a-6647-42a7-a7f0-9e7ca4c1a3de"/>
 				<textElement textAlignment="Right">
-					<font fontName="Script MT Bold" size="13"/>
+					<font fontName="Script MT Bold" size="15"/>
 				</textElement>
 				<text><![CDATA["Seremos amanhã tudo aquilo que realizarmos sistematicamente ao longo de uma vida" 
 Dr. Dráuzio Varella]]></text>
+			</staticText>
+			<staticText>
+				<reportElement stretchType="ContainerHeight" x="203" y="40" width="148" height="45" forecolor="#663333" uuid="c8624bf9-e7ec-4ced-a26a-531757377838"/>
+				<textElement textAlignment="Center">
+					<font fontName="Script MT Bold" size="15"/>
+				</textElement>
+				<text><![CDATA[Pense nisso e boa sorte!  Nutri Márcia Soares]]></text>
 			</staticText>
 		</band>
 	</summary>

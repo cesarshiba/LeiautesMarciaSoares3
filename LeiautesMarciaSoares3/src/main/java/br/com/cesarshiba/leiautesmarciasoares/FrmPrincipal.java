@@ -255,11 +255,12 @@ public class FrmPrincipal implements Initializable{
     	tblClientes.setOnMouseClicked(event -> {
     		if(event.getClickCount() == 2) {
     			ClienteNomeSexoEmail dblClick = tblClientes.getSelectionModel().getSelectedItem();
-		    	clienteSelecionado = dblClick.getNomeCliente();
-				dataSelecionada = "";
-				lblDataSelecionada.setText("");
-				montaPainelPrincipal();
-    		}});
+    			clienteSelecionado = dblClick.getNomeCliente();
+    			dataSelecionada = "";
+    			lblDataSelecionada.setText("");
+    			montaPainelPrincipal();
+    		}
+    	});
 		/*
 		 * Botão de cadastro
 		 */
@@ -734,7 +735,7 @@ public class FrmPrincipal implements Initializable{
     	Scene scene = new Scene(root);
     	scene.setFill(Color.TRANSPARENT);
     	stage.setScene(scene);
-    	stage.setResizable(false);
+    	//stage.setResizable(false);
     	stage.initModality(Modality.APPLICATION_MODAL);
     	stage.initStyle(StageStyle.TRANSPARENT);
     	stage.show();

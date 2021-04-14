@@ -11,11 +11,12 @@
 <?import javafx.scene.layout.GridPane?>
 <?import javafx.scene.layout.HBox?>
 <?import javafx.scene.layout.RowConstraints?>
+<?import javafx.scene.layout.VBox?>
 <?import javafx.scene.text.Font?>
 
-<ScrollPane fx:id="scrPane" cache="true" prefWidth="615.0" stylesheets="@TelaMedidas.css" xmlns="http://javafx.com/javafx/11.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="br.com.cesarshiba.leiautesmarciasoares.FrmTelaMedidas">
+<ScrollPane fx:id="scrPane" cache="true" fitToHeight="true" prefHeight="591.0" prefWidth="782.0" stylesheets="@TelaMedidas.css" xmlns="http://javafx.com/javafx/11.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="br.com.cesarshiba.leiautesmarciasoares.FrmTelaMedidas">
    <content>
-      <BorderPane fx:id="root" cache="true" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="680.0" prefWidth="600.0" style="-fx-background-color: #f7f7f7; -fx-background-radius: 20; -fx-border-radius: 20;">
+      <BorderPane fx:id="root" cache="true" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="582.0" prefWidth="780.0" style="-fx-background-color: #f7f7f7; -fx-background-radius: 20; -fx-border-radius: 20;">
          <top>
             <Label text="Medidas" textFill="#414247" BorderPane.alignment="CENTER">
                <font>
@@ -27,7 +28,7 @@
             </Label>
          </top>
          <bottom>
-            <HBox alignment="CENTER" prefHeight="100.0" prefWidth="200.0" spacing="20.0" BorderPane.alignment="CENTER">
+            <HBox alignment="CENTER" prefHeight="56.0" prefWidth="780.0" spacing="20.0" BorderPane.alignment="CENTER">
                <children>
                   <Button fx:id="btnSalvar" defaultButton="true" mnemonicParsing="false" prefHeight="41.0" prefWidth="130.0" style="-fx-background-color: #c8ffa1; -fx-border-color: #414247; -fx-border-radius: 20; -fx-background-radius: 20;" text="Salvar" textFill="#414247">
                      <font>
@@ -52,267 +53,522 @@
             </HBox>
          </bottom>
          <center>
-            <GridPane BorderPane.alignment="CENTER">
+            <GridPane prefHeight="428.0" prefWidth="760.0" BorderPane.alignment="CENTER">
               <columnConstraints>
-                <ColumnConstraints hgrow="SOMETIMES" maxWidth="315.0" minWidth="10.0" prefWidth="160.0" />
-                <ColumnConstraints hgrow="SOMETIMES" maxWidth="400.0" minWidth="10.0" prefWidth="400.0" />
+                <ColumnConstraints halignment="CENTER" hgrow="SOMETIMES" maxWidth="519.0" minWidth="10.0" prefWidth="355.0" />
+                  <ColumnConstraints halignment="CENTER" hgrow="SOMETIMES" maxWidth="459.0" minWidth="10.0" prefWidth="16.0" />
+                  <ColumnConstraints hgrow="SOMETIMES" maxWidth="672.0" minWidth="10.0" prefWidth="449.0" />
               </columnConstraints>
               <rowConstraints>
-                <RowConstraints maxHeight="1.7976931348623157E308" minHeight="10.0" prefHeight="20.0" vgrow="SOMETIMES" />
-                <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
-                <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
-                  <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
-                  <RowConstraints maxHeight="83.0" minHeight="10.0" prefHeight="65.0" vgrow="SOMETIMES" />
-                  <RowConstraints maxHeight="65.0" minHeight="10.0" prefHeight="65.0" vgrow="SOMETIMES" />
-                  <RowConstraints maxHeight="65.0" minHeight="10.0" prefHeight="65.0" vgrow="SOMETIMES" />
+                  <RowConstraints maxHeight="1.7976931348623157E308" minHeight="10.0" prefHeight="96.0" vgrow="SOMETIMES" />
+                <RowConstraints maxHeight="1.7976931348623157E308" minHeight="10.0" prefHeight="110.0" vgrow="SOMETIMES" />
+                <RowConstraints maxHeight="136.0" minHeight="10.0" prefHeight="106.0" vgrow="SOMETIMES" />
+                <RowConstraints maxHeight="147.0" minHeight="2.0" prefHeight="107.0" vgrow="SOMETIMES" />
               </rowConstraints>
                <children>
-                  <Label text="Atividade física" textFill="#414247">
-                     <font>
-                        <Font name="Leelawadee UI Semilight" size="20.0" />
-                     </font>
-                     <GridPane.margin>
-                        <Insets bottom="10.0" left="10.0" right="10.0" top="10.0" />
-                     </GridPane.margin>
-                  </Label>
-                  <Label text="Altura" textFill="#414247" GridPane.columnSpan="2" GridPane.rowIndex="1">
-                     <font>
-                        <Font name="Leelawadee UI Semilight" size="20.0" />
-                     </font>
-                     <GridPane.margin>
-                        <Insets bottom="10.0" left="10.0" right="10.0" top="10.0" />
-                     </GridPane.margin>
-                  </Label>
-                  <TextField fx:id="txtAltura" alignment="CENTER" promptText="metros" style="-fx-background-color: #c8ffa1; -fx-text-fill: #414247; -fx-border-color: #414247;" GridPane.columnIndex="1" GridPane.rowIndex="1">
-                     <font>
-                        <Font name="Leelawadee UI Semilight" size="20.0" />
-                     </font>
-                  </TextField>
-                  <HBox alignment="CENTER" layoutX="180.0" layoutY="218.0" prefHeight="44.0" prefWidth="200.0" spacing="30.0" style="-fx-background-color: #c8ffa1; -fx-background-radius: 5; -fx-border-color: #414247;" GridPane.columnIndex="1">
+                  <VBox prefHeight="200.0" prefWidth="100.0" GridPane.halignment="CENTER">
                      <children>
-                        <RadioButton fx:id="optBaixaAtividadeFisica" mnemonicParsing="false" text="Baixa" textFill="#414247">
+                        <Label alignment="CENTER" contentDisplay="CENTER" prefHeight="30.0" prefWidth="340.0" text="Atividade física" textFill="#414247">
                            <font>
-                              <Font name="Leelawadee UI Semilight" size="15.0" />
+                              <Font name="Leelawadee UI Semilight" size="20.0" />
                            </font>
-                        </RadioButton>
-                        <RadioButton fx:id="optMediaAtividadeFisica" mnemonicParsing="false" text="Média" textFill="#414247">
-                           <font>
-                              <Font name="Leelawadee UI Semilight" size="15.0" />
-                           </font>
-                        </RadioButton>
-                        <RadioButton fx:id="optAltaAtividadeFisica" layoutX="222.0" layoutY="33.0" mnemonicParsing="false" text="Alta" textFill="#414247">
-                           <font>
-                              <Font name="Leelawadee UI Semilight" size="15.0" />
-                           </font>
-                        </RadioButton>
+                        </Label>
+                        <HBox alignment="CENTER" prefHeight="44.0" prefWidth="200.0" spacing="30.0" style="-fx-background-color: #c8ffa1; -fx-background-radius: 5; -fx-border-color: #414247;">
+                           <children>
+                              <RadioButton fx:id="optBaixaAtividadeFisica" mnemonicParsing="false" text="Baixa" textFill="#414247">
+                                 <font>
+                                    <Font name="Leelawadee UI Semilight" size="15.0" />
+                                 </font>
+                              </RadioButton>
+                              <RadioButton fx:id="optMediaAtividadeFisica" mnemonicParsing="false" text="Média" textFill="#414247">
+                                 <font>
+                                    <Font name="Leelawadee UI Semilight" size="15.0" />
+                                 </font>
+                              </RadioButton>
+                              <RadioButton fx:id="optAltaAtividadeFisica" layoutX="222.0" layoutY="33.0" mnemonicParsing="false" text="Alta" textFill="#414247">
+                                 <font>
+                                    <Font name="Leelawadee UI Semilight" size="15.0" />
+                                 </font>
+                              </RadioButton>
+                           </children>
+                           <opaqueInsets>
+                              <Insets />
+                           </opaqueInsets>
+                        </HBox>
                      </children>
-                     <opaqueInsets>
-                        <Insets />
-                     </opaqueInsets>
-                  </HBox>
-                  <Label layoutX="30.0" layoutY="104.0" text="VET estimado" textFill="#414247" GridPane.rowIndex="2">
-                     <font>
-                        <Font name="Leelawadee UI Semilight" size="20.0" />
-                     </font>
-                     <GridPane.margin>
-                        <Insets bottom="10.0" left="10.0" right="10.0" top="10.0" />
-                     </GridPane.margin>
-                  </Label>
-                  <TextField fx:id="txtVET" alignment="CENTER" layoutX="180.0" layoutY="97.0" promptText="vet" style="-fx-background-color: #c8ffa1; -fx-text-fill: #414247; -fx-border-color: #414247;" GridPane.columnIndex="1" GridPane.rowIndex="2">
-                     <font>
-                        <Font name="Leelawadee UI Semilight" size="20.0" />
-                     </font>
-                  </TextField>
-                  <Label layoutX="30.0" layoutY="170.0" text="Impedância" textFill="#414247" GridPane.rowIndex="3">
-                     <font>
-                        <Font name="Leelawadee UI Semilight" size="20.0" />
-                     </font>
-                     <GridPane.margin>
-                        <Insets bottom="10.0" left="10.0" right="10.0" top="10.0" />
-                     </GridPane.margin>
-                  </Label>
-                  <TextField fx:id="txtImpedancia" alignment="CENTER" layoutX="180.0" layoutY="163.0" promptText="impedância" style="-fx-background-color: #c8ffa1; -fx-text-fill: #414247; -fx-border-color: #414247;" GridPane.columnIndex="1" GridPane.rowIndex="3">
-                     <font>
-                        <Font name="Leelawadee UI Semilight" size="20.0" />
-                     </font>
-                  </TextField>
-                  <Label layoutX="30.0" layoutY="236.0" text="Peso" textFill="#414247" GridPane.rowIndex="4">
-                     <font>
-                        <Font name="Leelawadee UI Semilight" size="20.0" />
-                     </font>
-                     <GridPane.margin>
-                        <Insets bottom="10.0" left="10.0" right="10.0" top="10.0" />
-                     </GridPane.margin>
-                  </Label>
-                  <GridPane alignment="CENTER" hgap="5.0" GridPane.columnIndex="1" GridPane.rowIndex="4">
+                  </VBox>
+                  <GridPane prefHeight="89.0" prefWidth="339.0" style="-fx-background-color: #c8ffa1; -fx-border-color: #414247;" GridPane.columnIndex="2">
                     <columnConstraints>
                       <ColumnConstraints hgrow="SOMETIMES" minWidth="10.0" prefWidth="100.0" />
                       <ColumnConstraints hgrow="SOMETIMES" minWidth="10.0" prefWidth="100.0" />
-                        <ColumnConstraints hgrow="SOMETIMES" maxWidth="83.0" minWidth="10.0" prefWidth="36.0" />
-                        <ColumnConstraints hgrow="SOMETIMES" maxWidth="69.0" minWidth="10.0" prefWidth="60.0" />
-                        <ColumnConstraints hgrow="SOMETIMES" maxWidth="57.0" minWidth="10.0" prefWidth="19.0" />
-                        <ColumnConstraints hgrow="SOMETIMES" maxWidth="82.0" minWidth="10.0" prefWidth="60.0" />
-                        <ColumnConstraints />
+                        <ColumnConstraints hgrow="SOMETIMES" minWidth="10.0" prefWidth="100.0" />
                     </columnConstraints>
                     <rowConstraints>
-                      <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
-                      <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
+                      <RowConstraints maxHeight="82.0" minHeight="10.0" prefHeight="38.0" vgrow="SOMETIMES" />
+                      <RowConstraints maxHeight="75.0" minHeight="10.0" prefHeight="56.0" vgrow="SOMETIMES" />
                     </rowConstraints>
                      <children>
-                        <Label alignment="CENTER" contentDisplay="CENTER" text="Atual" textFill="#414247" GridPane.halignment="CENTER">
+                        <Label alignment="BOTTOM_CENTER" contentDisplay="CENTER" prefHeight="30.0" prefWidth="116.0" text="Altura" textFill="#414247" GridPane.halignment="CENTER" GridPane.valignment="BOTTOM">
                            <font>
-                              <Font name="Leelawadee UI Semilight" size="15.0" />
+                              <Font name="Leelawadee UI Semilight" size="20.0" />
                            </font>
                         </Label>
-                        <TextField fx:id="txtPesoAtual" alignment="CENTER" promptText="kg" style="-fx-background-color: #c8ffa1; -fx-text-fill: #414247; -fx-border-color: #414247;" GridPane.rowIndex="1">
+                        <TextField fx:id="txtAltura" alignment="CENTER" promptText="metros" style="-fx-background-color: #ffffff; -fx-text-fill: #414247; -fx-border-color: #414247;" GridPane.rowIndex="1">
                            <font>
-                              <Font name="Leelawadee UI Semilight" size="15.0" />
+                              <Font name="Leelawadee UI Semilight" size="20.0" />
                            </font>
                         </TextField>
-                        <Label alignment="CENTER" contentDisplay="CENTER" layoutX="10.0" layoutY="16.0" text="Desejado" textFill="#414247" GridPane.columnIndex="1" GridPane.halignment="CENTER">
+                        <Label alignment="CENTER" contentDisplay="CENTER" prefHeight="27.0" prefWidth="113.0" text="VET estimado" textFill="#414247" wrapText="true" GridPane.columnIndex="1" GridPane.halignment="CENTER" GridPane.valignment="BOTTOM">
                            <font>
-                              <Font name="Leelawadee UI Semilight" size="15.0" />
+                              <Font name="Leelawadee UI Semilight" size="18.0" />
                            </font>
                         </Label>
-                        <TextField fx:id="txtPesoDesejado" alignment="CENTER" layoutX="10.0" layoutY="44.0" promptText="kg" style="-fx-background-color: #c8ffa1; -fx-text-fill: #414247; -fx-border-color: #414247;" GridPane.columnIndex="1" GridPane.rowIndex="1">
+                        <TextField fx:id="txtVET" alignment="CENTER" promptText="vet" style="-fx-background-color: #ffffff; -fx-text-fill: #414247; -fx-border-color: #414247;" GridPane.columnIndex="1" GridPane.rowIndex="1">
                            <font>
-                              <Font name="Leelawadee UI Semilight" size="15.0" />
+                              <Font name="Leelawadee UI Semilight" size="20.0" />
                            </font>
                         </TextField>
-                        <Label alignment="CENTER" contentDisplay="CENTER" layoutX="76.0" layoutY="16.0" text="Variação desejada" textFill="#414247" GridPane.columnIndex="3" GridPane.columnSpan="4" GridPane.halignment="LEFT">
+                        <Label alignment="CENTER" prefHeight="30.0" prefWidth="109.0" text="Impedância" textFill="#414247" GridPane.columnIndex="2" GridPane.halignment="CENTER" GridPane.valignment="BOTTOM">
                            <font>
-                              <Font name="Leelawadee UI Semilight" size="15.0" />
+                              <Font name="Leelawadee UI Semilight" size="20.0" />
                            </font>
                         </Label>
-                        <Label alignment="CENTER" contentDisplay="CENTER" layoutX="10.0" layoutY="16.0" text="de" textFill="#414247" GridPane.columnIndex="2" GridPane.halignment="RIGHT" GridPane.rowIndex="1">
+                        <TextField fx:id="txtImpedancia" alignment="CENTER" promptText="impedância" style="-fx-background-color: #ffffff; -fx-text-fill: #414247; -fx-border-color: #414247;" GridPane.columnIndex="2" GridPane.rowIndex="1">
                            <font>
-                              <Font name="Leelawadee UI Semilight" size="15.0" />
-                           </font>
-                           <GridPane.margin>
-                              <Insets bottom="2.0" left="2.0" right="2.0" top="2.0" />
-                           </GridPane.margin>
-                        </Label>
-                        <Label alignment="CENTER" contentDisplay="CENTER" layoutX="98.0" layoutY="49.0" text="a" textFill="#414247" GridPane.columnIndex="4" GridPane.halignment="CENTER" GridPane.rowIndex="1">
-                           <font>
-                              <Font name="Leelawadee UI Semilight" size="15.0" />
-                           </font>
-                        </Label>
-                        <TextField fx:id="txtPesoVariacaoMinima" alignment="CENTER" layoutX="76.0" layoutY="44.0" promptText="kg" style="-fx-background-color: #c8ffa1; -fx-text-fill: #414247; -fx-border-color: #414247;" GridPane.columnIndex="3" GridPane.rowIndex="1">
-                           <font>
-                              <Font name="Leelawadee UI Semilight" size="15.0" />
-                           </font>
-                        </TextField>
-                        <TextField fx:id="txtPesoVariacaoMaxima" alignment="CENTER" layoutX="76.0" layoutY="44.0" promptText="kg" style="-fx-background-color: #c8ffa1; -fx-text-fill: #414247; -fx-border-color: #414247;" GridPane.columnIndex="5" GridPane.rowIndex="1">
-                           <font>
-                              <Font name="Leelawadee UI Semilight" size="15.0" />
+                              <Font name="Leelawadee UI Semilight" size="20.0" />
                            </font>
                         </TextField>
                      </children>
                   </GridPane>
-                  <Label layoutX="30.0" layoutY="292.0" text="TMB" textFill="#414247" GridPane.rowIndex="5">
-                     <font>
-                        <Font name="Leelawadee UI Semilight" size="20.0" />
-                     </font>
-                     <GridPane.margin>
-                        <Insets bottom="10.0" left="10.0" right="10.0" top="10.0" />
-                     </GridPane.margin>
-                  </Label>
-                  <GridPane alignment="CENTER" hgap="5.0" layoutX="180.0" layoutY="265.0" GridPane.columnIndex="1" GridPane.rowIndex="5">
-                     <columnConstraints>
-                        <ColumnConstraints hgrow="SOMETIMES" minWidth="10.0" prefWidth="100.0" />
-                        <ColumnConstraints hgrow="SOMETIMES" minWidth="10.0" prefWidth="100.0" />
-                        <ColumnConstraints />
-                     </columnConstraints>
-                     <rowConstraints>
-                        <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
-                        <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
-                     </rowConstraints>
+                  <VBox prefHeight="200.0" prefWidth="100.0" style="-fx-background-color: #c8ffa1; -fx-border-color: #414247;" GridPane.rowIndex="1">
                      <children>
-                        <Label alignment="CENTER" contentDisplay="CENTER" text="Total" textFill="#414247" GridPane.halignment="CENTER">
+                        <Label alignment="CENTER" contentDisplay="CENTER" prefHeight="30.0" prefWidth="340.0" text="Peso" textAlignment="CENTER" textFill="#414247">
                            <font>
-                              <Font name="Leelawadee UI Semilight" size="15.0" />
+                              <Font name="Leelawadee UI Semilight" size="20.0" />
                            </font>
                         </Label>
-                        <TextField fx:id="txtTMBTotal" alignment="CENTER" promptText="kg" style="-fx-background-color: #c8ffa1; -fx-text-fill: #414247; -fx-border-color: #414247;" GridPane.rowIndex="1">
-                           <font>
-                              <Font name="Leelawadee UI Semilight" size="15.0" />
-                           </font>
-                        </TextField>
-                        <Label alignment="CENTER" contentDisplay="CENTER" layoutX="10.0" layoutY="16.0" text="Total / Peso" textFill="#414247" GridPane.columnIndex="1" GridPane.halignment="CENTER">
-                           <font>
-                              <Font name="Leelawadee UI Semilight" size="15.0" />
-                           </font>
-                        </Label>
-                        <TextField fx:id="txtTMBTotalPeso" alignment="CENTER" layoutX="10.0" layoutY="44.0" promptText="kg" style="-fx-background-color: #c8ffa1; -fx-text-fill: #414247; -fx-border-color: #414247;" GridPane.columnIndex="1" GridPane.rowIndex="1">
-                           <font>
-                              <Font name="Leelawadee UI Semilight" size="15.0" />
-                           </font>
-                        </TextField>
+                        <GridPane alignment="CENTER" hgap="5.0">
+                          <columnConstraints>
+                            <ColumnConstraints hgrow="SOMETIMES" maxWidth="81.0" minWidth="10.0" prefWidth="69.0" />
+                            <ColumnConstraints hgrow="SOMETIMES" maxWidth="105.0" minWidth="10.0" prefWidth="67.0" />
+                              <ColumnConstraints hgrow="SOMETIMES" maxWidth="83.0" minWidth="10.0" prefWidth="48.0" />
+                              <ColumnConstraints hgrow="SOMETIMES" maxWidth="69.0" minWidth="10.0" prefWidth="60.0" />
+                              <ColumnConstraints hgrow="SOMETIMES" maxWidth="57.0" minWidth="10.0" prefWidth="19.0" />
+                              <ColumnConstraints hgrow="SOMETIMES" maxWidth="82.0" minWidth="10.0" prefWidth="60.0" />
+                              <ColumnConstraints />
+                          </columnConstraints>
+                          <rowConstraints>
+                            <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
+                            <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
+                          </rowConstraints>
+                           <children>
+                              <Label alignment="CENTER" contentDisplay="CENTER" text="Atual" textFill="#414247" GridPane.halignment="CENTER">
+                                 <font>
+                                    <Font name="Leelawadee UI Semilight" size="15.0" />
+                                 </font>
+                              </Label>
+                              <TextField fx:id="txtPesoAtual" alignment="CENTER" promptText="kg" style="-fx-text-fill: #414247; -fx-border-color: #414247;" GridPane.rowIndex="1">
+                                 <font>
+                                    <Font name="Leelawadee UI Semilight" size="15.0" />
+                                 </font>
+                              </TextField>
+                              <Label alignment="CENTER" contentDisplay="CENTER" layoutX="10.0" layoutY="16.0" text="Desejado" textFill="#414247" GridPane.columnIndex="1" GridPane.halignment="CENTER">
+                                 <font>
+                                    <Font name="Leelawadee UI Semilight" size="15.0" />
+                                 </font>
+                              </Label>
+                              <TextField fx:id="txtPesoDesejado" alignment="CENTER" layoutX="10.0" layoutY="44.0" promptText="kg" style="-fx-text-fill: #414247; -fx-border-color: #414247;" GridPane.columnIndex="1" GridPane.rowIndex="1">
+                                 <font>
+                                    <Font name="Leelawadee UI Semilight" size="15.0" />
+                                 </font>
+                              </TextField>
+                              <Label alignment="CENTER" contentDisplay="CENTER" layoutX="76.0" layoutY="16.0" text="Variação desejada" textFill="#414247" GridPane.columnIndex="3" GridPane.columnSpan="4" GridPane.halignment="LEFT">
+                                 <font>
+                                    <Font name="Leelawadee UI Semilight" size="15.0" />
+                                 </font>
+                              </Label>
+                              <Label alignment="CENTER" contentDisplay="CENTER" layoutX="10.0" layoutY="16.0" text="de" textFill="#414247" GridPane.columnIndex="2" GridPane.halignment="RIGHT" GridPane.rowIndex="1">
+                                 <font>
+                                    <Font name="Leelawadee UI Semilight" size="15.0" />
+                                 </font>
+                                 <GridPane.margin>
+                                    <Insets bottom="2.0" left="2.0" right="2.0" top="2.0" />
+                                 </GridPane.margin>
+                              </Label>
+                              <Label alignment="CENTER" contentDisplay="CENTER" layoutX="98.0" layoutY="49.0" text="a" textFill="#414247" GridPane.columnIndex="4" GridPane.halignment="CENTER" GridPane.rowIndex="1">
+                                 <font>
+                                    <Font name="Leelawadee UI Semilight" size="15.0" />
+                                 </font>
+                              </Label>
+                              <TextField fx:id="txtPesoVariacaoMinima" alignment="CENTER" layoutX="76.0" layoutY="44.0" promptText="kg" style="-fx-text-fill: #414247; -fx-border-color: #414247;" GridPane.columnIndex="3" GridPane.rowIndex="1">
+                                 <font>
+                                    <Font name="Leelawadee UI Semilight" size="15.0" />
+                                 </font>
+                              </TextField>
+                              <TextField fx:id="txtPesoVariacaoMaxima" alignment="CENTER" layoutX="76.0" layoutY="44.0" promptText="kg" style="-fx-text-fill: #414247; -fx-border-color: #414247;" GridPane.columnIndex="5" GridPane.rowIndex="1">
+                                 <font>
+                                    <Font name="Leelawadee UI Semilight" size="15.0" />
+                                 </font>
+                              </TextField>
+                           </children>
+                        </GridPane>
                      </children>
-                  </GridPane>
-                  <Label layoutX="30.0" layoutY="501.0" text="IMC" textFill="#414247" GridPane.rowIndex="6">
-                     <font>
-                        <Font name="Leelawadee UI Semilight" size="20.0" />
-                     </font>
-                     <GridPane.margin>
-                        <Insets bottom="10.0" left="10.0" right="10.0" top="10.0" />
-                     </GridPane.margin>
-                  </Label>
-                  <GridPane alignment="CENTER" hgap="5.0" layoutX="180.0" layoutY="400.0" GridPane.columnIndex="1" GridPane.rowIndex="6">
-                     <columnConstraints>
-                        <ColumnConstraints hgrow="SOMETIMES" minWidth="10.0" prefWidth="100.0" />
-                        <ColumnConstraints hgrow="SOMETIMES" maxWidth="83.0" minWidth="10.0" prefWidth="36.0" />
-                        <ColumnConstraints hgrow="SOMETIMES" maxWidth="96.0" minWidth="10.0" prefWidth="96.0" />
-                        <ColumnConstraints hgrow="SOMETIMES" maxWidth="57.0" minWidth="10.0" prefWidth="15.0" />
-                        <ColumnConstraints hgrow="SOMETIMES" maxWidth="96.0" minWidth="10.0" prefWidth="94.0" />
-                        <ColumnConstraints />
-                        <ColumnConstraints />
-                     </columnConstraints>
-                     <rowConstraints>
-                        <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
-                        <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
-                     </rowConstraints>
+                  </VBox>
+                  <VBox prefHeight="200.0" prefWidth="100.0" style="-fx-background-color: #c8ffa1; -fx-border-color: #414247;" GridPane.rowIndex="2">
                      <children>
-                        <Label alignment="CENTER" contentDisplay="CENTER" text="Calculado" textFill="#414247" GridPane.halignment="CENTER">
+                        <Label alignment="CENTER" prefHeight="30.0" prefWidth="340.0" text="TMB" textFill="#414247">
                            <font>
-                              <Font name="Leelawadee UI Semilight" size="15.0" />
+                              <Font name="Leelawadee UI Semilight" size="20.0" />
                            </font>
                         </Label>
-                        <TextField fx:id="txtIMCCalculado" alignment="CENTER" promptText="kg" style="-fx-background-color: #c8ffa1; -fx-text-fill: #414247; -fx-border-color: #414247;" GridPane.rowIndex="1">
-                           <font>
-                              <Font name="Leelawadee UI Semilight" size="15.0" />
-                           </font>
-                        </TextField>
-                        <Label alignment="CENTER" contentDisplay="CENTER" layoutX="76.0" layoutY="16.0" text="Ideal" textFill="#414247" GridPane.columnIndex="2" GridPane.columnSpan="5" GridPane.halignment="LEFT">
-                           <font>
-                              <Font name="Leelawadee UI Semilight" size="15.0" />
-                           </font>
-                        </Label>
-                        <Label alignment="CENTER" contentDisplay="CENTER" layoutX="10.0" layoutY="16.0" text="de" textFill="#414247" GridPane.columnIndex="1" GridPane.halignment="RIGHT" GridPane.rowIndex="1">
-                           <font>
-                              <Font name="Leelawadee UI Semilight" size="15.0" />
-                           </font>
-                           <GridPane.margin>
-                              <Insets bottom="2.0" left="2.0" right="2.0" top="2.0" />
-                           </GridPane.margin>
-                        </Label>
-                        <Label alignment="CENTER" contentDisplay="CENTER" layoutX="98.0" layoutY="49.0" text="a" textFill="#414247" GridPane.columnIndex="3" GridPane.halignment="CENTER" GridPane.rowIndex="1">
-                           <font>
-                              <Font name="Leelawadee UI Semilight" size="15.0" />
-                           </font>
-                        </Label>
-                        <TextField fx:id="txtIMCMinimo" alignment="CENTER" layoutX="76.0" layoutY="44.0" promptText="kg" style="-fx-background-color: #c8ffa1; -fx-text-fill: #414247; -fx-border-color: #414247;" GridPane.columnIndex="2" GridPane.rowIndex="1">
-                           <font>
-                              <Font name="Leelawadee UI Semilight" size="15.0" />
-                           </font>
-                        </TextField>
-                        <TextField fx:id="txtIMCMaximo" alignment="CENTER" layoutX="76.0" layoutY="44.0" promptText="kg" style="-fx-background-color: #c8ffa1; -fx-text-fill: #414247; -fx-border-color: #414247;" GridPane.columnIndex="4" GridPane.rowIndex="1">
-                           <font>
-                              <Font name="Leelawadee UI Semilight" size="15.0" />
-                           </font>
-                        </TextField>
+                        <GridPane alignment="CENTER" hgap="5.0" prefHeight="55.0" prefWidth="339.0">
+                           <columnConstraints>
+                              <ColumnConstraints hgrow="SOMETIMES" minWidth="10.0" prefWidth="100.0" />
+                              <ColumnConstraints hgrow="SOMETIMES" minWidth="10.0" prefWidth="100.0" />
+                              <ColumnConstraints />
+                           </columnConstraints>
+                           <rowConstraints>
+                              <RowConstraints maxHeight="25.0" minHeight="10.0" prefHeight="19.0" vgrow="SOMETIMES" />
+                              <RowConstraints maxHeight="41.0" minHeight="10.0" prefHeight="41.0" vgrow="SOMETIMES" />
+                           </rowConstraints>
+                           <children>
+                              <Label alignment="CENTER" contentDisplay="CENTER" text="Total" textFill="#414247" GridPane.halignment="CENTER">
+                                 <font>
+                                    <Font name="Leelawadee UI Semilight" size="15.0" />
+                                 </font>
+                              </Label>
+                              <TextField fx:id="txtTMBTotal" alignment="CENTER" promptText="kg" style="-fx-text-fill: #414247; -fx-border-color: #414247;" GridPane.rowIndex="1">
+                                 <font>
+                                    <Font name="Leelawadee UI Semilight" size="15.0" />
+                                 </font>
+                              </TextField>
+                              <Label alignment="CENTER" contentDisplay="CENTER" layoutX="10.0" layoutY="16.0" text="Total / Peso" textFill="#414247" GridPane.columnIndex="1" GridPane.halignment="CENTER">
+                                 <font>
+                                    <Font name="Leelawadee UI Semilight" size="15.0" />
+                                 </font>
+                              </Label>
+                              <TextField fx:id="txtTMBTotalPeso" alignment="CENTER" layoutX="10.0" layoutY="44.0" promptText="kg" style="-fx-text-fill: #414247; -fx-border-color: #414247;" GridPane.columnIndex="1" GridPane.rowIndex="1">
+                                 <font>
+                                    <Font name="Leelawadee UI Semilight" size="15.0" />
+                                 </font>
+                              </TextField>
+                           </children>
+                        </GridPane>
                      </children>
-                  </GridPane>
+                  </VBox>
+                  <VBox prefHeight="200.0" prefWidth="100.0" style="-fx-background-color: #c8ffa1; -fx-border-color: #414247;" GridPane.rowIndex="3">
+                     <children>
+                        <Label alignment="CENTER" prefHeight="30.0" prefWidth="346.0" text="IMC" textFill="#414247">
+                           <font>
+                              <Font name="Leelawadee UI Semilight" size="20.0" />
+                           </font>
+                        </Label>
+                        <GridPane alignment="CENTER" hgap="5.0" prefHeight="50.0" prefWidth="339.0">
+                           <columnConstraints>
+                              <ColumnConstraints hgrow="SOMETIMES" minWidth="10.0" prefWidth="100.0" />
+                              <ColumnConstraints hgrow="SOMETIMES" maxWidth="83.0" minWidth="10.0" prefWidth="36.0" />
+                              <ColumnConstraints hgrow="SOMETIMES" maxWidth="96.0" minWidth="10.0" prefWidth="96.0" />
+                              <ColumnConstraints hgrow="SOMETIMES" maxWidth="57.0" minWidth="10.0" prefWidth="15.0" />
+                              <ColumnConstraints hgrow="SOMETIMES" maxWidth="96.0" minWidth="10.0" prefWidth="94.0" />
+                              <ColumnConstraints />
+                              <ColumnConstraints />
+                           </columnConstraints>
+                           <rowConstraints>
+                              <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
+                              <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
+                           </rowConstraints>
+                           <children>
+                              <Label alignment="CENTER" contentDisplay="CENTER" text="Calculado" textFill="#414247" GridPane.halignment="CENTER">
+                                 <font>
+                                    <Font name="Leelawadee UI Semilight" size="15.0" />
+                                 </font>
+                              </Label>
+                              <TextField fx:id="txtIMCCalculado" alignment="CENTER" promptText="kg" style="-fx-text-fill: #414247; -fx-border-color: #414247;" GridPane.rowIndex="1">
+                                 <font>
+                                    <Font name="Leelawadee UI Semilight" size="15.0" />
+                                 </font>
+                              </TextField>
+                              <Label alignment="CENTER" contentDisplay="CENTER" layoutX="76.0" layoutY="16.0" text="Ideal" textFill="#414247" GridPane.columnIndex="2" GridPane.columnSpan="5" GridPane.halignment="CENTER">
+                                 <font>
+                                    <Font name="Leelawadee UI Semilight" size="15.0" />
+                                 </font>
+                              </Label>
+                              <Label alignment="CENTER" contentDisplay="CENTER" layoutX="10.0" layoutY="16.0" text="de" textFill="#414247" GridPane.columnIndex="1" GridPane.halignment="RIGHT" GridPane.rowIndex="1">
+                                 <font>
+                                    <Font name="Leelawadee UI Semilight" size="15.0" />
+                                 </font>
+                                 <GridPane.margin>
+                                    <Insets bottom="2.0" left="2.0" right="2.0" top="2.0" />
+                                 </GridPane.margin>
+                              </Label>
+                              <Label alignment="CENTER" contentDisplay="CENTER" layoutX="98.0" layoutY="49.0" text="a" textFill="#414247" GridPane.columnIndex="3" GridPane.halignment="CENTER" GridPane.rowIndex="1">
+                                 <font>
+                                    <Font name="Leelawadee UI Semilight" size="15.0" />
+                                 </font>
+                              </Label>
+                              <TextField fx:id="txtIMCMinimo" alignment="CENTER" layoutX="76.0" layoutY="44.0" promptText="kg" style="-fx-text-fill: #414247; -fx-border-color: #414247;" GridPane.columnIndex="2" GridPane.rowIndex="1">
+                                 <font>
+                                    <Font name="Leelawadee UI Semilight" size="15.0" />
+                                 </font>
+                              </TextField>
+                              <TextField fx:id="txtIMCMaximo" alignment="CENTER" layoutX="76.0" layoutY="44.0" promptText="kg" style="-fx-text-fill: #414247; -fx-border-color: #414247;" GridPane.columnIndex="4" GridPane.rowIndex="1">
+                                 <font>
+                                    <Font name="Leelawadee UI Semilight" size="15.0" />
+                                 </font>
+                              </TextField>
+                           </children>
+                        </GridPane>
+                     </children>
+                  </VBox>
+                  <VBox layoutX="20.0" layoutY="198.0" prefHeight="200.0" prefWidth="100.0" style="-fx-background-color: #c8ffa1; -fx-border-color: #414247;" GridPane.columnIndex="2" GridPane.rowIndex="1">
+                     <children>
+                        <Label alignment="CENTER" contentDisplay="CENTER" prefHeight="30.0" prefWidth="416.0" text="Gordura" textAlignment="CENTER" textFill="#414247">
+                           <font>
+                              <Font name="Leelawadee UI Semilight" size="20.0" />
+                           </font>
+                        </Label>
+                        <GridPane alignment="CENTER" hgap="5.0">
+                           <columnConstraints>
+                              <ColumnConstraints hgrow="SOMETIMES" maxWidth="90.0" minWidth="10.0" prefWidth="70.0" />
+                              <ColumnConstraints hgrow="SOMETIMES" maxWidth="130.0" minWidth="10.0" prefWidth="70.0" />
+                              <ColumnConstraints hgrow="SOMETIMES" maxWidth="108.0" minWidth="10.0" prefWidth="15.0" />
+                              <ColumnConstraints hgrow="SOMETIMES" maxWidth="147.0" minWidth="10.0" prefWidth="70.0" />
+                              <ColumnConstraints hgrow="SOMETIMES" maxWidth="102.0" minWidth="1.0" prefWidth="20.0" />
+                              <ColumnConstraints hgrow="SOMETIMES" maxWidth="145.0" minWidth="10.0" prefWidth="70.0" />
+                              <ColumnConstraints maxWidth="139.0" minWidth="0.0" prefWidth="70.0" />
+                              <ColumnConstraints maxWidth="97.0" minWidth="8.0" prefWidth="20.0" />
+                              <ColumnConstraints maxWidth="94.0" minWidth="10.0" prefWidth="70.0" />
+                           </columnConstraints>
+                           <rowConstraints>
+                              <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
+                              <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
+                           </rowConstraints>
+                           <children>
+                              <Label alignment="CENTER" contentDisplay="CENTER" text="Medido" textFill="#414247" GridPane.columnSpan="2" GridPane.halignment="CENTER">
+                                 <font>
+                                    <Font name="Leelawadee UI Semilight" size="15.0" />
+                                 </font>
+                              </Label>
+                              <TextField fx:id="txtPesoAtual1" alignment="CENTER" promptText="kg" style="-fx-text-fill: #414247; -fx-border-color: #414247;" GridPane.rowIndex="1">
+                                 <font>
+                                    <Font name="Leelawadee UI Semilight" size="15.0" />
+                                 </font>
+                              </TextField>
+                              <TextField fx:id="txtPesoDesejado1" alignment="CENTER" layoutX="10.0" layoutY="44.0" promptText="\%" style="-fx-text-fill: #414247; -fx-border-color: #414247;" GridPane.columnIndex="1" GridPane.rowIndex="1">
+                                 <font>
+                                    <Font name="Leelawadee UI Semilight" size="15.0" />
+                                 </font>
+                              </TextField>
+                              <Label alignment="CENTER" contentDisplay="CENTER" layoutX="76.0" layoutY="16.0" text="Desejado (kg)" textFill="#414247" GridPane.columnIndex="3" GridPane.columnSpan="3" GridPane.halignment="CENTER">
+                                 <font>
+                                    <Font name="Leelawadee UI Semilight" size="15.0" />
+                                 </font>
+                              </Label>
+                              <Label alignment="CENTER" contentDisplay="CENTER" layoutX="98.0" layoutY="49.0" text="a" textFill="#414247" GridPane.columnIndex="4" GridPane.halignment="CENTER" GridPane.rowIndex="1">
+                                 <font>
+                                    <Font name="Leelawadee UI Semilight" size="15.0" />
+                                 </font>
+                              </Label>
+                              <TextField fx:id="txtPesoVariacaoMinima1" alignment="CENTER" layoutX="76.0" layoutY="44.0" promptText="kg" style="-fx-text-fill: #414247; -fx-border-color: #414247;" GridPane.columnIndex="3" GridPane.rowIndex="1">
+                                 <font>
+                                    <Font name="Leelawadee UI Semilight" size="15.0" />
+                                 </font>
+                              </TextField>
+                              <TextField fx:id="txtPesoVariacaoMaxima1" alignment="CENTER" layoutX="76.0" layoutY="44.0" promptText="kg" style="-fx-text-fill: #414247; -fx-border-color: #414247;" GridPane.columnIndex="5" GridPane.rowIndex="1">
+                                 <font>
+                                    <Font name="Leelawadee UI Semilight" size="15.0" />
+                                 </font>
+                              </TextField>
+                              <Label alignment="CENTER" contentDisplay="CENTER" layoutX="211.0" layoutY="14.0" text="Desejado (%)" textFill="#414247" GridPane.columnIndex="6" GridPane.columnSpan="3" GridPane.halignment="CENTER">
+                                 <font>
+                                    <Font name="Leelawadee UI Semilight" size="15.0" />
+                                 </font>
+                              </Label>
+                              <TextField fx:id="txtPesoVariacaoMaxima11" alignment="CENTER" layoutX="298.0" layoutY="36.0" promptText="\%" style="-fx-text-fill: #414247; -fx-border-color: #414247;" GridPane.columnIndex="6" GridPane.rowIndex="1">
+                                 <font>
+                                    <Font name="Leelawadee UI Semilight" size="15.0" />
+                                 </font>
+                              </TextField>
+                              <TextField fx:id="txtPesoVariacaoMaxima12" alignment="CENTER" layoutX="298.0" layoutY="36.0" promptText="\%" style="-fx-text-fill: #414247; -fx-border-color: #414247;" GridPane.columnIndex="8" GridPane.rowIndex="1">
+                                 <font>
+                                    <Font name="Leelawadee UI Semilight" size="15.0" />
+                                 </font>
+                              </TextField>
+                              <Label alignment="CENTER" contentDisplay="CENTER" layoutX="279.0" layoutY="42.0" text="a" textFill="#414247" GridPane.columnIndex="7" GridPane.rowIndex="1">
+                                 <font>
+                                    <Font name="Leelawadee UI Semilight" size="15.0" />
+                                 </font>
+                              </Label>
+                           </children>
+                        </GridPane>
+                     </children>
+                  </VBox>
+                  <VBox layoutX="348.0" layoutY="20.0" prefHeight="200.0" prefWidth="100.0" style="-fx-background-color: #c8ffa1; -fx-border-color: #414247;" GridPane.columnIndex="2" GridPane.rowIndex="2">
+                     <children>
+                        <Label alignment="CENTER" contentDisplay="CENTER" prefHeight="30.0" prefWidth="416.0" text="Massa magra" textAlignment="CENTER" textFill="#414247">
+                           <font>
+                              <Font name="Leelawadee UI Semilight" size="20.0" />
+                           </font>
+                        </Label>
+                        <GridPane alignment="CENTER" hgap="5.0">
+                           <columnConstraints>
+                              <ColumnConstraints hgrow="SOMETIMES" maxWidth="90.0" minWidth="10.0" prefWidth="70.0" />
+                              <ColumnConstraints hgrow="SOMETIMES" maxWidth="130.0" minWidth="10.0" prefWidth="70.0" />
+                              <ColumnConstraints hgrow="SOMETIMES" maxWidth="108.0" minWidth="10.0" prefWidth="15.0" />
+                              <ColumnConstraints hgrow="SOMETIMES" maxWidth="147.0" minWidth="10.0" prefWidth="70.0" />
+                              <ColumnConstraints hgrow="SOMETIMES" maxWidth="102.0" minWidth="1.0" prefWidth="20.0" />
+                              <ColumnConstraints hgrow="SOMETIMES" maxWidth="145.0" minWidth="10.0" prefWidth="70.0" />
+                              <ColumnConstraints maxWidth="139.0" minWidth="0.0" prefWidth="70.0" />
+                              <ColumnConstraints maxWidth="97.0" minWidth="8.0" prefWidth="20.0" />
+                              <ColumnConstraints maxWidth="94.0" minWidth="10.0" prefWidth="70.0" />
+                           </columnConstraints>
+                           <rowConstraints>
+                              <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
+                              <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
+                           </rowConstraints>
+                           <children>
+                              <Label alignment="CENTER" contentDisplay="CENTER" text="Medido" textFill="#414247" GridPane.columnSpan="2" GridPane.halignment="CENTER">
+                                 <font>
+                                    <Font name="Leelawadee UI Semilight" size="15.0" />
+                                 </font>
+                              </Label>
+                              <TextField fx:id="txtPesoAtual11" alignment="CENTER" promptText="kg" style="-fx-text-fill: #414247; -fx-border-color: #414247;" GridPane.rowIndex="1">
+                                 <font>
+                                    <Font name="Leelawadee UI Semilight" size="15.0" />
+                                 </font>
+                              </TextField>
+                              <TextField fx:id="txtPesoDesejado11" alignment="CENTER" layoutX="10.0" layoutY="44.0" promptText="\%" style="-fx-text-fill: #414247; -fx-border-color: #414247;" GridPane.columnIndex="1" GridPane.rowIndex="1">
+                                 <font>
+                                    <Font name="Leelawadee UI Semilight" size="15.0" />
+                                 </font>
+                              </TextField>
+                              <Label alignment="CENTER" contentDisplay="CENTER" layoutX="76.0" layoutY="16.0" text="Desejado (kg)" textFill="#414247" GridPane.columnIndex="3" GridPane.columnSpan="3" GridPane.halignment="CENTER">
+                                 <font>
+                                    <Font name="Leelawadee UI Semilight" size="15.0" />
+                                 </font>
+                              </Label>
+                              <Label alignment="CENTER" contentDisplay="CENTER" layoutX="98.0" layoutY="49.0" text="a" textFill="#414247" GridPane.columnIndex="4" GridPane.halignment="CENTER" GridPane.rowIndex="1">
+                                 <font>
+                                    <Font name="Leelawadee UI Semilight" size="15.0" />
+                                 </font>
+                              </Label>
+                              <TextField fx:id="txtPesoVariacaoMinima11" alignment="CENTER" layoutX="76.0" layoutY="44.0" promptText="kg" style="-fx-text-fill: #414247; -fx-border-color: #414247;" GridPane.columnIndex="3" GridPane.rowIndex="1">
+                                 <font>
+                                    <Font name="Leelawadee UI Semilight" size="15.0" />
+                                 </font>
+                              </TextField>
+                              <TextField fx:id="txtPesoVariacaoMaxima11" alignment="CENTER" layoutX="76.0" layoutY="44.0" promptText="kg" style="-fx-text-fill: #414247; -fx-border-color: #414247;" GridPane.columnIndex="5" GridPane.rowIndex="1">
+                                 <font>
+                                    <Font name="Leelawadee UI Semilight" size="15.0" />
+                                 </font>
+                              </TextField>
+                              <Label alignment="CENTER" contentDisplay="CENTER" layoutX="211.0" layoutY="14.0" text="Desejado (%)" textFill="#414247" GridPane.columnIndex="6" GridPane.columnSpan="3" GridPane.halignment="CENTER">
+                                 <font>
+                                    <Font name="Leelawadee UI Semilight" size="15.0" />
+                                 </font>
+                              </Label>
+                              <TextField fx:id="txtPesoVariacaoMaxima111" alignment="CENTER" layoutX="298.0" layoutY="36.0" promptText="\%" style="-fx-text-fill: #414247; -fx-border-color: #414247;" GridPane.columnIndex="6" GridPane.rowIndex="1">
+                                 <font>
+                                    <Font name="Leelawadee UI Semilight" size="15.0" />
+                                 </font>
+                              </TextField>
+                              <TextField fx:id="txtPesoVariacaoMaxima121" alignment="CENTER" layoutX="298.0" layoutY="36.0" promptText="\%" style="-fx-text-fill: #414247; -fx-border-color: #414247;" GridPane.columnIndex="8" GridPane.rowIndex="1">
+                                 <font>
+                                    <Font name="Leelawadee UI Semilight" size="15.0" />
+                                 </font>
+                              </TextField>
+                              <Label alignment="CENTER" contentDisplay="CENTER" layoutX="279.0" layoutY="42.0" text="a" textFill="#414247" GridPane.columnIndex="7" GridPane.rowIndex="1">
+                                 <font>
+                                    <Font name="Leelawadee UI Semilight" size="15.0" />
+                                 </font>
+                              </Label>
+                           </children>
+                        </GridPane>
+                     </children>
+                  </VBox>
+                  <VBox layoutX="348.0" layoutY="198.0" prefHeight="200.0" prefWidth="100.0" style="-fx-background-color: #c8ffa1; -fx-border-color: #414247;" GridPane.columnIndex="2" GridPane.rowIndex="3">
+                     <children>
+                        <Label alignment="CENTER" contentDisplay="CENTER" prefHeight="30.0" prefWidth="416.0" text="Água" textAlignment="CENTER" textFill="#414247">
+                           <font>
+                              <Font name="Leelawadee UI Semilight" size="20.0" />
+                           </font>
+                        </Label>
+                        <GridPane alignment="CENTER" hgap="5.0">
+                           <columnConstraints>
+                              <ColumnConstraints hgrow="SOMETIMES" maxWidth="90.0" minWidth="10.0" prefWidth="70.0" />
+                              <ColumnConstraints hgrow="SOMETIMES" maxWidth="130.0" minWidth="10.0" prefWidth="70.0" />
+                              <ColumnConstraints hgrow="SOMETIMES" maxWidth="108.0" minWidth="10.0" prefWidth="15.0" />
+                              <ColumnConstraints hgrow="SOMETIMES" maxWidth="147.0" minWidth="10.0" prefWidth="70.0" />
+                              <ColumnConstraints hgrow="SOMETIMES" maxWidth="102.0" minWidth="1.0" prefWidth="20.0" />
+                              <ColumnConstraints hgrow="SOMETIMES" maxWidth="145.0" minWidth="10.0" prefWidth="70.0" />
+                              <ColumnConstraints maxWidth="139.0" minWidth="0.0" prefWidth="70.0" />
+                              <ColumnConstraints maxWidth="97.0" minWidth="8.0" prefWidth="20.0" />
+                              <ColumnConstraints maxWidth="94.0" minWidth="10.0" prefWidth="70.0" />
+                           </columnConstraints>
+                           <rowConstraints>
+                              <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
+                              <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
+                           </rowConstraints>
+                           <children>
+                              <Label alignment="CENTER" contentDisplay="CENTER" text="Medido" textFill="#414247" GridPane.columnSpan="2" GridPane.halignment="CENTER">
+                                 <font>
+                                    <Font name="Leelawadee UI Semilight" size="15.0" />
+                                 </font>
+                              </Label>
+                              <TextField fx:id="txtPesoAtual111" alignment="CENTER" promptText="kg" style="-fx-text-fill: #414247; -fx-border-color: #414247;" GridPane.rowIndex="1">
+                                 <font>
+                                    <Font name="Leelawadee UI Semilight" size="15.0" />
+                                 </font>
+                              </TextField>
+                              <TextField fx:id="txtPesoDesejado111" alignment="CENTER" layoutX="10.0" layoutY="44.0" promptText="\%" style="-fx-text-fill: #414247; -fx-border-color: #414247;" GridPane.columnIndex="1" GridPane.rowIndex="1">
+                                 <font>
+                                    <Font name="Leelawadee UI Semilight" size="15.0" />
+                                 </font>
+                              </TextField>
+                              <Label alignment="CENTER" contentDisplay="CENTER" layoutX="76.0" layoutY="16.0" text="Desejado (kg)" textFill="#414247" GridPane.columnIndex="3" GridPane.columnSpan="3" GridPane.halignment="CENTER">
+                                 <font>
+                                    <Font name="Leelawadee UI Semilight" size="15.0" />
+                                 </font>
+                              </Label>
+                              <Label alignment="CENTER" contentDisplay="CENTER" layoutX="98.0" layoutY="49.0" text="a" textFill="#414247" GridPane.columnIndex="4" GridPane.halignment="CENTER" GridPane.rowIndex="1">
+                                 <font>
+                                    <Font name="Leelawadee UI Semilight" size="15.0" />
+                                 </font>
+                              </Label>
+                              <TextField fx:id="txtPesoVariacaoMinima111" alignment="CENTER" layoutX="76.0" layoutY="44.0" promptText="kg" style="-fx-text-fill: #414247; -fx-border-color: #414247;" GridPane.columnIndex="3" GridPane.rowIndex="1">
+                                 <font>
+                                    <Font name="Leelawadee UI Semilight" size="15.0" />
+                                 </font>
+                              </TextField>
+                              <TextField fx:id="txtPesoVariacaoMaxima111" alignment="CENTER" layoutX="76.0" layoutY="44.0" promptText="kg" style="-fx-text-fill: #414247; -fx-border-color: #414247;" GridPane.columnIndex="5" GridPane.rowIndex="1">
+                                 <font>
+                                    <Font name="Leelawadee UI Semilight" size="15.0" />
+                                 </font>
+                              </TextField>
+                              <Label alignment="CENTER" contentDisplay="CENTER" layoutX="211.0" layoutY="14.0" text="Desejado (%)" textFill="#414247" GridPane.columnIndex="6" GridPane.columnSpan="3" GridPane.halignment="CENTER">
+                                 <font>
+                                    <Font name="Leelawadee UI Semilight" size="15.0" />
+                                 </font>
+                              </Label>
+                              <TextField fx:id="txtPesoVariacaoMaxima1111" alignment="CENTER" layoutX="298.0" layoutY="36.0" promptText="\%" style="-fx-text-fill: #414247; -fx-border-color: #414247;" GridPane.columnIndex="6" GridPane.rowIndex="1">
+                                 <font>
+                                    <Font name="Leelawadee UI Semilight" size="15.0" />
+                                 </font>
+                              </TextField>
+                              <TextField fx:id="txtPesoVariacaoMaxima1211" alignment="CENTER" layoutX="298.0" layoutY="36.0" promptText="\%" style="-fx-text-fill: #414247; -fx-border-color: #414247;" GridPane.columnIndex="8" GridPane.rowIndex="1">
+                                 <font>
+                                    <Font name="Leelawadee UI Semilight" size="15.0" />
+                                 </font>
+                              </TextField>
+                              <Label alignment="CENTER" contentDisplay="CENTER" layoutX="279.0" layoutY="42.0" text="a" textFill="#414247" GridPane.columnIndex="7" GridPane.rowIndex="1">
+                                 <font>
+                                    <Font name="Leelawadee UI Semilight" size="15.0" />
+                                 </font>
+                              </Label>
+                           </children>
+                        </GridPane>
+                     </children>
+                  </VBox>
                </children>
                <opaqueInsets>
                   <Insets />
