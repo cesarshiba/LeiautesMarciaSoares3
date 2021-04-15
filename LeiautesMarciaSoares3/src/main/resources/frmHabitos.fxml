@@ -7,6 +7,7 @@
 <?import javafx.scene.control.ScrollPane?>
 <?import javafx.scene.control.TextArea?>
 <?import javafx.scene.control.TextField?>
+<?import javafx.scene.control.ToggleGroup?>
 <?import javafx.scene.layout.BorderPane?>
 <?import javafx.scene.layout.ColumnConstraints?>
 <?import javafx.scene.layout.GridPane?>
@@ -193,8 +194,11 @@
                            <GridPane.margin>
                               <Insets left="10.0" />
                            </GridPane.margin>
+                           <toggleGroup>
+                              <ToggleGroup fx:id="tglFrequencia" />
+                           </toggleGroup>
                         </RadioButton>
-                        <RadioButton fx:id="optBaixaAtividadeFisica11" layoutX="10.0" layoutY="33.0" mnemonicParsing="false" text="5 a 10X por semana" textFill="#414247" GridPane.rowIndex="2">
+                        <RadioButton fx:id="optBaixaAtividadeFisica11" layoutX="10.0" layoutY="33.0" mnemonicParsing="false" text="5 a 10X por semana" textFill="#414247" toggleGroup="$tglFrequencia" GridPane.rowIndex="2">
                            <font>
                               <Font name="Leelawadee UI Semilight" size="13.0" />
                            </font>
@@ -229,8 +233,11 @@
                            <GridPane.margin>
                               <Insets left="10.0" />
                            </GridPane.margin>
+                           <toggleGroup>
+                              <ToggleGroup fx:id="tglDuracao" />
+                           </toggleGroup>
                         </RadioButton>
-                        <RadioButton fx:id="optBaixaAtividadeFisica111" layoutX="10.0" layoutY="33.0" mnemonicParsing="false" text="Longa" textFill="#414247" GridPane.columnIndex="1" GridPane.rowIndex="1">
+                        <RadioButton fx:id="optBaixaAtividadeFisica111" layoutX="10.0" layoutY="33.0" mnemonicParsing="false" text="Longa" textFill="#414247" toggleGroup="$tglDuracao" GridPane.columnIndex="1" GridPane.rowIndex="1">
                            <font>
                               <Font name="Leelawadee UI Semilight" size="13.0" />
                            </font>
@@ -265,8 +272,11 @@
                            <GridPane.margin>
                               <Insets left="10.0" />
                            </GridPane.margin>
+                           <toggleGroup>
+                              <ToggleGroup fx:id="tglCansa" />
+                           </toggleGroup>
                         </RadioButton>
-                        <RadioButton fx:id="optBaixaAtividadeFisica1111" layoutX="10.0" layoutY="33.0" mnemonicParsing="false" text="Não" textFill="#414247" GridPane.columnIndex="1" GridPane.rowIndex="1">
+                        <RadioButton fx:id="optBaixaAtividadeFisica1111" layoutX="10.0" layoutY="33.0" mnemonicParsing="false" text="Não" textFill="#414247" toggleGroup="$tglCansa" GridPane.columnIndex="1" GridPane.rowIndex="1">
                            <font>
                               <Font name="Leelawadee UI Semilight" size="13.0" />
                            </font>
@@ -380,8 +390,11 @@
                            <GridPane.margin>
                               <Insets left="10.0" />
                            </GridPane.margin>
+                           <toggleGroup>
+                              <ToggleGroup fx:id="tglCarne" />
+                           </toggleGroup>
                         </RadioButton>
-                        <RadioButton fx:id="optBaixaAtividadeFisica112" layoutX="10.0" layoutY="33.0" mnemonicParsing="false" text="Não" textFill="#414247" GridPane.rowIndex="2">
+                        <RadioButton fx:id="optBaixaAtividadeFisica112" layoutX="10.0" layoutY="33.0" mnemonicParsing="false" text="Não" textFill="#414247" toggleGroup="$tglCarne" GridPane.rowIndex="2">
                            <font>
                               <Font name="Leelawadee UI Semilight" size="13.0" />
                            </font>
@@ -389,7 +402,7 @@
                               <Insets left="10.0" />
                            </GridPane.margin>
                         </RadioButton>
-                        <RadioButton fx:id="optBaixaAtividadeFisica1121" layoutX="10.0" layoutY="44.0" mnemonicParsing="false" text="Às vezes" textFill="#414247" GridPane.rowIndex="3">
+                        <RadioButton fx:id="optBaixaAtividadeFisica1121" layoutX="10.0" layoutY="44.0" mnemonicParsing="false" text="Às vezes" textFill="#414247" toggleGroup="$tglCarne" GridPane.rowIndex="3">
                            <font>
                               <Font name="Leelawadee UI Semilight" size="13.0" />
                            </font>
@@ -466,8 +479,11 @@
                            <GridPane.margin>
                               <Insets left="10.0" />
                            </GridPane.margin>
+                           <toggleGroup>
+                              <ToggleGroup fx:id="tglSono" />
+                           </toggleGroup>
                         </RadioButton>
-                        <RadioButton fx:id="optBaixaAtividadeFisica11111" layoutX="10.0" layoutY="33.0" mnemonicParsing="false" text="Não" textFill="#414247" GridPane.columnIndex="1" GridPane.rowIndex="1">
+                        <RadioButton fx:id="optBaixaAtividadeFisica11111" layoutX="10.0" layoutY="33.0" mnemonicParsing="false" text="Não" textFill="#414247" toggleGroup="$tglSono" GridPane.columnIndex="1" GridPane.rowIndex="1">
                            <font>
                               <Font name="Leelawadee UI Semilight" size="13.0" />
                            </font>
@@ -502,8 +518,11 @@
                            <GridPane.margin>
                               <Insets left="10.0" />
                            </GridPane.margin>
+                           <toggleGroup>
+                              <ToggleGroup fx:id="tglTrabalho" />
+                           </toggleGroup>
                         </RadioButton>
-                        <RadioButton fx:id="optBaixaAtividadeFisica111111" layoutX="10.0" layoutY="33.0" mnemonicParsing="false" text="Não" textFill="#414247" GridPane.columnIndex="1" GridPane.rowIndex="1">
+                        <RadioButton fx:id="optBaixaAtividadeFisica111111" layoutX="10.0" layoutY="33.0" mnemonicParsing="false" text="Não" textFill="#414247" toggleGroup="$tglTrabalho" GridPane.columnIndex="1" GridPane.rowIndex="1">
                            <font>
                               <Font name="Leelawadee UI Semilight" size="13.0" />
                            </font>
@@ -547,8 +566,11 @@
                            <GridPane.margin>
                               <Insets left="10.0" />
                            </GridPane.margin>
+                           <toggleGroup>
+                              <ToggleGroup fx:id="tglIngestao" />
+                           </toggleGroup>
                         </RadioButton>
-                        <RadioButton fx:id="optBaixaAtividadeFisica113" layoutX="10.0" layoutY="33.0" mnemonicParsing="false" text="1,5 a 2,4 L" textFill="#414247" GridPane.rowIndex="2">
+                        <RadioButton fx:id="optBaixaAtividadeFisica113" layoutX="10.0" layoutY="33.0" mnemonicParsing="false" text="1,5 a 2,4 L" textFill="#414247" toggleGroup="$tglIngestao" GridPane.rowIndex="2">
                            <font>
                               <Font name="Leelawadee UI Semilight" size="13.0" />
                            </font>
@@ -556,7 +578,7 @@
                               <Insets left="10.0" />
                            </GridPane.margin>
                         </RadioButton>
-                        <RadioButton fx:id="optBaixaAtividadeFisica1131" layoutX="21.0" layoutY="52.0" mnemonicParsing="false" text="2,5 a 3,5 L" textFill="#414247" GridPane.rowIndex="3">
+                        <RadioButton fx:id="optBaixaAtividadeFisica1131" layoutX="21.0" layoutY="52.0" mnemonicParsing="false" text="2,5 a 3,5 L" textFill="#414247" toggleGroup="$tglIngestao" GridPane.rowIndex="3">
                            <font>
                               <Font name="Leelawadee UI Semilight" size="13.0" />
                            </font>

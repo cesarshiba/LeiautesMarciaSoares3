@@ -1,11 +1,11 @@
 package br.com.cesarshiba.leiautesmarciasoares;
 
-import java.io.File;
 import java.io.FileInputStream;
 import java.io.FileNotFoundException;
 import java.io.IOException;
 import java.io.InputStream;
 import java.net.URL;
+import java.sql.SQLException;
 import java.time.LocalDate;
 import java.time.format.DateTimeFormatter;
 import java.util.ArrayList;
@@ -63,13 +63,10 @@ public class FrmPrincipal implements Initializable{
 	@FXML
     public BorderPane root;
 
-	//public String caminho = "";
-	//public String caminho = "C:\\Users\\cesar\\git\\LeiautesMarciaSoares3\\LeiautesMarciaSoares3\\src\\main\\java\\br\\com\\cesarshiba\\leiautesmarciasoares\\";
-
 	public String clienteSelecionado = "Selecione o paciente";
 	public String dataSelecionada = "";
 	Label lblDataSelecionada = new Label();
-	
+
 	@Override
 	public void initialize(URL arg0, ResourceBundle arg1) {
 		if (!MainClass.loadSplash) {
@@ -82,7 +79,7 @@ public class FrmPrincipal implements Initializable{
 	 */
 	private void carregaSplash() {
 		MainClass.loadSplash=true;
-		
+
 		Image imagem = new Image("logo marcia.png");
 		ImageView imageView = new ImageView(imagem);
 		imageView.setFitHeight(imagem.getHeight());
@@ -221,12 +218,15 @@ public class FrmPrincipal implements Initializable{
 	/*
 	 * Painel com lista dos clientes da base de dados para ser selecionado
 	 */
-	private void montaPainelClientes() {
+	private void montaPainelClientes() throws SQLException {
 	    TableView<ClienteNomeSexoEmail> tblClientes = new TableView<>();
 	    tblClientes.setPrefWidth(750.0);
 	    tblClientes.setPrefHeight(650.0);
 	    tblClientes.getStylesheets().add(MainClass.caminho() + "/tblClientes.css");
 	    ObservableList<ClienteNomeSexoEmail> obsClientes;
+	    TableColumn<ClienteNomeSexoEmail, Integer> colIdCliente = new TableColumn<ClienteNomeSexoEmail, Integer>();
+	    colIdCliente.setPrefWidth(10.0);
+	    colIdCliente.setText("ID");
 	    TableColumn<ClienteNomeSexoEmail, String> colNomeCliente = new TableColumn<ClienteNomeSexoEmail, String>();
 	    colNomeCliente.setPrefWidth(350.0);
 	    colNomeCliente.setText("Nome");
@@ -236,18 +236,22 @@ public class FrmPrincipal implements Initializable{
 	    TableColumn<ClienteNomeSexoEmail, String> colObjetivoCliente = new TableColumn<ClienteNomeSexoEmail, String>();
 	    colObjetivoCliente.setPrefWidth(300.0);
 	    colObjetivoCliente.setText("Objetivo");
-    	obsClientes = FXCollections.observableArrayList(leClientes(""));
+	    clsAcessaDB db = new clsAcessaDB();
+	    obsClientes = FXCollections.observableArrayList(db.listaClientes());
+    	//obsClientes = FXCollections.observableArrayList(leClientes(""));
+    	colIdCliente.setCellValueFactory(new PropertyValueFactory<ClienteNomeSexoEmail,Integer>("idCliente"));
     	colNomeCliente.setCellValueFactory(new PropertyValueFactory<ClienteNomeSexoEmail,String>("nomeCliente"));
     	colSexoCliente.setCellValueFactory(new PropertyValueFactory<ClienteNomeSexoEmail,String>("sexoCliente"));
     	colObjetivoCliente.setCellValueFactory(new PropertyValueFactory<ClienteNomeSexoEmail,String>("objetivoCliente"));
-    	tblClientes.getColumns().addAll(colNomeCliente, colSexoCliente, colObjetivoCliente);
+    	tblClientes.getColumns().addAll(colIdCliente,colNomeCliente, colSexoCliente, colObjetivoCliente);
     	tblClientes.setItems(obsClientes);
 
     	tblClientes.getSelectionModel().selectedItemProperty().addListener(new ChangeListener<ClienteNomeSexoEmail>() {
 			@Override
 			public void changed(ObservableValue<? extends ClienteNomeSexoEmail> observable,
 					ClienteNomeSexoEmail oldValue, ClienteNomeSexoEmail newValue) {
-		    	clienteSelecionado = newValue.getNomeCliente();
+		    	MainClass.idCliente = newValue.getIdCliente();
+				clienteSelecionado = newValue.getNomeCliente();
 				dataSelecionada = "";
 				lblDataSelecionada.setText("");
 			}
@@ -255,6 +259,7 @@ public class FrmPrincipal implements Initializable{
     	tblClientes.setOnMouseClicked(event -> {
     		if(event.getClickCount() == 2) {
     			ClienteNomeSexoEmail dblClick = tblClientes.getSelectionModel().getSelectedItem();
+    			MainClass.idCliente = dblClick.getIdCliente();
     			clienteSelecionado = dblClick.getNomeCliente();
     			dataSelecionada = "";
     			lblDataSelecionada.setText("");
@@ -467,6 +472,8 @@ public class FrmPrincipal implements Initializable{
 				e.printStackTrace();
 			} catch (JRException e) {
 				e.printStackTrace();
+			} catch (SQLException e) {
+				e.printStackTrace();
 			}
 			System.out.println("apertou botão ResumoGeral");
 		});
@@ -594,7 +601,11 @@ public class FrmPrincipal implements Initializable{
 		btn.setOnAction(value -> { //Aciona botões do painel para chamar os procedimentos
 			switch (Integer.valueOf(nome)) {
 			case 1: {
-				montaPainelClientes();
+				try {
+					montaPainelClientes();
+				} catch (SQLException e) {
+					e.printStackTrace();
+				}
 				break;
 			}
 			case 2: {
@@ -640,30 +651,30 @@ public class FrmPrincipal implements Initializable{
 	/*
 	 * Rotina de leitura da base de dados de clientes
 	 */
-    private List<ClienteNomeSexoEmail> leClientes(String nome) {
-    	Scanner scanner;
-    	List<ClienteNomeSexoEmail> lista = new ArrayList<>();
-    	try {
-			scanner = new Scanner(new FileInputStream("clientes.txt"));
-	    	while(scanner.hasNextLine()) {
-	    		String[] textoSeparado;
-	    		String token = scanner.nextLine();
-	    		textoSeparado = token.split(";");
-	        	ClienteNomeSexoEmail cliente = new ClienteNomeSexoEmail(textoSeparado[0], textoSeparado[1], textoSeparado[2], textoSeparado[3]);
-	        	if (nome != "") {
-	        		if (nome.equals(textoSeparado[0])) {
-	    	        	lista.add(cliente);	        			
-	        		}
-	        	} else {
-		        	lista.add(cliente);
-	        	}
-	    	}
-	    	return lista;
-		} catch (FileNotFoundException e) {
-			e.printStackTrace();
-			return null;
-		}
-    }
+//    private List<ClienteNomeSexoEmail> leClientes(String nome) {
+//    	Scanner scanner;
+//    	List<ClienteNomeSexoEmail> lista = new ArrayList<>();
+//    	try {
+//			scanner = new Scanner(new FileInputStream("clientes.txt"));
+//	    	while(scanner.hasNextLine()) {
+//	    		String[] textoSeparado;
+//	    		String token = scanner.nextLine();
+//	    		textoSeparado = token.split(";");
+//	        	ClienteNomeSexoEmail cliente = new ClienteNomeSexoEmail(textoSeparado[0], textoSeparado[1], textoSeparado[2], textoSeparado[3]);
+//	        	if (nome != "") {
+//	        		if (nome.equals(textoSeparado[0])) {
+//	    	        	lista.add(cliente);	        			
+//	        		}
+//	        	} else {
+//		        	lista.add(cliente);
+//	        	}
+//	    	}
+//	    	return lista;
+//		} catch (FileNotFoundException e) {
+//			e.printStackTrace();
+//			return null;
+//		}
+//    }
 
 	/*
 	 * Rotina de leitura da base de dados de clientes e datas de consultas
@@ -741,19 +752,19 @@ public class FrmPrincipal implements Initializable{
     	stage.show();
     }
 
-    private void ResumoGeral() throws IOException, JRException {
-    	List<ClienteNomeSexoEmail> cliente = new ArrayList<ClienteNomeSexoEmail>();
-    	cliente = leClientes(clienteSelecionado);
-    	ClienteNomeSexoEmail cliente1 = cliente.get(0);
-    	System.out.println("cliente= "+ cliente1.toString());
+    private void ResumoGeral() throws IOException, JRException, SQLException {
+//    	List<ClienteNomeSexoEmail> cliente = new ArrayList<ClienteNomeSexoEmail>();
+//    	cliente = leClientes(clienteSelecionado);
+//    	ClienteNomeSexoEmail cliente1 = cliente.get(0);
+//    	System.out.println("cliente= "+ cliente1.toString());
 
-    	//JRBeanCollectionDataSource dsCliente = new JRBeanCollectionDataSource(cliente);
-
+    	clsAcessaDB db = new clsAcessaDB();
+    	Cliente cliente = db.leCliente(MainClass.idCliente);
     	Map<String,Object> params = new HashMap<String,Object>();
-    	params.put("nomeCliente", cliente1.getNomeCliente());
-    	params.put("sexoCliente", cliente1.getSexoCliente());
-    	params.put("emailCliente", cliente1.getEmailCliente());
-    	params.put("objetivoCliente", cliente1.getObjetivoCliente());
+    	params.put("nomeCliente", cliente.getTXTNOMECLIENTE());
+    	params.put("sexoCliente", cliente.getTXTSEXOCLIENTE());
+    	params.put("emailCliente", cliente.getTXTEMAILCLIENTE());
+    	params.put("objetivoCliente", cliente.getTXTOBJETIVOCLIENTE());
     	List<ClienteConsultas> consultasCliente = new ArrayList<>();
     	consultasCliente = leConsultasClientes(clienteSelecionado, dataSelecionada);
     	if (consultasCliente != null) {
@@ -771,25 +782,16 @@ public class FrmPrincipal implements Initializable{
     	params.put("idadeCliente", "33");
     	params.put("pesoCliente", "65");
 
-    	//String fonte = "d:\\java\\PlanoAlimentar.jrxml";
     	InputStream input = new FileInputStream("PlanoAlimentar.jrxml");
 
     	Scene scene = root.getScene();
     	scene.setCursor(Cursor.WAIT);
 
     	JasperDesign jasperDesign = JRXmlLoader.load(input);
-    	System.out.println("JasperDesign");
-
     	JasperReport jasperReport = JasperCompileManager.compileReport(jasperDesign);
-    	System.out.println("JasperReport");
-
     	JasperPrint jasperPrint = JasperFillManager.fillReport(jasperReport, params, new JREmptyDataSource());
-    	System.out.println("JasperPrint");
-
     	JasperViewer.viewReport(jasperPrint, false);
-    	System.out.println("JasperViewer");
 
     	scene.setCursor(Cursor.DEFAULT);
-    	//JasperExportManager.exportReportToPdfFile(print, "TextosCadastrados.pdf");
     }
 }

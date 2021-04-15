@@ -10,18 +10,19 @@ import java.util.List;
 
 public class clsAcessaDB {
 
-	private String url = "jdbc:odbc:Driver={Microsoft Access Driver (*.mdb, *.accdb)};DBQ=C:\\Users\\cesar\\Documents\\Projetos\\Marcia Soares\\Access\\versao teste\\msbk2018.accdb;DriverID=22;READONLY=true}";
+	private String url = "jdbc:mysql://localhost:3306/editortexto01?useTimezone=true&serverTimezone=UTC";
+	private String usuario="root";
+	private String senha="190798";
 
 	public List<ClienteNomeSexoEmail> listaClientes() throws SQLException {
-		String comando = "SELECT txtNOMECLIENTE, txtSEXOCLIENTE, txtEMAILCLIENTE FROM TAB_CLIENTE";
-		try {
-			Class.forName("sun.jdbc.odbc.JdbcOdbcDriver");
-			Connection conn = DriverManager.getConnection(url , "" , "");
+		String comando = "SELECT id, txtNOMECLIENTE, txtSEXOCLIENTE, txtEMAILCLIENTE, txtOBJETIVOCLIENTE FROM marciasoaresv0.TAB_CLIENTE";
+		try(Connection conn = DriverManager.getConnection(url,usuario,senha)){
 			try(PreparedStatement stmt = conn.prepareStatement(comando)){
 				List<ClienteNomeSexoEmail> lista = new ArrayList<>();
 				try(ResultSet rs = stmt.executeQuery()){
 					while(rs.next()) {
-						ClienteNomeSexoEmail clientes = new ClienteNomeSexoEmail(rs.getString("txtNOMECLIENTE"),rs.getString("txtSEXOCLIENTE"),rs.getString("txtEMAILCLIENTE"), "");
+						ClienteNomeSexoEmail clientes = new ClienteNomeSexoEmail(rs.getInt("id"),rs.getString("txtNOMECLIENTE"),rs.getString("txtSEXOCLIENTE"),
+								rs.getString("txtEMAILCLIENTE"),rs.getString("txtOBJETIVOCLIENTE"));
 						lista.add(clientes);
 					}
 					return lista;
@@ -30,31 +31,27 @@ public class clsAcessaDB {
 					return lista;
 				}
 			}
-		} catch (ClassNotFoundException e1) {
-			e1.printStackTrace();
-			return null;
 		}
 	}
-	
-	public String primeiroCliente() throws SQLException {
-		String comando = "SELECT txtNOMECLIENTE FROM TAB_CLIENTE where ID = 3";
-		try {
-			Class.forName("sun.jdbc.odbc.JdbcOdbcDriver");
-			Connection conn = DriverManager.getConnection(url , "" , "");
+
+	public Cliente leCliente(int id) throws SQLException {
+		String comando = "SELECT id, txtNOMECLIENTE, txtSEXOCLIENTE, dataNASCIMENTOCLIENTE, txtEMAILCLIENTE, txtPROFISSAOCLIENTE, txtTELEFONECLIENTE, " + 
+				"txtENDERECOCLIENTE, txtESTADOCIVILCLIENTE, txtESCOLARIDADECLIENTE, txtINDICACAOCLIENTE, txtOBJETIVOCLIENTE FROM marciasoaresv0.TAB_CLIENTE " +
+				"where id = " + id;
+		try(Connection conn = DriverManager.getConnection(url,usuario,senha)){
 			try(PreparedStatement stmt = conn.prepareStatement(comando)){
 				try(ResultSet rs = stmt.executeQuery()){
 					while(rs.next()) {
-						return rs.getString("txtNOMECLIENTE");
+						return new Cliente(rs.getInt("id"),rs.getString("txtNOMECLIENTE"),rs.getString("txtSEXOCLIENTE"),rs.getString("dataNASCIMENTOCLIENTE"),
+								rs.getString("txtEMAILCLIENTE"),rs.getString("txtPROFISSAOCLIENTE"),rs.getString("txtTELEFONECLIENTE"),rs.getString("txtENDERECOCLIENTE"),
+								rs.getString("txtESTADOCIVILCLIENTE"),rs.getString("txtESCOLARIDADECLIENTE"),rs.getString("txtINDICACAOCLIENTE"),rs.getString("txtOBJETIVOCLIENTE"));
 					}
-					return null;
 				} catch(SQLException e) {
 					System.out.println(e.getMessage());
 					return null;
 				}
 			}
-		} catch (ClassNotFoundException e1) {
-			e1.printStackTrace();
-			return null;
 		}
+		return null;
 	}
 }

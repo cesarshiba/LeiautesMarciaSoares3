@@ -6,6 +6,7 @@
 <?import javafx.scene.control.RadioButton?>
 <?import javafx.scene.control.ScrollPane?>
 <?import javafx.scene.control.TextField?>
+<?import javafx.scene.control.ToggleGroup?>
 <?import javafx.scene.layout.BorderPane?>
 <?import javafx.scene.layout.ColumnConstraints?>
 <?import javafx.scene.layout.GridPane?>
@@ -14,9 +15,9 @@
 <?import javafx.scene.layout.VBox?>
 <?import javafx.scene.text.Font?>
 
-<ScrollPane fx:id="scrPane" cache="true" fitToHeight="true" prefHeight="591.0" prefWidth="782.0" stylesheets="@TelaMedidas.css" xmlns="http://javafx.com/javafx/11.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="br.com.cesarshiba.leiautesmarciasoares.FrmTelaMedidas">
+<ScrollPane fx:id="scrPane" cache="true" fitToHeight="true" prefHeight="652.0" prefWidth="814.0" stylesheets="@TelaMedidas.css" xmlns="http://javafx.com/javafx/11.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="br.com.cesarshiba.leiautesmarciasoares.FrmTelaMedidas">
    <content>
-      <BorderPane fx:id="root" cache="true" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="582.0" prefWidth="780.0" style="-fx-background-color: #f7f7f7; -fx-background-radius: 20; -fx-border-radius: 20;">
+      <BorderPane fx:id="root" cache="true" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="650.0" prefWidth="811.0" style="-fx-background-color: #f7f7f7; -fx-background-radius: 20; -fx-border-radius: 20;">
          <top>
             <Label text="Medidas" textFill="#414247" BorderPane.alignment="CENTER">
                <font>
@@ -53,7 +54,7 @@
             </HBox>
          </bottom>
          <center>
-            <GridPane prefHeight="428.0" prefWidth="760.0" BorderPane.alignment="CENTER">
+            <GridPane prefHeight="527.0" prefWidth="791.0" BorderPane.alignment="CENTER">
               <columnConstraints>
                 <ColumnConstraints halignment="CENTER" hgrow="SOMETIMES" maxWidth="519.0" minWidth="10.0" prefWidth="355.0" />
                   <ColumnConstraints halignment="CENTER" hgrow="SOMETIMES" maxWidth="459.0" minWidth="10.0" prefWidth="16.0" />
@@ -61,42 +62,14 @@
               </columnConstraints>
               <rowConstraints>
                   <RowConstraints maxHeight="1.7976931348623157E308" minHeight="10.0" prefHeight="96.0" vgrow="SOMETIMES" />
+                  <RowConstraints maxHeight="5.0" minHeight="1.0" prefHeight="1.0" vgrow="SOMETIMES" />
                 <RowConstraints maxHeight="1.7976931348623157E308" minHeight="10.0" prefHeight="110.0" vgrow="SOMETIMES" />
+                  <RowConstraints maxHeight="5.0" minHeight="5.0" prefHeight="1.0" vgrow="SOMETIMES" />
                 <RowConstraints maxHeight="136.0" minHeight="10.0" prefHeight="106.0" vgrow="SOMETIMES" />
+                  <RowConstraints maxHeight="5.0" minHeight="1.0" prefHeight="1.0" vgrow="SOMETIMES" />
                 <RowConstraints maxHeight="147.0" minHeight="2.0" prefHeight="107.0" vgrow="SOMETIMES" />
               </rowConstraints>
                <children>
-                  <VBox prefHeight="200.0" prefWidth="100.0" GridPane.halignment="CENTER">
-                     <children>
-                        <Label alignment="CENTER" contentDisplay="CENTER" prefHeight="30.0" prefWidth="340.0" text="Atividade física" textFill="#414247">
-                           <font>
-                              <Font name="Leelawadee UI Semilight" size="20.0" />
-                           </font>
-                        </Label>
-                        <HBox alignment="CENTER" prefHeight="44.0" prefWidth="200.0" spacing="30.0" style="-fx-background-color: #c8ffa1; -fx-background-radius: 5; -fx-border-color: #414247;">
-                           <children>
-                              <RadioButton fx:id="optBaixaAtividadeFisica" mnemonicParsing="false" text="Baixa" textFill="#414247">
-                                 <font>
-                                    <Font name="Leelawadee UI Semilight" size="15.0" />
-                                 </font>
-                              </RadioButton>
-                              <RadioButton fx:id="optMediaAtividadeFisica" mnemonicParsing="false" text="Média" textFill="#414247">
-                                 <font>
-                                    <Font name="Leelawadee UI Semilight" size="15.0" />
-                                 </font>
-                              </RadioButton>
-                              <RadioButton fx:id="optAltaAtividadeFisica" layoutX="222.0" layoutY="33.0" mnemonicParsing="false" text="Alta" textFill="#414247">
-                                 <font>
-                                    <Font name="Leelawadee UI Semilight" size="15.0" />
-                                 </font>
-                              </RadioButton>
-                           </children>
-                           <opaqueInsets>
-                              <Insets />
-                           </opaqueInsets>
-                        </HBox>
-                     </children>
-                  </VBox>
                   <GridPane prefHeight="89.0" prefWidth="339.0" style="-fx-background-color: #c8ffa1; -fx-border-color: #414247;" GridPane.columnIndex="2">
                     <columnConstraints>
                       <ColumnConstraints hgrow="SOMETIMES" minWidth="10.0" prefWidth="100.0" />
@@ -117,6 +90,9 @@
                            <font>
                               <Font name="Leelawadee UI Semilight" size="20.0" />
                            </font>
+                           <GridPane.margin>
+                              <Insets bottom="5.0" left="5.0" right="5.0" top="5.0" />
+                           </GridPane.margin>
                         </TextField>
                         <Label alignment="CENTER" contentDisplay="CENTER" prefHeight="27.0" prefWidth="113.0" text="VET estimado" textFill="#414247" wrapText="true" GridPane.columnIndex="1" GridPane.halignment="CENTER" GridPane.valignment="BOTTOM">
                            <font>
@@ -127,6 +103,9 @@
                            <font>
                               <Font name="Leelawadee UI Semilight" size="20.0" />
                            </font>
+                           <GridPane.margin>
+                              <Insets bottom="5.0" left="5.0" right="5.0" top="5.0" />
+                           </GridPane.margin>
                         </TextField>
                         <Label alignment="CENTER" prefHeight="30.0" prefWidth="109.0" text="Impedância" textFill="#414247" GridPane.columnIndex="2" GridPane.halignment="CENTER" GridPane.valignment="BOTTOM">
                            <font>
@@ -137,17 +116,23 @@
                            <font>
                               <Font name="Leelawadee UI Semilight" size="20.0" />
                            </font>
+                           <GridPane.margin>
+                              <Insets bottom="5.0" left="5.0" right="5.0" top="5.0" />
+                           </GridPane.margin>
                         </TextField>
                      </children>
+                     <GridPane.margin>
+                        <Insets />
+                     </GridPane.margin>
                   </GridPane>
-                  <VBox prefHeight="200.0" prefWidth="100.0" style="-fx-background-color: #c8ffa1; -fx-border-color: #414247;" GridPane.rowIndex="1">
+                  <VBox prefHeight="200.0" prefWidth="100.0" style="-fx-background-color: #c8ffa1; -fx-border-color: #414247;" GridPane.rowIndex="2">
                      <children>
                         <Label alignment="CENTER" contentDisplay="CENTER" prefHeight="30.0" prefWidth="340.0" text="Peso" textAlignment="CENTER" textFill="#414247">
                            <font>
                               <Font name="Leelawadee UI Semilight" size="20.0" />
                            </font>
                         </Label>
-                        <GridPane alignment="CENTER" hgap="5.0">
+                        <GridPane alignment="CENTER" hgap="5.0" prefHeight="68.0" prefWidth="326.0">
                           <columnConstraints>
                             <ColumnConstraints hgrow="SOMETIMES" maxWidth="81.0" minWidth="10.0" prefWidth="69.0" />
                             <ColumnConstraints hgrow="SOMETIMES" maxWidth="105.0" minWidth="10.0" prefWidth="67.0" />
@@ -211,17 +196,20 @@
                                  </font>
                               </TextField>
                            </children>
+                           <VBox.margin>
+                              <Insets left="5.0" />
+                           </VBox.margin>
                         </GridPane>
                      </children>
                   </VBox>
-                  <VBox prefHeight="200.0" prefWidth="100.0" style="-fx-background-color: #c8ffa1; -fx-border-color: #414247;" GridPane.rowIndex="2">
+                  <VBox prefHeight="200.0" prefWidth="100.0" style="-fx-background-color: #c8ffa1; -fx-border-color: #414247;" GridPane.rowIndex="4">
                      <children>
                         <Label alignment="CENTER" prefHeight="30.0" prefWidth="340.0" text="TMB" textFill="#414247">
                            <font>
                               <Font name="Leelawadee UI Semilight" size="20.0" />
                            </font>
                         </Label>
-                        <GridPane alignment="CENTER" hgap="5.0" prefHeight="55.0" prefWidth="339.0">
+                        <GridPane alignment="CENTER" hgap="5.0" prefHeight="75.0" prefWidth="326.0">
                            <columnConstraints>
                               <ColumnConstraints hgrow="SOMETIMES" minWidth="10.0" prefWidth="100.0" />
                               <ColumnConstraints hgrow="SOMETIMES" minWidth="10.0" prefWidth="100.0" />
@@ -253,17 +241,20 @@
                                  </font>
                               </TextField>
                            </children>
+                           <VBox.margin>
+                              <Insets left="5.0" />
+                           </VBox.margin>
                         </GridPane>
                      </children>
                   </VBox>
-                  <VBox prefHeight="200.0" prefWidth="100.0" style="-fx-background-color: #c8ffa1; -fx-border-color: #414247;" GridPane.rowIndex="3">
+                  <VBox prefHeight="200.0" prefWidth="100.0" style="-fx-background-color: #c8ffa1; -fx-border-color: #414247;" GridPane.rowIndex="6">
                      <children>
                         <Label alignment="CENTER" prefHeight="30.0" prefWidth="346.0" text="IMC" textFill="#414247">
                            <font>
                               <Font name="Leelawadee UI Semilight" size="20.0" />
                            </font>
                         </Label>
-                        <GridPane alignment="CENTER" hgap="5.0" prefHeight="50.0" prefWidth="339.0">
+                        <GridPane alignment="CENTER" hgap="5.0" prefHeight="69.0" prefWidth="326.0">
                            <columnConstraints>
                               <ColumnConstraints hgrow="SOMETIMES" minWidth="10.0" prefWidth="100.0" />
                               <ColumnConstraints hgrow="SOMETIMES" maxWidth="83.0" minWidth="10.0" prefWidth="36.0" />
@@ -274,8 +265,8 @@
                               <ColumnConstraints />
                            </columnConstraints>
                            <rowConstraints>
-                              <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
-                              <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
+                              <RowConstraints maxHeight="31.0" minHeight="10.0" prefHeight="31.0" vgrow="SOMETIMES" />
+                              <RowConstraints maxHeight="20.0" minHeight="10.0" prefHeight="19.0" vgrow="SOMETIMES" />
                            </rowConstraints>
                            <children>
                               <Label alignment="CENTER" contentDisplay="CENTER" text="Calculado" textFill="#414247" GridPane.halignment="CENTER">
@@ -317,10 +308,13 @@
                                  </font>
                               </TextField>
                            </children>
+                           <VBox.margin>
+                              <Insets left="5.0" />
+                           </VBox.margin>
                         </GridPane>
                      </children>
                   </VBox>
-                  <VBox layoutX="20.0" layoutY="198.0" prefHeight="200.0" prefWidth="100.0" style="-fx-background-color: #c8ffa1; -fx-border-color: #414247;" GridPane.columnIndex="2" GridPane.rowIndex="1">
+                  <VBox layoutX="20.0" layoutY="198.0" prefHeight="200.0" prefWidth="100.0" style="-fx-background-color: #c8ffa1; -fx-border-color: #414247;" GridPane.columnIndex="2" GridPane.rowIndex="2">
                      <children>
                         <Label alignment="CENTER" contentDisplay="CENTER" prefHeight="30.0" prefWidth="416.0" text="Gordura" textAlignment="CENTER" textFill="#414247">
                            <font>
@@ -400,10 +394,13 @@
                                  </font>
                               </Label>
                            </children>
+                           <padding>
+                              <Insets bottom="5.0" left="5.0" right="5.0" top="5.0" />
+                           </padding>
                         </GridPane>
                      </children>
                   </VBox>
-                  <VBox layoutX="348.0" layoutY="20.0" prefHeight="200.0" prefWidth="100.0" style="-fx-background-color: #c8ffa1; -fx-border-color: #414247;" GridPane.columnIndex="2" GridPane.rowIndex="2">
+                  <VBox layoutX="348.0" layoutY="20.0" prefHeight="200.0" prefWidth="100.0" style="-fx-background-color: #c8ffa1; -fx-border-color: #414247;" GridPane.columnIndex="2" GridPane.rowIndex="4">
                      <children>
                         <Label alignment="CENTER" contentDisplay="CENTER" prefHeight="30.0" prefWidth="416.0" text="Massa magra" textAlignment="CENTER" textFill="#414247">
                            <font>
@@ -483,10 +480,13 @@
                                  </font>
                               </Label>
                            </children>
+                           <padding>
+                              <Insets bottom="5.0" left="5.0" right="5.0" top="5.0" />
+                           </padding>
                         </GridPane>
                      </children>
                   </VBox>
-                  <VBox layoutX="348.0" layoutY="198.0" prefHeight="200.0" prefWidth="100.0" style="-fx-background-color: #c8ffa1; -fx-border-color: #414247;" GridPane.columnIndex="2" GridPane.rowIndex="3">
+                  <VBox layoutX="348.0" layoutY="198.0" prefHeight="200.0" prefWidth="100.0" style="-fx-background-color: #c8ffa1; -fx-border-color: #414247;" GridPane.columnIndex="2" GridPane.rowIndex="6">
                      <children>
                         <Label alignment="CENTER" contentDisplay="CENTER" prefHeight="30.0" prefWidth="416.0" text="Água" textAlignment="CENTER" textFill="#414247">
                            <font>
@@ -566,9 +566,48 @@
                                  </font>
                               </Label>
                            </children>
+                           <VBox.margin>
+                              <Insets bottom="5.0" left="5.0" right="5.0" top="5.0" />
+                           </VBox.margin>
                         </GridPane>
                      </children>
                   </VBox>
+                  <GridPane prefHeight="110.0" prefWidth="333.0" style="-fx-background-color: #c8ffa1; -fx-border-color: #414247;">
+                     <columnConstraints>
+                        <ColumnConstraints hgrow="SOMETIMES" minWidth="10.0" prefWidth="100.0" />
+                        <ColumnConstraints hgrow="SOMETIMES" minWidth="10.0" prefWidth="100.0" />
+                        <ColumnConstraints hgrow="SOMETIMES" minWidth="10.0" prefWidth="100.0" />
+                     </columnConstraints>
+                     <rowConstraints>
+                        <RowConstraints maxHeight="60.0" minHeight="10.0" prefHeight="60.0" vgrow="SOMETIMES" />
+                        <RowConstraints maxHeight="64.0" minHeight="10.0" prefHeight="50.0" vgrow="SOMETIMES" />
+                     </rowConstraints>
+                     <children>
+                        <Label alignment="CENTER" contentDisplay="CENTER" prefHeight="30.0" prefWidth="340.0" text="Atividade física" textFill="#414247" GridPane.columnSpan="3">
+                           <font>
+                              <Font name="Leelawadee UI Semilight" size="20.0" />
+                           </font>
+                        </Label>
+                        <RadioButton fx:id="optAltaAtividadeFisica" mnemonicParsing="false" text="Alta" textFill="#414247" GridPane.halignment="CENTER" GridPane.rowIndex="1" GridPane.valignment="TOP">
+                           <font>
+                              <Font name="Leelawadee UI Semilight" size="15.0" />
+                           </font>
+                           <toggleGroup>
+                              <ToggleGroup fx:id="tglAtividade" />
+                           </toggleGroup>
+                        </RadioButton>
+                        <RadioButton fx:id="optMediaAtividadeFisica" mnemonicParsing="false" text="Média" textFill="#414247" toggleGroup="$tglAtividade" GridPane.columnIndex="1" GridPane.halignment="CENTER" GridPane.rowIndex="1" GridPane.valignment="TOP">
+                           <font>
+                              <Font name="Leelawadee UI Semilight" size="15.0" />
+                           </font>
+                        </RadioButton>
+                        <RadioButton fx:id="optBaixaAtividadeFisica" mnemonicParsing="false" text="Baixa" textFill="#414247" toggleGroup="$tglAtividade" GridPane.columnIndex="2" GridPane.halignment="CENTER" GridPane.rowIndex="1" GridPane.valignment="TOP">
+                           <font>
+                              <Font name="Leelawadee UI Semilight" size="15.0" />
+                           </font>
+                        </RadioButton>
+                     </children>
+                  </GridPane>
                </children>
                <opaqueInsets>
                   <Insets />
